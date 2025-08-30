@@ -6,6 +6,7 @@
   <title>Contact | Public Services Hub</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome -->
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body class="bg-gray-100 text-gray-900">
@@ -29,26 +30,31 @@
     <h1 class="text-3xl font-bold mb-6 text-center">Contact Us</h1>
     <p class="text-center mb-10">Have questions or need assistance? Fill out the form below or use direct contact info.</p>
 
-    <form action="https://formsubmit.co/gvropublicsafetyservices@gmail.com" method="POST" class="space-y-4 mb-8">
-      <input type="text" name="name" placeholder="Your Name" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-[#990000] focus:border-[#990000]">
-      <input type="email" name="email" placeholder="Your Email" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-[#990000] focus:border-[#990000]">
-      <textarea name="message" rows="6" placeholder="Your Message" required class="w-full p-3 border border-gray-300 rounded-lg focus:ring-[#990000] focus:border-[#990000]"></textarea>
+    <!-- Contact Form -->
+    <form action="https://formsubmit.co/gvropublicsafetyservices@gmail.com" method="POST" class="space-y-4 mb-12">
+      <input type="text" name="name" placeholder="Your Name" required
+        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-[#990000] focus:border-[#990000]">
+      <input type="email" name="email" placeholder="Your Email" required
+        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-[#990000] focus:border-[#990000]">
+      <textarea name="message" rows="6" placeholder="Your Message" required
+        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-[#990000] focus:border-[#990000]"></textarea>
 
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_next" value="thankyou.html">
 
       <button type="submit" class="w-full bg-[#990000] text-white font-semibold py-3 px-4 rounded-lg hover:bg-red-800 transition">
-        <i class="fas fa-paper-plane"></i> Send Message
+        <i class="fas fa-paper-plane mr-2"></i> Send Message
       </button>
     </form>
 
-    <h2 class="text-2xl font-bold mb-4">Direct Staff Contact</h2>
-    <ul class="contact-list list-none ml-0 space-y-2">
-      <li><i class="fas fa-envelope"></i> <a href="mailto:gvropublicsafetyservices@gmail.com" class="text-[#990000] hover:underline">gvropublicsafetyservices@gmail.com</a></li>
-      <li><i class="fas fa-user"></i> Brian Reed (Roleplay)</li>
-      <li><i class="fab fa-discord"></i> <a href="https://discord.com/users/briancodm" target="_blank" class="text-[#990000] hover:underline">briancodm</a></li>
-      <li><i class="fas fa-link"></i> <a href="https://discord.gg/Xgw7JDQ2HY" target="_blank" class="text-[#990000] hover:underline">Discord Invite</a></li>
-      <li><i class="fas fa-exclamation-circle"></i> For urgent issues, please open a staff ticket inside the Discord server.</li>
+    <!-- Direct Contact Info -->
+    <h2 class="text-2xl font-bold mb-4 text-[#990000]">Direct Staff Contact</h2>
+    <ul class="space-y-3 text-gray-800">
+      <li><i class="fas fa-envelope mr-2 text-[#990000]"></i><a href="mailto:gvropublicsafetyservices@gmail.com" class="hover:underline">gvropublicsafetyservices@gmail.com</a></li>
+      <li><i class="fas fa-user mr-2 text-[#990000]"></i> Brian Reed (B. Reed)</li>
+      <li><i class="fab fa-discord mr-2 text-[#990000]"></i><a href="https://discord.com/users/briancodm" target="_blank" class="hover:underline">briancodm</a></li>
+      <li><i class="fas fa-link mr-2 text-[#990000]"></i><a href="https://discord.gg/Xgw7JDQ2HY" target="_blank" class="hover:underline">Discord Invite</a></li>
+      <li><i class="fas fa-exclamation-circle mr-2 text-[#990000]"></i> For urgent issues, please open a staff ticket inside the Discord server.</li>
     </ul>
   </section>
 
