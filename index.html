@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="light">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,23 +7,19 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css">
 </head>
-<body class="bg-gray-100 text-gray-900 dark:bg-black dark:text-white transition-colors duration-500">
+<body class="bg-gray-100 text-gray-900">
 
 <!-- Navbar -->
 <nav class="fixed w-full z-50 bg-black/50 text-white p-4 shadow-md">
   <div class="container mx-auto flex justify-between items-center">
     <h1 class="text-xl font-bold">Department Hub</h1>
-    <div class="space-x-4 flex items-center">
+    <div class="space-x-6">
       <a href="index.html" class="hover:underline">Home</a>
       <a href="departments.html" class="hover:underline">Departments</a>
       <a href="applications.html" class="hover:underline">Applications</a>
       <a href="rules.html" class="hover:underline">Rules</a>
       <a href="staff.html" class="hover:underline">Staff</a>
       <a href="contact.html" class="hover:underline">Contact</a>
-      <!-- Theme toggle button -->
-      <button id="theme-toggle" class="ml-4 px-3 py-1 rounded border border-white hover:bg-white hover:text-black transition">
-        Toggle Theme
-      </button>
     </div>
   </div>
 </nav>
@@ -47,17 +43,17 @@
 
 <!-- Quick Links / Highlights Section -->
 <section class="max-w-7xl mx-auto px-6 py-16 grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-  <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow hover:shadow-lg transition">
+  <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
     <h3 class="text-xl font-semibold text-[#990000] mb-2">Departments</h3>
     <p>Explore all departments, their divisions, and chains of command.</p>
     <a href="departments.html" class="text-[#990000] hover:underline mt-2 inline-block">View Departments →</a>
   </div>
-  <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow hover:shadow-lg transition">
+  <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
     <h3 class="text-xl font-semibold text-[#990000] mb-2">Applications</h3>
     <p>Apply to join a department and contribute to Public Services operations.</p>
     <a href="applications.html" class="text-[#990000] hover:underline mt-2 inline-block">Apply Now →</a>
   </div>
-  <div class="bg-white dark:bg-gray-900 p-6 rounded-xl shadow hover:shadow-lg transition">
+  <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
     <h3 class="text-xl font-semibold text-[#990000] mb-2">Rules & Policies</h3>
     <p>Stay informed about our Law Enforcement Penal Codes & Fines.</p>
     <a href="rules.html" class="text-[#990000] hover:underline mt-2 inline-block">View Rules →</a>
@@ -68,15 +64,6 @@
 <footer class="bg-[#990000] text-white text-center p-4">
   <p>&copy; 2025 Department Hub | All Rights Reserved</p>
 </footer>
-
-<!-- Theme Toggle Script -->
-<script>
-const toggleButton = document.getElementById('theme-toggle');
-toggleButton.addEventListener('click', () => {
-  document.documentElement.classList.toggle('dark');
-  document.documentElement.classList.toggle('light');
-});
-</script>
 
 </body>
 </html>
