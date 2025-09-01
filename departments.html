@@ -7,8 +7,19 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .rank-red { color: #990000; font-weight: 600; }
+    .rank { padding-left: 1rem; }
     .rank:hover { text-decoration: underline; color: #660000; }
+    .division { font-size: 1.05rem; font-weight: 600; margin-top: 0.5rem; color: #333; }
+    .collapse-content { display: none; padding: 0.5rem 1rem; }
+    .department { cursor: pointer; transition: background-color 0.2s; }
+    .department:hover { background-color: #f5f5f5; }
   </style>
+  <script>
+    function toggleDept(button) {
+      const content = button.nextElementSibling;
+      content.style.display = content.style.display === 'block' ? 'none' : 'block';
+    }
+  </script>
 </head>
 <body class="bg-gray-100 text-gray-900 font-sans">
 
@@ -26,186 +37,175 @@
     </div>
   </nav>
 
-  <div class="max-w-5xl mx-auto p-6">
-    <h1 class="text-3xl font-bold mb-6">Departments Overview</h1>
+  <div class="max-w-6xl mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-6 text-center">Departments Overview</h1>
 
-    <!-- Search -->
-    <input type="text" id="search" placeholder="Search departments or roles..."
-      class="w-full p-2 mb-6 border rounded-lg">
-
-    <!-- Department Accordion -->
-    <div id="departments" class="space-y-4">
-
-      <!-- Wisconsin State Patrol -->
-      <div class="bg-white shadow rounded-lg">
-        <button class="w-full text-left p-4 font-semibold text-lg hover:bg-gray-50" onclick="toggleDept(this)">
-          Wisconsin State Patrol
-        </button>
-        <div class="hidden p-4 space-y-1">
-          <p class="rank-red">State Superintendent</p>
-          <p class="rank-red">Assistant Superintendent</p>
-          <p class="rank-red">Deputy Superintendent</p>
-          <p class="rank">Colonel</p>
-          <p class="rank">Lieutenant Colonel</p>
-          <p class="rank">Major</p>
-          <p class="rank">Captain</p>
-          <p class="rank">Lieutenant</p>
-          <p class="rank">Sergeant</p>
-          <p class="rank">Corporal</p>
-          <p class="rank">Master Trooper</p>
-          <p class="rank">Senior Trooper</p>
-          <p class="rank">State Trooper</p>
-          <p class="rank">Probationary Trooper</p>
-          <p class="rank">Cadet</p>
-        </div>
+    <!-- Wisconsin State Patrol -->
+    <div class="bg-white shadow rounded-lg mb-4">
+      <div class="p-4 department" onclick="toggleDept(this)">
+        <h2 class="text-xl font-semibold">Wisconsin State Patrol</h2>
+        <p>Statewide law enforcement, highway patrol, and specialized divisions.</p>
+        <p class="division">Division: High Speed Unit — Specializes in high-speed pursuit and traffic enforcement.</p>
       </div>
-
-      <!-- Greenville Fire & Rescue -->
-      <div class="bg-white shadow rounded-lg">
-        <button class="w-full text-left p-4 font-semibold text-lg hover:bg-gray-50" onclick="toggleDept(this)">
-          Greenville Fire & Rescue
-        </button>
-        <div class="hidden p-4 space-y-1">
-          <p class="rank-red">District Overseer</p>
-          <p class="rank-red">Fire Chief</p>
-          <p class="rank-red">Deputy Fire Chief</p>
-          <p class="rank">Chief of EMS</p>
-          <p class="rank">Assistant Fire Chief</p>
-          <p class="rank">Battalion Chief</p>
-          <p class="rank">District Chief</p>
-          <p class="rank">Shift Commander</p>
-          <p class="rank">Shift Supervisor</p>
-          <p class="rank">Shift Advisor</p>
-          <p class="rank">Captain</p>
-          <p class="rank">Lieutenant</p>
-          <p class="rank">Sergeant</p>
-          <p class="rank">Supervisory FF</p>
-          <p class="rank">Senior FF</p>
-          <p class="rank">Firefighter</p>
-          <p class="rank">Probationary FF</p>
-          <p class="rank">Firefighter In Training</p>
-          <p class="rank">Candidate</p>
-        </div>
+      <div class="collapse-content">
+        <ul class="list-disc ml-6 mt-2">
+          <li class="rank-red">State Superintendent</li>
+          <li class="rank-red">Assistant Superintendent</li>
+          <li class="rank-red">Deputy Superintendent</li>
+          <li class="rank">Colonel</li>
+          <li class="rank">Lieutenant Colonel</li>
+          <li class="rank">Major</li>
+          <li class="rank">Captain</li>
+          <li class="rank">Lieutenant</li>
+          <li class="rank">Sergeant</li>
+          <li class="rank">Corporal</li>
+          <li class="rank">Master Trooper</li>
+          <li class="rank">Senior Trooper</li>
+          <li class="rank">State Trooper</li>
+          <li class="rank">Probationary Trooper</li>
+          <li class="rank">Cadet</li>
+        </ul>
       </div>
-
-      <!-- Fox Valley Metro Police Department -->
-      <div class="bg-white shadow rounded-lg">
-        <button class="w-full text-left p-4 font-semibold text-lg hover:bg-gray-50" onclick="toggleDept(this)">
-          Fox Valley Metro Police Department
-        </button>
-        <div class="hidden p-4 space-y-1">
-          <p class="rank-red">Chief of Police</p>
-          <p class="rank-red">Assist. Chief of Police</p>
-          <p class="rank-red">Dept. Chief of Police</p>
-          <p class="rank">Colonel</p>
-          <p class="rank">Lieutenant Colonel</p>
-          <p class="rank">Major</p>
-          <p class="rank">Shift Commander</p>
-          <p class="rank">Captain III</p>
-          <p class="rank">Lieutenant III</p>
-          <p class="rank">Sergeant Major</p>
-          <p class="rank">Master Sergeant</p>
-          <p class="rank">Captain I</p>
-          <p class="rank">Lieutenant II</p>
-          <p class="rank">Staff Sergeant</p>
-          <p class="rank">Sergeant</p>
-          <p class="rank">Corporal</p>
-          <p class="rank">Lance Corporal</p>
-          <p class="rank">Officer First Class</p>
-          <p class="rank">Officer Second Class</p>
-          <p class="rank">Officer in Training</p>
-        </div>
-      </div>
-
-      <!-- Wisconsin Department of Transportation -->
-      <div class="bg-white shadow rounded-lg">
-        <button class="w-full text-left p-4 font-semibold text-lg hover:bg-gray-50" onclick="toggleDept(this)">
-          Wisconsin Department of Transportation
-        </button>
-        <div class="hidden p-4 space-y-1">
-          <p class="rank-red">DOT Coordinator</p>
-          <p class="rank-red">Operation Director</p>
-          <p class="rank-red">Ass. Operation Director</p>
-          <p class="rank">Secretary</p>
-          <p class="rank">Assistant Secretary</p>
-          <p class="rank">Operation Lead</p>
-          <p class="rank">Technician Lead</p>
-          <p class="rank">Operation Manager</p>
-          <p class="rank">As. Operation Manager</p>
-          <p class="rank">Operation Supervisor</p>
-          <p class="rank">Senior Operator</p>
-          <p class="rank">Operator</p>
-          <p class="rank">Junior Operator</p>
-        </div>
-      </div>
-
-      <!-- Outagamie County Sheriff's Office -->
-      <div class="bg-white shadow rounded-lg">
-        <button class="w-full text-left p-4 font-semibold text-lg hover:bg-gray-50" onclick="toggleDept(this)">
-          Outagamie County Sheriff's Office
-        </button>
-        <div class="hidden p-4 space-y-1">
-          <p class="rank-red">Sheriff</p>
-          <p class="rank-red">Undersheriff</p>
-          <p class="rank-red">Assistant Sheriff</p>
-          <p class="rank">Chief Deputy</p>
-          <p class="rank">Captain</p>
-          <p class="rank">Lieutenant</p>
-          <p class="rank">Sergeant</p>
-          <p class="rank">Corporal</p>
-          <p class="rank">Senior Deputy</p>
-          <p class="rank">Deputy First Class</p>
-          <p class="rank">Deputy</p>
-          <p class="rank">Probationary Deputy</p>
-          <p class="rank">Recruit</p>
-        </div>
-      </div>
-
-      <!-- National Park Services -->
-      <div class="bg-white shadow rounded-lg">
-        <button class="w-full text-left p-4 font-semibold text-lg hover:bg-gray-50" onclick="toggleDept(this)">
-          National Park Services
-        </button>
-        <div class="hidden p-4 space-y-1">
-          <p class="rank-red">Site Overseer</p>
-          <p class="rank-red">Site Director</p>
-          <p class="rank-red">Ass. Site Director</p>
-          <p class="rank">Chief Ranger</p>
-          <p class="rank">Dept. Chief Ranger</p>
-          <p class="rank">Head Ranger</p>
-          <p class="rank">Dept. Head Ranger</p>
-          <p class="rank">Master Ranger</p>
-          <p class="rank">Senior Park Ranger</p>
-          <p class="rank">Park Ranger</p>
-          <p class="rank">Recruit</p>
-        </div>
-      </div>
-
     </div>
+
+    <!-- Outagamie County Sheriff's Office -->
+    <div class="bg-white shadow rounded-lg mb-4">
+      <div class="p-4 department" onclick="toggleDept(this)">
+        <h2 class="text-xl font-semibold">Outagamie County Sheriff's Office</h2>
+        <p>County law enforcement, jail management, and support to local municipalities.</p>
+        <p class="division">Division: High Speed Unit (HSU) — Handles high-speed pursuits, traffic enforcement, and specialized patrols.</p>
+      </div>
+      <div class="collapse-content">
+        <ul class="list-disc ml-6 mt-2">
+          <li class="rank-red">Sheriff</li>
+          <li class="rank-red">Undersheriff</li>
+          <li class="rank-red">Assistant Sheriff</li>
+          <li class="rank">Chief Deputy</li>
+          <li class="rank">Captain</li>
+          <li class="rank">Lieutenant</li>
+          <li class="rank">Sergeant</li>
+          <li class="rank">Corporal</li>
+          <li class="rank">Senior Deputy</li>
+          <li class="rank">Deputy First Class</li>
+          <li class="rank">Deputy</li>
+          <li class="rank">Probationary Deputy</li>
+          <li class="rank">Recruit</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Fox Valley Metro Police Department -->
+    <div class="bg-white shadow rounded-lg mb-4">
+      <div class="p-4 department" onclick="toggleDept(this)">
+        <h2 class="text-xl font-semibold">Fox Valley Metro Police Department</h2>
+        <p>Responsible for local law enforcement, patrols, and community safety in the Fox Valley area.</p>
+      </div>
+      <div class="collapse-content">
+        <ul class="list-disc ml-6 mt-2">
+          <li class="rank-red">Chief of Police</li>
+          <li class="rank-red">Assistant Chief of Police</li>
+          <li class="rank-red">Dept. Chief of Police</li>
+          <li class="rank">Colonel</li>
+          <li class="rank">Lieutenant Colonel</li>
+          <li class="rank">Major</li>
+          <li class="rank">Shift Commander</li>
+          <li class="rank">Captain III</li>
+          <li class="rank">Lieutenant III</li>
+          <li class="rank">Sergeant Major</li>
+          <li class="rank">Master Sergeant</li>
+          <li class="rank">Captain I</li>
+          <li class="rank">Lieutenant II</li>
+          <li class="rank">Staff Sergeant</li>
+          <li class="rank">Sergeant</li>
+          <li class="rank">Corporal</li>
+          <li class="rank">Lance Corporal</li>
+          <li class="rank">Officer First Class</li>
+          <li class="rank">Officer Second Class</li>
+          <li class="rank">Officer in Training</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Greenville Fire & Rescue -->
+    <div class="bg-white shadow rounded-lg mb-4">
+      <div class="p-4 department" onclick="toggleDept(this)">
+        <h2 class="text-xl font-semibold">Greenville Fire & Rescue</h2>
+        <p>Firefighting, emergency medical response, and rescue operations within Greenville.</p>
+      </div>
+      <div class="collapse-content">
+        <ul class="list-disc ml-6 mt-2">
+          <li class="rank-red">District Overseer</li>
+          <li class="rank-red">Fire Chief</li>
+          <li class="rank-red">Deputy Fire Chief</li>
+          <li class="rank">Chief of EMS</li>
+          <li class="rank">Assistant Fire Chief</li>
+          <li class="rank">Battalion Chief</li>
+          <li class="rank">District Chief</li>
+          <li class="rank">Shift Commander</li>
+          <li class="rank">Shift Supervisor</li>
+          <li class="rank">Shift Advisor</li>
+          <li class="rank">Captain</li>
+          <li class="rank">Lieutenant</li>
+          <li class="rank">Sergeant</li>
+          <li class="rank">Supervisory FF</li>
+          <li class="rank">Senior FF</li>
+          <li class="rank">Firefighter</li>
+          <li class="rank">Probationary FF</li>
+          <li class="rank">Firefighter In Training</li>
+          <li class="rank">Candidate</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Wisconsin Department of Transportation -->
+    <div class="bg-white shadow rounded-lg mb-4">
+      <div class="p-4 department" onclick="toggleDept(this)">
+        <h2 class="text-xl font-semibold">Wisconsin Department of Transportation</h2>
+        <p>Road maintenance, traffic safety, and transportation infrastructure oversight.</p>
+      </div>
+      <div class="collapse-content">
+        <ul class="list-disc ml-6 mt-2">
+          <li class="rank-red">DOT Coordinator</li>
+          <li class="rank-red">Operation Director</li>
+          <li class="rank-red">Assistant Operation Director</li>
+          <li class="rank">Secretary</li>
+          <li class="rank">Assistant Secretary</li>
+          <li class="rank">Operation Lead</li>
+          <li class="rank">Technician Lead</li>
+          <li class="rank">Operation Manager</li>
+          <li class="rank">Assistant Operation Manager</li>
+          <li class="rank">Operation Supervisor</li>
+          <li class="rank">Senior Operator</li>
+          <li class="rank">Operator</li>
+          <li class="rank">Junior Operator</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- National Park Services -->
+    <div class="bg-white shadow rounded-lg mb-4">
+      <div class="p-4 department" onclick="toggleDept(this)">
+        <h2 class="text-xl font-semibold">National Park Services</h2>
+        <p>Protects and manages national parks, recreational areas, and natural resources.</p>
+      </div>
+      <div class="collapse-content">
+        <ul class="list-disc ml-6 mt-2">
+          <li class="rank-red">Site Overseer</li>
+          <li class="rank-red">Site Director</li>
+          <li class="rank-red">Assistant Site Director</li>
+          <li class="rank">Chief Ranger</li>
+          <li class="rank">Department Chief Ranger</li>
+          <li class="rank">Head Ranger</li>
+          <li class="rank">Department Head Ranger</li>
+          <li class="rank">Master Ranger</li>
+          <li class="rank">Senior Park Ranger</li>
+          <li class="rank">Park Ranger</li>
+          <li class="rank">Recruit</li>
+        </ul>
+      </div>
+    </div>
+
   </div>
-
-  <script>
-    function toggleDept(btn) {
-      const all = document.querySelectorAll("#departments > div .hidden");
-      const content = btn.nextElementSibling;
-
-      all.forEach(c => {
-        if(c !== content) c.classList.add("hidden"); // hide others
-      });
-
-      content.classList.toggle("hidden"); // toggle clicked
-    }
-
-    // Search filter
-    const searchInput = document.getElementById("search");
-    searchInput.addEventListener("input", function() {
-      const term = this.value.toLowerCase();
-      document.querySelectorAll("#departments > div").forEach(dept => {
-        const text = dept.innerText.toLowerCase();
-        dept.style.display = text.includes(term) ? "block" : "none";
-      });
-    });
-  </script>
 
 </body>
 </html>
