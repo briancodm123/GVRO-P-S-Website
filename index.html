@@ -6,64 +6,76 @@
   <title>GVRO Department Hub | Public Services</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="style.css">
+  <style>
+    .dark-mode {
+      --tw-bg-opacity: 1;
+      background-color: rgba(0,0,0,var(--tw-bg-opacity));
+      color: white;
+    }
+    .light-mode {
+      --tw-bg-opacity: 1;
+      background-color: rgba(255,255,255,var(--tw-bg-opacity));
+      color: black;
+    }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-gray-100 text-gray-900 transition-colors duration-500">
 
-<!-- Navbar -->
-<nav class="fixed w-full z-50 bg-black/50 text-white p-4 shadow-md">
-  <div class="container mx-auto flex justify-between items-center">
+  <!-- Navbar -->
+  <nav class="bg-[#990000] text-white p-4 shadow-md flex justify-between items-center">
     <h1 class="text-xl font-bold">Department Hub</h1>
-    <div class="space-x-6">
+    <div class="space-x-6 flex items-center">
       <a href="index.html" class="hover:underline">Home</a>
       <a href="departments.html" class="hover:underline">Departments</a>
       <a href="applications.html" class="hover:underline">Applications</a>
       <a href="rules.html" class="hover:underline">Rules</a>
       <a href="staff.html" class="hover:underline">Staff</a>
       <a href="contact.html" class="hover:underline">Contact</a>
+      <!-- Theme toggle button -->
+      <button id="theme-toggle" class="ml-4 px-3 py-1 rounded bg-white text-[#990000] font-semibold hover:bg-gray-200 transition">
+        Toggle Theme
+      </button>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<!-- Hero Section -->
-<section class="relative h-screen flex items-center justify-center text-center text-white">
-  <img src="https://cdn.discordapp.com/banners/1396553162394960042/7ee6d2d4262ea7dd597e59ede4414e29.webp?size=1024" 
-       alt="Server Banner" 
-       class="absolute inset-0 w-full h-full object-cover">
-  <div class="absolute inset-0 bg-black/60"></div>
+  <!-- Hero Banner -->
+  <section class="relative h-screen flex items-center justify-center text-center">
+    <img src="https://cdn.discordapp.com/banners/1396553162394960042/7ee6d2d4262ea7dd597e59ede4414e29.webp?size=1024"
+         alt="Server Banner"
+         class="absolute inset-0 w-full h-full object-cover">
+    <div class="absolute inset-0"></div>
 
-  <div class="relative z-10 px-4">
-    <h2 class="text-4xl md:text-6xl font-bold mb-6">Welcome to Greenville Roleplay Operations</h2>
-    <p class="text-lg md:text-2xl mb-8">Coordinating Public Services, Departments, and Community</p>
-    <a href="https://discord.gg/Xgw7JDQ2HY" 
-       class="bg-[#990000] hover:bg-red-800 text-white font-semibold px-8 py-3 rounded-lg shadow-lg transition">
-       Join Our Server
-    </a>
-  </div>
-</section>
+    <div class="relative z-10">
+      <h2 class="text-4xl md:text-6xl font-bold mb-6">Welcome to Greenvlle Roleplay Operation's Public Services Department Hub</h2>
+      <p class="text-lg md:text-xl mb-8">Coordinating Public Services, Departments, and Community</p>
+      <a href="https://discord.gg/Xgw7JDQ2HY" 
+         class="bg-[#990000] hover:bg-red-800 text-white font-semibold px-8 py-3 rounded-lg shadow-lg transition">
+         Join Our Server
+      </a>
+    </div>
+  </section>
 
-<!-- Quick Links / Highlights Section -->
-<section class="max-w-7xl mx-auto px-6 py-16 grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-  <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-    <h3 class="text-xl font-semibold text-[#990000] mb-2">Departments</h3>
-    <p>Explore all departments, their divisions, and chains of command.</p>
-    <a href="departments.html" class="text-[#990000] hover:underline mt-2 inline-block">View Departments →</a>
-  </div>
-  <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-    <h3 class="text-xl font-semibold text-[#990000] mb-2">Applications</h3>
-    <p>Apply to join a department and contribute to Public Services operations.</p>
-    <a href="applications.html" class="text-[#990000] hover:underline mt-2 inline-block">Apply Now →</a>
-  </div>
-  <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-    <h3 class="text-xl font-semibold text-[#990000] mb-2">Traffic Penal Codes</h3>
-    <p>Stay informed about our Penal Codes.</p>
-    <a href="rules.html" class="text-[#990000] hover:underline mt-2 inline-block">View Rules →</a>
-  </div>
-</section>
+  <!-- Spacer -->
+  <div class="h-16"></div>
 
-<!-- Footer -->
-<footer class="bg-[#990000] text-white text-center p-4">
-  <p>&copy; 2025 Department Hub | All Rights Reserved</p>
-</footer>
+  <!-- About / Info Section -->
+  <section class="max-w-7xl mx-auto px-6 py-16">
+    <h2 class="text-3xl font-bold mb-6 text-center">About the Department Hub</h2>
+    <p class="text-center mb-4">The Department Hub serves as the central coordination point for all Public Services, including Police, Fire, Transportation, and Park Services. Explore the departments to see their structure, divisions, and leadership.</p>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-[#990000] text-white text-center p-4 mt-12">
+    <p>&copy; 2025 Department Hub | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    const toggleButton = document.getElementById('theme-toggle');
+    toggleButton.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      document.body.classList.toggle('light-mode');
+    });
+  </script>
 
 </body>
 </html>
