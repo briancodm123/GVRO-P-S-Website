@@ -3,85 +3,209 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Departments | Public Services Hub</title>
+  <title>Departments Overview</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css">
+  <style>
+    .rank-red { color: #990000; font-weight: 600; }
+    .rank:hover { text-decoration: underline; color: #660000; }
+  </style>
 </head>
-<body class="bg-gray-100 text-gray-900">
+<body class="bg-gray-100 text-gray-900 font-sans">
 
-<!-- Navbar -->
-<nav class="bg-[#990000] text-white p-4 shadow-md">
-  <div class="container mx-auto flex justify-between items-center">
-    <h1 class="text-xl font-bold">Department Hub</h1>
-    <div class="space-x-6">
-      <a href="index.html" class="hover:underline">Home</a>
-      <a href="departments.html" class="hover:underline">Departments</a>
-      <a href="applications.html" class="hover:underline">Applications</a>
-      <a href="rules.html" class="hover:underline">Rules</a>
-      <a href="staff.html" class="hover:underline">Staff</a>
-      <a href="contact.html" class="hover:underline">Contact</a>
-    </div>
-  </div>
-</nav>
-
-  <!-- Departments Section -->
-  <section class="max-w-7xl mx-auto px-6 py-16">
-    <h1 class="text-3xl font-bold mb-10 text-center">Our Departments & Divisions</h1>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-
-      <!-- Fox Valley Metro Police -->
-      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold text-[#990000] mb-2">Fox Valley Metro Police Department</h3>
-        <p>Responsible for local law enforcement, patrols, and community safety in the Fox Valley area.</p>
+  <!-- Navbar -->
+  <nav class="bg-[#990000] text-white p-4 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold">Department Hub</h1>
+      <div class="space-x-6">
+        <a href="index.html" class="hover:underline">Home</a>
+        <a href="departments.html" class="hover:underline">Departments</a>
+        <a href="applications.html" class="hover:underline">Applications</a>
+        <a href="rules.html" class="hover:underline">Rules</a>
+        <a href="contact.html" class="hover:underline">Contact</a>
       </div>
+    </div>
+  </nav>
 
-      <!-- Wisconsin State Police -->
-      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold text-[#990000] mb-2">Wisconsin State Police</h3>
-        <p>Statewide law enforcement, highway patrol, and specialized divisions.</p>
-        <div class="mt-4 border-t pt-3">
-          <h4 class="text-lg font-semibold text-[#990000]">Division:</h4>
-          <p>High Speed Unit — Specializes in high-speed pursuit and traffic enforcement.</p>
+  <div class="max-w-5xl mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-6">Departments Overview</h1>
+
+    <!-- Search -->
+    <input type="text" id="search" placeholder="Search departments or roles..."
+      class="w-full p-2 mb-6 border rounded-lg">
+
+    <!-- Department Accordion -->
+    <div id="departments" class="space-y-4">
+
+      <!-- Wisconsin State Patrol -->
+      <div class="bg-white shadow rounded-lg">
+        <button class="w-full text-left p-4 font-semibold text-lg hover:bg-gray-50" onclick="toggleDept(this)">
+          Wisconsin State Patrol
+        </button>
+        <div class="hidden p-4 space-y-1">
+          <p class="rank-red">State Superintendent</p>
+          <p class="rank-red">Assistant Superintendent</p>
+          <p class="rank-red">Deputy Superintendent</p>
+          <p class="rank">Colonel</p>
+          <p class="rank">Lieutenant Colonel</p>
+          <p class="rank">Major</p>
+          <p class="rank">Captain</p>
+          <p class="rank">Lieutenant</p>
+          <p class="rank">Sergeant</p>
+          <p class="rank">Corporal</p>
+          <p class="rank">Master Trooper</p>
+          <p class="rank">Senior Trooper</p>
+          <p class="rank">State Trooper</p>
+          <p class="rank">Probationary Trooper</p>
+          <p class="rank">Cadet</p>
         </div>
       </div>
 
-<!-- Outagamie County Sheriff's Office -->
-<div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-  <h3 class="text-xl font-semibold text-[#990000] mb-2">Outagamie County Sheriff's Office</h3>
-  <p>County law enforcement, jail management, and support to local municipalities.</p>
-  <div class="mt-4 border-t pt-3">
-    <h4 class="text-lg font-semibold text-[#990000]">Division:</h4>
-    <p>High Speed Unit (HSU) — Handles high-speed pursuits, traffic enforcement, and specialized patrols.</p>
-  </div>
-</div>
-
-
       <!-- Greenville Fire & Rescue -->
-      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold text-[#990000] mb-2">Greenville Fire & Rescue</h3>
-        <p>Firefighting, emergency medical response, and rescue operations within Greenville.</p>
+      <div class="bg-white shadow rounded-lg">
+        <button class="w-full text-left p-4 font-semibold text-lg hover:bg-gray-50" onclick="toggleDept(this)">
+          Greenville Fire & Rescue
+        </button>
+        <div class="hidden p-4 space-y-1">
+          <p class="rank-red">District Overseer</p>
+          <p class="rank-red">Fire Chief</p>
+          <p class="rank-red">Deputy Fire Chief</p>
+          <p class="rank">Chief of EMS</p>
+          <p class="rank">Assistant Fire Chief</p>
+          <p class="rank">Battalion Chief</p>
+          <p class="rank">District Chief</p>
+          <p class="rank">Shift Commander</p>
+          <p class="rank">Shift Supervisor</p>
+          <p class="rank">Shift Advisor</p>
+          <p class="rank">Captain</p>
+          <p class="rank">Lieutenant</p>
+          <p class="rank">Sergeant</p>
+          <p class="rank">Supervisory FF</p>
+          <p class="rank">Senior FF</p>
+          <p class="rank">Firefighter</p>
+          <p class="rank">Probationary FF</p>
+          <p class="rank">Firefighter In Training</p>
+          <p class="rank">Candidate</p>
+        </div>
+      </div>
+
+      <!-- Fox Valley Metro Police Department -->
+      <div class="bg-white shadow rounded-lg">
+        <button class="w-full text-left p-4 font-semibold text-lg hover:bg-gray-50" onclick="toggleDept(this)">
+          Fox Valley Metro Police Department
+        </button>
+        <div class="hidden p-4 space-y-1">
+          <p class="rank-red">Chief of Police</p>
+          <p class="rank-red">Assist. Chief of Police</p>
+          <p class="rank-red">Dept. Chief of Police</p>
+          <p class="rank">Colonel</p>
+          <p class="rank">Lieutenant Colonel</p>
+          <p class="rank">Major</p>
+          <p class="rank">Shift Commander</p>
+          <p class="rank">Captain III</p>
+          <p class="rank">Lieutenant III</p>
+          <p class="rank">Sergeant Major</p>
+          <p class="rank">Master Sergeant</p>
+          <p class="rank">Captain I</p>
+          <p class="rank">Lieutenant II</p>
+          <p class="rank">Staff Sergeant</p>
+          <p class="rank">Sergeant</p>
+          <p class="rank">Corporal</p>
+          <p class="rank">Lance Corporal</p>
+          <p class="rank">Officer First Class</p>
+          <p class="rank">Officer Second Class</p>
+          <p class="rank">Officer in Training</p>
+        </div>
       </div>
 
       <!-- Wisconsin Department of Transportation -->
-      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold text-[#990000] mb-2">Wisconsin Department of Transportation</h3>
-        <p>Road maintenance, traffic safety, and transportation infrastructure oversight.</p>
+      <div class="bg-white shadow rounded-lg">
+        <button class="w-full text-left p-4 font-semibold text-lg hover:bg-gray-50" onclick="toggleDept(this)">
+          Wisconsin Department of Transportation
+        </button>
+        <div class="hidden p-4 space-y-1">
+          <p class="rank-red">DOT Coordinator</p>
+          <p class="rank-red">Operation Director</p>
+          <p class="rank-red">Ass. Operation Director</p>
+          <p class="rank">Secretary</p>
+          <p class="rank">Assistant Secretary</p>
+          <p class="rank">Operation Lead</p>
+          <p class="rank">Technician Lead</p>
+          <p class="rank">Operation Manager</p>
+          <p class="rank">As. Operation Manager</p>
+          <p class="rank">Operation Supervisor</p>
+          <p class="rank">Senior Operator</p>
+          <p class="rank">Operator</p>
+          <p class="rank">Junior Operator</p>
+        </div>
+      </div>
+
+      <!-- Outagamie County Sheriff's Office -->
+      <div class="bg-white shadow rounded-lg">
+        <button class="w-full text-left p-4 font-semibold text-lg hover:bg-gray-50" onclick="toggleDept(this)">
+          Outagamie County Sheriff's Office
+        </button>
+        <div class="hidden p-4 space-y-1">
+          <p class="rank-red">Sheriff</p>
+          <p class="rank-red">Undersheriff</p>
+          <p class="rank-red">Assistant Sheriff</p>
+          <p class="rank">Chief Deputy</p>
+          <p class="rank">Captain</p>
+          <p class="rank">Lieutenant</p>
+          <p class="rank">Sergeant</p>
+          <p class="rank">Corporal</p>
+          <p class="rank">Senior Deputy</p>
+          <p class="rank">Deputy First Class</p>
+          <p class="rank">Deputy</p>
+          <p class="rank">Probationary Deputy</p>
+          <p class="rank">Recruit</p>
+        </div>
       </div>
 
       <!-- National Park Services -->
-      <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-        <h3 class="text-xl font-semibold text-[#990000] mb-2">National Park Services</h3>
-        <p>Protects and manages national parks, recreational areas, and natural resources.</p>
+      <div class="bg-white shadow rounded-lg">
+        <button class="w-full text-left p-4 font-semibold text-lg hover:bg-gray-50" onclick="toggleDept(this)">
+          National Park Services
+        </button>
+        <div class="hidden p-4 space-y-1">
+          <p class="rank-red">Site Overseer</p>
+          <p class="rank-red">Site Director</p>
+          <p class="rank-red">Ass. Site Director</p>
+          <p class="rank">Chief Ranger</p>
+          <p class="rank">Dept. Chief Ranger</p>
+          <p class="rank">Head Ranger</p>
+          <p class="rank">Dept. Head Ranger</p>
+          <p class="rank">Master Ranger</p>
+          <p class="rank">Senior Park Ranger</p>
+          <p class="rank">Park Ranger</p>
+          <p class="rank">Recruit</p>
+        </div>
       </div>
 
     </div>
-  </section>
+  </div>
 
-  <!-- Footer -->
-  <footer class="bg-[#990000] text-white text-center p-4 mt-12">
-    <p>&copy; 2025 Department Hub | All Rights Reserved</p>
-  </footer>
+  <script>
+    function toggleDept(btn) {
+      const all = document.querySelectorAll("#departments > div .hidden");
+      const content = btn.nextElementSibling;
+
+      all.forEach(c => {
+        if(c !== content) c.classList.add("hidden"); // hide others
+      });
+
+      content.classList.toggle("hidden"); // toggle clicked
+    }
+
+    // Search filter
+    const searchInput = document.getElementById("search");
+    searchInput.addEventListener("input", function() {
+      const term = this.value.toLowerCase();
+      document.querySelectorAll("#departments > div").forEach(dept => {
+        const text = dept.innerText.toLowerCase();
+        dept.style.display = text.includes(term) ? "block" : "none";
+      });
+    });
+  </script>
 
 </body>
 </html>
-
