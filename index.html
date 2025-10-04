@@ -1,12 +1,10 @@
-// pages/index.js
 import Link from "next/link";
 
 export default function Home() {
   return (
     <div className="bg-gray-950 text-gray-200 min-h-screen flex flex-col">
-      
       {/* Navbar */}
-      <nav className="fixed w-full z-50 bg-black/70 backdrop-blur text-white p-4 shadow-md">
+      <nav className="fixed w-full z-50 bg-black/70 backdrop-blur-md text-white p-4 shadow-md">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <h1 className="text-xl font-bold tracking-wide">Department Hub</h1>
           <div className="space-x-6">
@@ -21,13 +19,16 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center text-center text-white">
-        <img
-          src="https://cdn.discordapp.com/banners/1396553162394960042/7ee6d2d4262ea7dd597e59ede4414e29.webp?size=1024"
-          alt="Server Banner"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-black/70"></div>
+      <section className="relative h-screen flex items-center justify-center text-center text-white pt-16">
+        {/* Hero background */}
+        <div className="absolute inset-0">
+          <img
+            src="https://cdn.discordapp.com/banners/1396553162394960042/7ee6d2d4262ea7dd597e59ede4414e29.webp?size=1024"
+            alt="Server Banner"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-black/70"></div>
+        </div>
 
         <div className="relative z-10 px-4">
           <h2 className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">
@@ -46,7 +47,7 @@ export default function Home() {
       </section>
 
       {/* Quick Links / Highlights */}
-      <section className="max-w-7xl mx-auto px-6 py-16 grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+      <section className="max-w-7xl mx-auto px-6 py-16 grid sm:grid-cols-2 md:grid-cols-3 gap-8 mt-24">
         <div className="bg-gray-900 p-6 rounded-xl shadow hover:shadow-lg transition">
           <h3 className="text-xl font-semibold text-red-500 mb-2">Departments</h3>
           <p>Explore all departments, their divisions, and chains of command.</p>
