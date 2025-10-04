@@ -1,70 +1,79 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GVRO Department Hub | Public Services</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body class="bg-gray-100 text-gray-900">
+// pages/index.js
+import Link from "next/link";
 
-<!-- Navbar -->
-<nav class="fixed w-full z-50 bg-black/50 text-white p-4 shadow-md">
-  <div class="container mx-auto flex justify-between items-center">
-    <h1 class="text-xl font-bold">Department Hub</h1>
-    <div class="space-x-6">
-      <a href="index.html" class="hover:underline">Home</a>
-      <a href="departments.html" class="hover:underline">Departments</a>
-      <a href="applications.html" class="hover:underline">Applications</a>
-      <a href="rules.html" class="hover:underline">Penal Codes</a>
-      <a href="handbook.html" class="hover:underline">Handbook</a>
-      <a href="staff.html" class="hover:underline">Staff</a>
-      <a href="contact.html" class="hover:underline">Contact</a>
+export default function Home() {
+  return (
+    <div className="bg-gray-950 text-gray-200 min-h-screen flex flex-col">
+      
+      {/* Navbar */}
+      <nav className="fixed w-full z-50 bg-black/70 backdrop-blur text-white p-4 shadow-md">
+        <div className="max-w-7xl mx-auto flex justify-between items-center">
+          <h1 className="text-xl font-bold tracking-wide">Department Hub</h1>
+          <div className="space-x-6">
+            <Link href="/" className="hover:text-red-500">Home</Link>
+            <Link href="/departments" className="hover:text-red-500">Departments</Link>
+            <Link href="/applications" className="hover:text-red-500">Applications</Link>
+            <Link href="/rules" className="hover:text-red-500">Penal Codes</Link>
+            <Link href="/staff" className="hover:text-red-500">Staff</Link>
+            <Link href="/contact" className="hover:text-red-500">Contact</Link>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <section className="relative h-screen flex items-center justify-center text-center text-white">
+        <img
+          src="https://cdn.discordapp.com/banners/1396553162394960042/7ee6d2d4262ea7dd597e59ede4414e29.webp?size=1024"
+          alt="Server Banner"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-black/70"></div>
+
+        <div className="relative z-10 px-4">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 drop-shadow-lg">
+            Welcome to Greenville Roleplay Operations
+          </h2>
+          <p className="text-lg md:text-2xl mb-8 text-gray-300">
+            Coordinating Public Services, Departments, and Community
+          </p>
+          <a
+            href="https://discord.gg/Xgw7JDQ2HY"
+            className="bg-red-700 hover:bg-red-800 text-white font-semibold px-8 py-3 rounded-lg shadow-lg transition"
+          >
+            Join Our Server
+          </a>
+        </div>
+      </section>
+
+      {/* Quick Links / Highlights */}
+      <section className="max-w-7xl mx-auto px-6 py-16 grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+        <div className="bg-gray-900 p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 className="text-xl font-semibold text-red-500 mb-2">Departments</h3>
+          <p>Explore all departments, their divisions, and chains of command.</p>
+          <Link href="/departments" className="text-red-500 hover:underline mt-2 inline-block">
+            View Departments →
+          </Link>
+        </div>
+        <div className="bg-gray-900 p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 className="text-xl font-semibold text-red-500 mb-2">Applications</h3>
+          <p>Apply to join a department and contribute to Public Services operations.</p>
+          <Link href="/applications" className="text-red-500 hover:underline mt-2 inline-block">
+            Apply Now →
+          </Link>
+        </div>
+        <div className="bg-gray-900 p-6 rounded-xl shadow hover:shadow-lg transition">
+          <h3 className="text-xl font-semibold text-red-500 mb-2">State Legislations Penal Codes</h3>
+          <p>Stay informed about our Law Enforcement Penal Codes & Fines.</p>
+          <Link href="/rules" className="text-red-500 hover:underline mt-2 inline-block">
+            View Penal Codes →
+          </Link>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-red-700 text-white text-center p-4 mt-auto">
+        <p>&copy; 2025 Department Hub | All Rights Reserved</p>
+      </footer>
     </div>
-  </div>
-</nav>
-
-<!-- Hero Section -->
-<section class="relative h-screen flex items-center justify-center text-center text-white">
-  <img src="https://cdn.discordapp.com/banners/1396553162394960042/7ee6d2d4262ea7dd597e59ede4414e29.webp?size=1024" 
-       alt="Server Banner" 
-       class="absolute inset-0 w-full h-full object-cover">
-  <div class="absolute inset-0 bg-black/60"></div>
-
-  <div class="relative z-10 px-4">
-    <h2 class="text-4xl md:text-6xl font-bold mb-6">Welcome to Greenville Roleplay Operations</h2>
-    <p class="text-lg md:text-2xl mb-8">Coordinating Public Services, Departments, and Community</p>
-    <a href="https://discord.gg/Xgw7JDQ2HY" 
-       class="bg-[#990000] hover:bg-red-800 text-white font-semibold px-8 py-3 rounded-lg shadow-lg transition">
-       Join Our Server
-    </a>
-  </div>
-</section>
-
-<!-- Quick Links / Highlights Section -->
-<section class="max-w-7xl mx-auto px-6 py-16 grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-  <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-    <h3 class="text-xl font-semibold text-[#990000] mb-2">Departments</h3>
-    <p>Explore all departments, their divisions, and chains of command.</p>
-    <a href="departments.html" class="text-[#990000] hover:underline mt-2 inline-block">View Departments →</a>
-  </div>
-  <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-    <h3 class="text-xl font-semibold text-[#990000] mb-2">Applications</h3>
-    <p>Apply to join a department and contribute to Public Services operations.</p>
-    <a href="applications.html" class="text-[#990000] hover:underline mt-2 inline-block">Apply Now →</a>
-  </div>
-  <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
-    <h3 class="text-xl font-semibold text-[#990000] mb-2">State Legislations Penal Codes</h3>
-    <p>Stay informed about our Law Enforcement Penal Codes & Fines.</p>
-    <a href="rules.html" class="text-[#990000] hover:underline mt-2 inline-block">View Penal Codes →</a>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer class="bg-[#990000] text-white text-center p-4">
-  <p>&copy; 2025 Department Hub | All Rights Reserved</p>
-</footer>
-
-</body>
-</html>
+  );
+}
