@@ -280,7 +280,8 @@ export default function DepartmentsPage() {
                             color: dept.title === "Fox Valley Metro Police Department" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.9)") :
                                    dept.title === "Outagamie County Sheriff's Office" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.9)") :
                                    dept.title === "Greenville Fire & Rescue" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.9)") :
-                                   dept.title === "Wisconsin State Patrol" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.9)") : 
+                                   dept.title === "Wisconsin State Patrol" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.9)") :
+                                   dept.title === "Wisconsin Department of Transportation" ? (rank.isCommand ? "#1f2937" : "#374151") :
                                    (rank.isCommand ? "#dc2626" : "#374151")
                           }}
                         >
@@ -291,7 +292,8 @@ export default function DepartmentsPage() {
                                 backgroundColor: dept.title === "Fox Valley Metro Police Department" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.7)") :
                                                dept.title === "Outagamie County Sheriff's Office" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.7)") :
                                                dept.title === "Greenville Fire & Rescue" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.7)") :
-                                               dept.title === "Wisconsin State Patrol" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.7)") : 
+                                               dept.title === "Wisconsin State Patrol" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.7)") :
+                                               dept.title === "Wisconsin Department of Transportation" ? (rank.isCommand ? "#1f2937" : "#6b7280") :
                                                (rank.isCommand ? "#dc2626" : "#d1d5db")
                               }}
                             ></div>
