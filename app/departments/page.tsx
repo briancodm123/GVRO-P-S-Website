@@ -253,7 +253,8 @@ export default function DepartmentsPage() {
                     backgroundColor: dept.title === "Fox Valley Metro Police Department" ? "#1e90ff" :
                                     dept.title === "Outagamie County Sheriff's Office" ? "#836d5a" :
                                     dept.title === "Greenville Fire & Rescue" ? "#ff0000" :
-                                    dept.title === "Wisconsin State Patrol" ? "#18223c" : "white"
+                                    dept.title === "Wisconsin State Patrol" ? "#18223c" :
+                                    dept.title === "Wisconsin Department of Transportation" ? "#ffff00" : "white"
                   }}
                 >
                   <div className="pt-6">
@@ -263,7 +264,8 @@ export default function DepartmentsPage() {
                         color: dept.title === "Fox Valley Metro Police Department" ? "white" :
                                dept.title === "Outagamie County Sheriff's Office" ? "white" :
                                dept.title === "Greenville Fire & Rescue" ? "white" :
-                               dept.title === "Wisconsin State Patrol" ? "white" : "#374151"
+                               dept.title === "Wisconsin State Patrol" ? "white" :
+                               dept.title === "Wisconsin Department of Transportation" ? "#1f2937" : "#374151"
                       }}
                     >
                       <div className="w-2 h-2 rounded-full bg-white/80 mr-3"></div>
