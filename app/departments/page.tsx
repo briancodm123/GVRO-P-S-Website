@@ -265,12 +265,24 @@ export default function DepartmentsPage() {
                                dept.title === "Outagamie County Sheriff's Office" ? "white" :
                                dept.title === "Greenville Fire & Rescue" ? "white" :
                                dept.title === "Wisconsin State Patrol" ? "white" :
-                               dept.title === "Wisconsin Department of Transportation" ? "white" : "#374151"
+                               dept.title === "Wisconsin Department of Transportation" ? "#1f2937" : "#374151"
                       }}
                     >
-                      <div className="w-3 h-3 rounded-full bg-white/90 mr-4 shadow-lg"></div>
+                      <div 
+                        className="w-3 h-3 rounded-full mr-4 shadow-lg"
+                        style={{
+                          backgroundColor: dept.title === "Wisconsin Department of Transportation" ? "#1f2937" : "rgba(255,255,255,0.9)"
+                        }}
+                      ></div>
                       Chain of Command
-                      <div className="ml-4 h-px bg-gradient-to-r from-white/60 to-transparent flex-1"></div>
+                      <div 
+                        className="ml-4 h-px bg-gradient-to-r flex-1"
+                        style={{
+                          background: dept.title === "Wisconsin Department of Transportation" 
+                            ? "linear-gradient(to right, rgba(31,41,55,0.6), transparent)"
+                            : "linear-gradient(to right, rgba(255,255,255,0.6), transparent)"
+                        }}
+                      ></div>
                     </h3>
                     <div className="space-y-4">
                       {dept.ranks.map((rank, rankIndex) => (
@@ -286,7 +298,7 @@ export default function DepartmentsPage() {
                                    dept.title === "Outagamie County Sheriff's Office" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.9)") :
                                    dept.title === "Greenville Fire & Rescue" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.9)") :
                                    dept.title === "Wisconsin State Patrol" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.9)") :
-                                   dept.title === "Wisconsin Department of Transportation" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.9)") :
+                                   dept.title === "Wisconsin Department of Transportation" ? (rank.isCommand ? "#1f2937" : "#374151") :
                                    (rank.isCommand ? "#dc2626" : "#374151")
                           }}
                         >
@@ -301,19 +313,24 @@ export default function DepartmentsPage() {
                                 <div className="relative">
                                   <div 
                                     className={`w-4 h-4 rounded-full mr-5 flex-shrink-0 shadow-md ${
-                                      rank.isCommand ? 'ring-2 ring-white/50' : ''
+                                      rank.isCommand ? (dept.title === "Wisconsin Department of Transportation" ? 'ring-2 ring-gray-500/50' : 'ring-2 ring-white/50') : ''
                                     }`}
                                     style={{
                                       backgroundColor: dept.title === "Fox Valley Metro Police Department" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.8)") :
                                                      dept.title === "Outagamie County Sheriff's Office" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.8)") :
                                                      dept.title === "Greenville Fire & Rescue" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.8)") :
                                                      dept.title === "Wisconsin State Patrol" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.8)") :
-                                                     dept.title === "Wisconsin Department of Transportation" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.8)") :
+                                                     dept.title === "Wisconsin Department of Transportation" ? (rank.isCommand ? "#1f2937" : "#6b7280") :
                                                      (rank.isCommand ? "#dc2626" : "#d1d5db")
                                     }}
                                   ></div>
                                   {rank.isCommand && (
-                                    <div className="absolute -top-1 -right-1 w-2 h-2 bg-white rounded-full shadow-sm"></div>
+                                    <div 
+                                      className="absolute -top-1 -right-1 w-2 h-2 rounded-full shadow-sm"
+                                      style={{
+                                        backgroundColor: dept.title === "Wisconsin Department of Transportation" ? "#1f2937" : "white"
+                                      }}
+                                    ></div>
                                   )}
                                 </div>
                                 
