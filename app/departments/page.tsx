@@ -111,17 +111,19 @@ export default function DepartmentsPage() {
       title: "Wisconsin Department of Transportation",
       description: "Traffic control, road maintenance, highway safety, and transportation infrastructure management.",
       ranks: [
-        { name: "Secretary of Transportation", isCommand: true },
-        { name: "Deputy Secretary", isCommand: true },
+        { name: "Operations Director", isCommand: true },
+        { name: "Assist. Operations Director", isCommand: true },
+        { name: "Secretary", isCommand: true },
         { name: "Assistant Secretary", isCommand: true },
-        { name: "Director", isCommand: false },
-        { name: "Deputy Director", isCommand: false },
-        { name: "Supervisor", isCommand: false },
-        { name: "Lead Worker", isCommand: false },
-        { name: "Senior Worker", isCommand: false },
-        { name: "Worker", isCommand: false },
-        { name: "Probationary Worker", isCommand: false },
-        { name: "Trainee", isCommand: false }
+        { name: "Operation Lead", isCommand: false },
+        { name: "Technician Lead", isCommand: false },
+        { name: "Operations Manager", isCommand: false },
+        { name: "As. Operations Manager", isCommand: false },
+        { name: "Operation Supervisor", isCommand: false },
+        { name: "Senior Operator", isCommand: false },
+        { name: "Operator", isCommand: false },
+        { name: "Junior Operator", isCommand: false },
+        { name: "Trainee Operator", isCommand: false }
       ]
     }
   ])
