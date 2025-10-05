@@ -85,6 +85,7 @@ export default function DepartmentsPage() {
     {
       title: "Greenville Fire & Rescue",
       description: "Firefighting, emergency medical response, and rescue operations within Greenville.",
+      division: "GvEMS (Greenville Emergency Medical Services) — Provides advanced life support and medical response services.",
       ranks: [
         { name: "District Overseer", isCommand: true },
         { name: "Fire Chief", isCommand: true },
@@ -104,6 +105,23 @@ export default function DepartmentsPage() {
         { name: "Firefighter/EMT", isCommand: false },
         { name: "Probationary Firefighter", isCommand: false },
         { name: "Recruit", isCommand: false }
+      ]
+    },
+    {
+      title: "Wisconsin Department of Transportation",
+      description: "Traffic control, road maintenance, highway safety, and transportation infrastructure management.",
+      ranks: [
+        { name: "Secretary of Transportation", isCommand: true },
+        { name: "Deputy Secretary", isCommand: true },
+        { name: "Assistant Secretary", isCommand: true },
+        { name: "Director", isCommand: false },
+        { name: "Deputy Director", isCommand: false },
+        { name: "Supervisor", isCommand: false },
+        { name: "Lead Worker", isCommand: false },
+        { name: "Senior Worker", isCommand: false },
+        { name: "Worker", isCommand: false },
+        { name: "Probationary Worker", isCommand: false },
+        { name: "Trainee", isCommand: false }
       ]
     }
   ])
@@ -138,7 +156,8 @@ export default function DepartmentsPage() {
                 backgroundColor: dept.title === "Fox Valley Metro Police Department" ? "#1e90ff" :
                                 dept.title === "Outagamie County Sheriff's Office" ? "#836d5a" :
                                 dept.title === "Greenville Fire & Rescue" ? "#ff0000" :
-                                dept.title === "Wisconsin State Patrol" ? "#18223c" : "rgba(255,255,255,0.95)"
+                                dept.title === "Wisconsin State Patrol" ? "#18223c" :
+                                dept.title === "Wisconsin Department of Transportation" ? "#ffff00" : "rgba(255,255,255,0.95)"
               }}
             >
               <div 
@@ -147,28 +166,30 @@ export default function DepartmentsPage() {
               >
                 <div className="flex items-center justify-between">
                   <div className="flex-1">
-                    <h2 
-                      className="text-3xl font-bold mb-4 transition-colors duration-200"
-                      style={{
-                        color: dept.title === "Fox Valley Metro Police Department" ? "white" :
-                               dept.title === "Outagamie County Sheriff's Office" ? "white" :
-                               dept.title === "Greenville Fire & Rescue" ? "white" :
-                               dept.title === "Wisconsin State Patrol" ? "white" : "#1f2937"
-                      }}
-                    >
-                      {dept.title}
-                    </h2>
-                    <p 
-                      className="mb-4 text-lg leading-relaxed"
-                      style={{
-                        color: dept.title === "Fox Valley Metro Police Department" ? "rgba(255,255,255,0.9)" :
-                               dept.title === "Outagamie County Sheriff's Office" ? "rgba(255,255,255,0.9)" :
-                               dept.title === "Greenville Fire & Rescue" ? "rgba(255,255,255,0.9)" :
-                               dept.title === "Wisconsin State Patrol" ? "rgba(255,255,255,0.9)" : "#4b5563"
-                      }}
-                    >
-                      {dept.description}
-                    </p>
+                <h2
+                  className="text-3xl font-bold mb-4 transition-colors duration-200"
+                  style={{
+                    color: dept.title === "Fox Valley Metro Police Department" ? "white" :
+                           dept.title === "Outagamie County Sheriff's Office" ? "white" :
+                           dept.title === "Greenville Fire & Rescue" ? "white" :
+                           dept.title === "Wisconsin State Patrol" ? "white" :
+                           dept.title === "Wisconsin Department of Transportation" ? "#1f2937" : "#1f2937"
+                  }}
+                >
+                  {dept.title}
+                </h2>
+                <p
+                  className="mb-4 text-lg leading-relaxed"
+                  style={{
+                    color: dept.title === "Fox Valley Metro Police Department" ? "rgba(255,255,255,0.9)" :
+                           dept.title === "Outagamie County Sheriff's Office" ? "rgba(255,255,255,0.9)" :
+                           dept.title === "Greenville Fire & Rescue" ? "rgba(255,255,255,0.9)" :
+                           dept.title === "Wisconsin State Patrol" ? "rgba(255,255,255,0.9)" :
+                           dept.title === "Wisconsin Department of Transportation" ? "#374151" : "#4b5563"
+                  }}
+                >
+                  {dept.description}
+                </p>
                     {dept.division && (
                       <div 
                         className="rounded-lg p-4 border-l-4"
@@ -176,11 +197,13 @@ export default function DepartmentsPage() {
                           backgroundColor: dept.title === "Fox Valley Metro Police Department" ? "rgba(255,255,255,0.2)" :
                                           dept.title === "Outagamie County Sheriff's Office" ? "rgba(255,255,255,0.2)" :
                                           dept.title === "Greenville Fire & Rescue" ? "rgba(255,255,255,0.2)" :
-                                          dept.title === "Wisconsin State Patrol" ? "rgba(255,255,255,0.2)" : "#f9fafb",
+                                          dept.title === "Wisconsin State Patrol" ? "rgba(255,255,255,0.2)" :
+                                          dept.title === "Wisconsin Department of Transportation" ? "rgba(0,0,0,0.1)" : "#f9fafb",
                           borderLeftColor: dept.title === "Fox Valley Metro Police Department" ? "white" :
                                          dept.title === "Outagamie County Sheriff's Office" ? "white" :
                                          dept.title === "Greenville Fire & Rescue" ? "white" :
-                                         dept.title === "Wisconsin State Patrol" ? "white" : "#3b82f6"
+                                         dept.title === "Wisconsin State Patrol" ? "white" :
+                                         dept.title === "Wisconsin Department of Transportation" ? "#1f2937" : "#3b82f6"
                         }}
                       >
                         <p 

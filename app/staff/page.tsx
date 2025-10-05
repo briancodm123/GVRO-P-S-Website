@@ -1,4 +1,4 @@
-import { Shield, Users, Headphones, Calendar, UserCheck, AlertTriangle, Settings, Clipboard, Gavel, Cog } from 'lucide-react'
+import { Shield, Users, Headphones, Calendar, UserCheck, AlertTriangle, Settings, Clipboard, Gavel, Cog, UserPlus, MessageCircle, Heart } from 'lucide-react'
 
 interface StaffRoleProps {
   title: string
@@ -60,7 +60,7 @@ export default function StaffPage() {
   const staffRoles: StaffRoleProps[] = [
     // Executive Roles
     {
-      title: "Server Handler",
+      title: "Public Services Overseer",
       description: "Oversees server systems, backend decisions, and administrative infrastructure. Contact only in critical circumstances.",
       duties: [
         "Maintain backend systems, integrations, and core infrastructure.",
@@ -72,12 +72,12 @@ export default function StaffPage() {
       level: 'executive'
     },
     {
-      title: "Operations Manager",
-      description: "Oversees internal workflow of Public Services, scheduling, and staff performance.",
+      title: "Ass. Public Services Overseer",
+      description: "Assistant role supporting public services operations and oversight.",
       duties: [
         "Coordinate staff assignments, shifts, and patrols.",
         "Track activity, attendance, and performance.",
-        "Collaborate with HR for disciplinary concerns.",
+        "Collaborate with Relations Overseer for disciplinary concerns.",
         "Create processes and checklists for operations.",
         "Report gaps or trends to leadership."
       ],
@@ -85,8 +85,8 @@ export default function StaffPage() {
       level: 'executive'
     },
     {
-      title: "Outreach Manager",
-      description: "Manages community engagement, server morale, and public outreach.",
+      title: "Assist. Public Services Overseer",
+      description: "Assistant role supporting public services oversight and coordination.",
       duties: [
         "Monitor member satisfaction and concerns.",
         "Coordinate feedback forms, Q&As, and outreach polls.",
@@ -97,9 +97,11 @@ export default function StaffPage() {
       icon: <Headphones size={24} />,
       level: 'executive'
     },
+
+    // Lead Management
     {
-      title: "Human Resources Manager",
-      description: "Handles staff concerns, misconduct reports, and ensures compliance.",
+      title: "Relations Overseer",
+      description: "Oversees staff relations, recruitment, and administrative functions.",
       duties: [
         "Investigate complaints against staff or management.",
         "Oversee disciplinary actions and resolutions.",
@@ -110,40 +112,105 @@ export default function StaffPage() {
       icon: <Clipboard size={24} />,
       level: 'executive'
     },
+    {
+      title: "Community Overseer",
+      description: "Oversees community relations, outreach, and engagement activities.",
+      duties: [
+        "Develop and maintain positive community relationships.",
+        "Coordinate community outreach programs and initiatives.",
+        "Handle community feedback, concerns, and suggestions.",
+        "Organize community meetings and public forums.",
+        "Report on community sentiment and engagement metrics."
+      ],
+      icon: <Heart size={24} />,
+      level: 'executive'
+    },
+    {
+      title: "Events Overseer",
+      description: "Oversees planning, coordination, and execution of community events.",
+      duties: [
+        "Plan and coordinate community events and activities.",
+        "Manage event logistics, resources, and staff assignments.",
+        "Ensure events align with organizational goals and values.",
+        "Coordinate with departments for event support and security.",
+        "Evaluate event success and gather feedback for improvements."
+      ],
+      icon: <Calendar size={24} />,
+      level: 'executive'
+    },
+    {
+      title: "Lead Management",
+      description: "Senior leadership role overseeing multiple departments and operations.",
+      duties: [
+        "Lead and coordinate multiple departments and their activities.",
+        "Make strategic decisions affecting overall operations.",
+        "Handle complex inter-departmental issues and conflicts.",
+        "Report directly to executive management on operations.",
+        "Develop and implement organizational policies and procedures."
+      ],
+      icon: <Users size={24} />,
+      level: 'executive'
+    },
+    {
+      title: "Assist. Lead Management",
+      description: "Assistant leadership role supporting lead management functions.",
+      duties: [
+        "Support lead management in daily operations and decision-making.",
+        "Assist with staff coordination and department oversight.",
+        "Handle routine management tasks and staff inquiries.",
+        "Prepare reports and documentation for lead management review.",
+        "Mentor junior staff and department coordinators."
+      ],
+      icon: <Users size={24} />,
+      level: 'executive'
+    },
 
     // Management Roles
     {
-      title: "Public Services Management",
+      title: "Public Services Manager",
       description: "Supervises daily staff functions, reports, and operational consistency.",
       duties: [
         "Act as on-duty leadership during operations.",
         "Monitor staff behavior and resolve minor conflicts.",
         "Handle shift reports, complaints, and escalations.",
         "Relay feedback between staff and Tier 2 management.",
-        "Mentor and guide Trial PSMs into full staff roles."
+        "Mentor and guide Trainee Public Services Managers into full staff roles."
       ],
       icon: <Shield size={24} />,
       level: 'management'
     },
     {
-      title: "Assistant Public Services Management",
-      description: "Assists full PSMs with shift supervision, tickets, and staff duties.",
+      title: "Senior Public Service Manager",
+      description: "Senior management role with advanced responsibilities and leadership duties.",
       duties: [
-        "Cover for unavailable PSMs or help co-lead operations.",
+        "Provide advanced leadership and mentorship to junior managers.",
+        "Handle complex operational decisions and policy implementation.",
+        "Oversee multiple departments and coordinate cross-functional activities.",
+        "Serve as escalation point for critical issues and conflicts.",
+        "Develop and implement strategic initiatives for department improvement."
+      ],
+      icon: <Shield size={24} />,
+      level: 'management'
+    },
+    {
+      title: "Junior Public Services Management",
+      description: "Assists full managers with shift supervision, tickets, and staff duties.",
+      duties: [
+        "Cover for unavailable managers or help co-lead operations.",
         "Manage basic infractions and staff queries.",
         "Shadow HR/Operations tasks when permitted.",
-        "Gain experience toward full promotion to PSM.",
+        "Gain experience toward full promotion to manager.",
         "Complete assigned reports, check-ins, or duties."
       ],
       icon: <Shield size={24} />,
       level: 'management'
     },
     {
-      title: "Trial Public Services Management",
+      title: "Trainee Public Services Manager",
       description: "Trial staff evaluated for performance, reliability, and leadership potential.",
       duties: [
         "Complete assigned patrols, reports, and moderation duties.",
-        "Undergo review and mentorship by PSMs and management.",
+        "Undergo review and mentorship by managers and senior management.",
         "Demonstrate consistency, maturity, and initiative.",
         "Ask questions and learn procedures, policies, and expectations.",
         "May be removed or promoted based on performance and attitude."
