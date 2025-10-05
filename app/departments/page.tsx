@@ -258,65 +258,44 @@ export default function DepartmentsPage() {
                   }}
                 >
                   <div className="pt-6">
-                    <h3 
-                      className="font-bold text-2xl mb-8 flex items-center text-white"
-                    >
-                      <div className="w-3 h-3 rounded-full bg-white/90 mr-4 shadow-lg"></div>
+                    <h3 className="font-bold text-2xl mb-8 text-white">
                       Chain of Command
-                      <div className="ml-4 h-px bg-gradient-to-r from-white/60 to-transparent flex-1"></div>
                     </h3>
-                    <div className="space-y-4">
+                    <div className="space-y-3">
                       {dept.ranks.map((rank, rankIndex) => (
                         <div 
                           key={rankIndex}
-                          className={`group relative overflow-hidden rounded-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-lg ${
+                          className={`p-4 rounded-lg border ${
                             rank.isCommand 
-                              ? 'bg-white/25 shadow-lg border border-white/30 backdrop-blur-sm' 
-                              : 'bg-white/15 hover:bg-white/20 border border-white/20 backdrop-blur-sm'
+                              ? 'bg-white/20 border-white/30' 
+                              : 'bg-white/10 border-white/20'
                           }`}
                         >
-                          {/* Gradient overlay for leadership positions */}
-                          {rank.isCommand && (
-                            <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent"></div>
-                          )}
-                          
-                          <div className="relative px-6 py-4">
-                            <div className="flex items-center justify-between">
-                              <div className="flex items-center">
-                                <div className="relative">
-                                  <div 
-                                    className={`w-4 h-4 rounded-full mr-5 flex-shrink-0 shadow-md ${
-                                      rank.isCommand ? 'ring-2 ring-white/50' : ''
-                                    }`}
-                                    style={{
-                                      backgroundColor: rank.isCommand ? "white" : "rgba(255,255,255,0.8)"
-                                    }}
-                                  ></div>
-                                  {rank.isCommand && (
-                                    <div className="absolute -top-1 -right-1 w-2 h-2 bg-white rounded-full shadow-sm"></div>
-                                  )}
-                                </div>
-                                
-                                <div className="flex flex-col">
-                                  <span className={`font-semibold text-white ${rank.isCommand ? 'text-xl' : 'text-lg'} tracking-wide`}>
-                                    {rank.name}
-                                  </span>
-                                  {rank.isCommand && (
-                                    <span className="text-sm text-white/80 mt-1">
-                                      Leadership Position
-                                    </span>
-                                  )}
-                                </div>
+                          <div className="flex items-center justify-between">
+                            <div className="flex items-center">
+                              <div 
+                                className="w-3 h-3 rounded-full mr-4"
+                                style={{
+                                  backgroundColor: rank.isCommand ? "white" : "rgba(255,255,255,0.7)"
+                                }}
+                              ></div>
+                              <div>
+                                <span className={`font-semibold text-white ${rank.isCommand ? 'text-lg' : 'text-base'}`}>
+                                  {rank.name}
+                                </span>
+                                {rank.isCommand && (
+                                  <div className="text-xs text-white/80 mt-1">
+                                    Leadership Position
+                                  </div>
+                                )}
                               </div>
-                              
-                              {rank.isCommand && (
-                                <div className="flex items-center">
-                                  <span className="px-3 py-1.5 bg-white/30 rounded-full text-xs font-bold uppercase tracking-wider shadow-md backdrop-blur-sm text-white">
-                                    Leadership
-                                  </span>
-                                </div>
-                              )}
                             </div>
+                            
+                            {rank.isCommand && (
+                              <span className="px-2 py-1 bg-white/20 rounded text-xs font-bold text-white">
+                                LEADERSHIP
+                              </span>
+                            )}
                           </div>
                         </div>
                       ))}
