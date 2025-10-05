@@ -114,7 +114,7 @@ export default function DepartmentsPage() {
         { name: "Operations Director", isCommand: true },
         { name: "Assist. Operations Director", isCommand: true },
         { name: "Secretary", isCommand: true },
-        { name: "Assistant Secretary", isCommand: true },
+        { name: "Assistant Secretary", isCommand: false },
         { name: "Operation Lead", isCommand: false },
         { name: "Technician Lead", isCommand: false },
         { name: "Operations Manager", isCommand: false },
