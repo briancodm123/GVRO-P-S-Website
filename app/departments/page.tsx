@@ -265,7 +265,7 @@ export default function DepartmentsPage() {
                                dept.title === "Outagamie County Sheriff's Office" ? "white" :
                                dept.title === "Greenville Fire & Rescue" ? "white" :
                                dept.title === "Wisconsin State Patrol" ? "white" :
-                               dept.title === "Wisconsin Department of Transportation" ? "#1f2937" : "#374151"
+                               dept.title === "Wisconsin Department of Transportation" ? "white" : "#374151"
                       }}
                     >
                       <div className="w-2 h-2 rounded-full bg-white/80 mr-3"></div>
@@ -283,7 +283,7 @@ export default function DepartmentsPage() {
                                    dept.title === "Outagamie County Sheriff's Office" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.9)") :
                                    dept.title === "Greenville Fire & Rescue" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.9)") :
                                    dept.title === "Wisconsin State Patrol" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.9)") :
-                                   dept.title === "Wisconsin Department of Transportation" ? (rank.isCommand ? "#1f2937" : "#374151") :
+                                   dept.title === "Wisconsin Department of Transportation" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.9)") :
                                    (rank.isCommand ? "#dc2626" : "#374151")
                           }}
                         >
@@ -295,7 +295,7 @@ export default function DepartmentsPage() {
                                                dept.title === "Outagamie County Sheriff's Office" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.7)") :
                                                dept.title === "Greenville Fire & Rescue" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.7)") :
                                                dept.title === "Wisconsin State Patrol" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.7)") :
-                                               dept.title === "Wisconsin Department of Transportation" ? (rank.isCommand ? "#1f2937" : "#6b7280") :
+                                               dept.title === "Wisconsin Department of Transportation" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.7)") :
                                                (rank.isCommand ? "#dc2626" : "#d1d5db")
                               }}
                             ></div>
