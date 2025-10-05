@@ -298,7 +298,7 @@ export default function DepartmentsPage() {
                             </span>
                             {rank.isCommand && (
                               <span className="ml-3 px-2 py-1 bg-white/20 rounded-full text-xs font-semibold uppercase tracking-wide">
-                                Command
+                                Leadership
                               </span>
                             )}
                           </div>
