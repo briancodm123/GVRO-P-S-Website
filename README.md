@@ -26,7 +26,7 @@ A modern Next.js website for Greenville Roleplay Operations Public Services, fea
 ### Prerequisites
 
 - Node.js 18+ 
-- npm or yarn
+- npm,  yarn or bun
 
 ### Installation
 

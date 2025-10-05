@@ -7,22 +7,64 @@ interface ApplicationCardProps {
 }
 
 const ApplicationCard = ({ title, description, applyUrl }: ApplicationCardProps) => {
+  const getDepartmentColor = (title: string) => {
+    switch (title) {
+      case "Fox Valley Metro Police Department":
+        return "#1e90ff"
+      case "Outagamie County Sheriff's Office":
+        return "#836d5a"
+      case "Greenville Fire & Rescue":
+        return "#ff0000"
+      case "Wisconsin State Patrol":
+        return "#18223c"
+      case "Wisconsin Department of Transportation":
+        return "#ffff00" // Yellow for WisDOT
+      default:
+        return "rgba(255,255,255,0.95)"
+    }
+  }
+
+  const backgroundColor = getDepartmentColor(title)
+  const isColored = backgroundColor !== "rgba(255,255,255,0.95)"
+  const isWisDOT = title === "Wisconsin Department of Transportation"
+
   return (
-    <div className="bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-200 border border-gray-200 dark:border-gray-700 flex justify-between items-center">
+    <div 
+      className="backdrop-blur-sm p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] border border-white/20 flex justify-between items-center"
+      style={{ backgroundColor: backgroundColor }}
+    >
       <div className="flex-1">
-        <h3 className="text-xl font-semibold text-gvro-red dark:text-red-400 mb-2">{title}</h3>
+        <h3 
+          className="text-2xl font-bold mb-3"
+          style={{ 
+            color: isWisDOT ? "#1f2937" : (isColored ? "white" : "#1f2937")
+          }}
+        >
+          {title}
+        </h3>
         {description && (
-          <p className="text-gray-600 dark:text-gray-300 text-sm">{description}</p>
+          <p 
+            className="text-base leading-relaxed"
+            style={{ 
+              color: isWisDOT ? "#374151" : (isColored ? "rgba(255,255,255,0.9)" : "#4b5563")
+            }}
+          >
+            {description}
+          </p>
         )}
       </div>
       <a 
         href={applyUrl} 
         target="_blank" 
         rel="noopener noreferrer"
-        className="bg-gvro-red hover:bg-gvro-red-dark dark:bg-gvro-red dark:hover:bg-red-600 text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-200 flex items-center gap-2 ml-4"
+        className={`font-bold px-8 py-4 rounded-xl transition-all duration-200 flex items-center gap-3 ml-6 shadow-lg hover:shadow-xl hover:scale-105 backdrop-blur-sm border ${
+          isWisDOT 
+            ? "bg-gray-800 hover:bg-gray-900 text-white border-gray-700" 
+            : "bg-white/20 hover:bg-white/30 text-white border-white/30"
+        }`}
       >
-        Apply
-        <ExternalLink size={16} />
+        Apply Now
+        <ExternalLink size={20} />
       </a>
     </div>
   )
@@ -58,62 +100,101 @@ export default function ApplicationsPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 py-8">
-      <div className="max-w-4xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <h1 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-20">
+          <h1 className="text-5xl font-bold text-white mb-6 tracking-tight">
             Department Applications
           </h1>
-          <p className="text-gray-600 dark:text-gray-300 text-lg">
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded-full"></div>
+          <p className="text-blue-200/80 text-lg mt-8 max-w-3xl mx-auto leading-relaxed">
             Join one of our professional departments and contribute to public service excellence
           </p>
         </div>
 
-        <div className="space-y-6">
+        <div className="space-y-8">
           {applications.map((app, index) => (
             <ApplicationCard key={index} {...app} />
           ))}
         </div>
 
-        {/* Notice */}
-        <div className="mt-12 p-6 bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 dark:border-yellow-500 rounded-lg">
+        {/* Enhanced Notice */}
+        <div className="mt-20 bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
           <div className="flex items-start">
-            <div className="flex-shrink-0">
-              <svg className="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
+            <div className="p-3 bg-yellow-500/20 rounded-xl mr-4 flex-shrink-0">
+              <svg className="h-6 w-6 text-yellow-400" viewBox="0 0 20 20" fill="currentColor">
                 <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
               </svg>
             </div>
-            <div className="ml-3">
-              <p className="text-yellow-800 dark:text-yellow-200">
-                <strong>Notice:</strong> Please allow up to 72 hours for your application to be reviewed. 
-                If it has not been reviewed, please create an assistance ticket.
+            <div>
+              <h3 className="text-xl font-bold text-white mb-3">Important Notice</h3>
+              <p className="text-blue-200/90 text-lg leading-relaxed">
+                <strong>Please allow up to 72 hours for your application to be reviewed.</strong> 
+                <br />
+                If it has not been reviewed, please create an assistance ticket in the Public Safety Discord Server.
               </p>
             </div>
           </div>
         </div>
 
-        {/* Requirements Section */}
-        <div className="mt-12 bg-white dark:bg-gray-900 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Application Requirements</h2>
-          <div className="grid md:grid-cols-2 gap-6">
-            <div>
-              <h3 className="text-lg font-semibold text-gvro-red dark:text-red-400 mb-3">General Requirements</h3>
-              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-                <li>• Must be 13+ years old</li>
-                <li>• Discord account required</li>
-                <li>• Microphone for voice communication</li>
-                <li>• Commitment to professional conduct</li>
-                <li>• Ability to follow chain of command</li>
+        {/* Enhanced Requirements Section */}
+        <div className="mt-16 bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+          <h2 className="text-3xl font-bold text-white mb-8 text-center">Application Requirements</h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white/5 rounded-xl p-6 border border-white/10">
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                <div className="w-3 h-3 bg-blue-500 rounded-full mr-3"></div>
+                General Requirements
+              </h3>
+              <ul className="space-y-3 text-blue-200/90">
+                <li className="flex items-start">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span>Must be 13+ years old</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span>Discord account required</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span>Microphone for voice communication</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span>Commitment to professional conduct</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span>Ability to follow chain of command</span>
+                </li>
               </ul>
             </div>
-            <div>
-              <h3 className="text-lg font-semibold text-gvro-red dark:text-red-400 mb-3">Application Process</h3>
-              <ul className="space-y-2 text-gray-600 dark:text-gray-300">
-                <li>• Complete online application form</li>
-                <li>• Wait for review (up to 72 hours)</li>
-                <li>• Attend interview if selected</li>
-                <li>• Complete training program</li>
-                <li>• Begin probationary period</li>
+            <div className="bg-white/5 rounded-xl p-6 border border-white/10">
+              <h3 className="text-xl font-bold text-white mb-4 flex items-center">
+                <div className="w-3 h-3 bg-green-500 rounded-full mr-3"></div>
+                Application Process
+              </h3>
+              <ul className="space-y-3 text-blue-200/90">
+                <li className="flex items-start">
+                  <div className="w-2 h-2 bg-green-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span>Complete online application form</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 bg-green-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span>Wait for review (up to 72 hours)</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 bg-green-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span>Attend interview if selected</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 bg-green-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span>Complete training program</span>
+                </li>
+                <li className="flex items-start">
+                  <div className="w-2 h-2 bg-green-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                  <span>Begin probationary period</span>
+                </li>
               </ul>
             </div>
           </div>

@@ -10,41 +10,44 @@ interface StaffRoleProps {
 
 const StaffRole = ({ title, description, duties, icon, level }: StaffRoleProps) => {
   const levelColors = {
-    executive: 'border-red-500 bg-red-50 dark:bg-red-900/20',
-    management: 'border-orange-500 bg-orange-50 dark:bg-orange-900/20',
-    coordinator: 'border-blue-500 bg-blue-50 dark:bg-blue-900/20',
-    department: 'border-green-500 bg-green-50 dark:bg-green-900/20'
+    executive: 'border-red-500 bg-gradient-to-br from-red-50 to-red-100',
+    management: 'border-orange-500 bg-gradient-to-br from-orange-50 to-orange-100',
+    coordinator: 'border-blue-500 bg-gradient-to-br from-blue-50 to-blue-100',
+    department: 'border-green-500 bg-gradient-to-br from-green-50 to-green-100'
   }
 
   const iconColors = {
-    executive: 'text-red-600 dark:text-red-400',
-    management: 'text-orange-600 dark:text-orange-400',
-    coordinator: 'text-blue-600 dark:text-blue-400',
-    department: 'text-green-600 dark:text-green-400'
+    executive: 'text-red-600',
+    management: 'text-orange-600',
+    coordinator: 'text-blue-600',
+    department: 'text-green-600'
   }
 
   return (
-    <div className={`bg-white dark:bg-gray-900 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-200 border-l-4 ${levelColors[level]} border border-gray-200 dark:border-gray-700`}>
-      <div className="flex items-center mb-3">
-        <div className={`mr-3 ${iconColors[level]}`}>
+    <div className={`bg-white/95 backdrop-blur-sm p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] border-l-4 ${levelColors[level]} border border-gray-200/50`}>
+      <div className="flex items-center mb-4">
+        <div className={`mr-4 p-3 rounded-xl bg-white/80 shadow-md ${iconColors[level]}`}>
           {icon}
         </div>
-        <h3 className="text-xl font-semibold text-gvro-red dark:text-red-400">
+        <h3 className="text-xl font-bold text-gray-900">
           {title}
         </h3>
       </div>
       
-      <p className="text-gray-600 dark:text-gray-300 mb-4">
+      <p className="text-gray-600 mb-6 text-base leading-relaxed">
         {description}
       </p>
       
-      <div className="border-t border-gray-200 dark:border-gray-600 pt-4">
-        <h4 className="font-semibold text-gvro-red dark:text-red-400 mb-2">Duties:</h4>
-        <ul className="space-y-1">
+      <div className="border-t border-gray-200 pt-6">
+        <h4 className="font-bold text-gray-800 mb-4 flex items-center">
+          <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+          Key Responsibilities
+        </h4>
+        <ul className="space-y-3">
           {duties.map((duty, index) => (
-            <li key={index} className="text-gray-600 dark:text-gray-300 text-sm flex items-start">
-              <span className="text-gvro-red dark:text-red-400 mr-2 mt-1">•</span>
-              <span>{duty}</span>
+            <li key={index} className="text-gray-600 text-sm flex items-start group">
+              <div className="w-2 h-2 bg-gray-400 rounded-full mr-3 mt-2 flex-shrink-0 group-hover:bg-blue-500 transition-colors duration-200"></div>
+              <span className="leading-relaxed">{duty}</span>
             </li>
           ))}
         </ul>
@@ -257,34 +260,40 @@ export default function StaffPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 py-8">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <h1 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-20">
+          <h1 className="text-5xl font-bold text-white mb-6 tracking-tight">
             Public Services Staff
           </h1>
-          <p className="text-gray-600 dark:text-gray-300 text-lg">
-            Meet our dedicated leadership team committed to excellence in public service
+          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded-full"></div>
+          <p className="text-blue-200/80 text-lg mt-8 max-w-3xl mx-auto leading-relaxed">
+            Meet our dedicated leadership team committed to excellence in public service and community safety
           </p>
         </div>
 
-        {/* Legend */}
-        <div className="mb-8 flex flex-wrap justify-center gap-4">
-          <div className="flex items-center gap-2 px-4 py-2 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg">
-            <div className="w-3 h-3 bg-red-500 rounded-full"></div>
-            <span className="text-red-700 dark:text-red-300 font-medium">Executive Level</span>
-          </div>
-          <div className="flex items-center gap-2 px-4 py-2 bg-orange-50 dark:bg-orange-900/20 border border-orange-200 dark:border-orange-800 rounded-lg">
-            <div className="w-3 h-3 bg-orange-500 rounded-full"></div>
-            <span className="text-orange-700 dark:text-orange-300 font-medium">Management Level</span>
-          </div>
-          <div className="flex items-center gap-2 px-4 py-2 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg">
-            <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
-            <span className="text-blue-700 dark:text-blue-300 font-medium">Coordinators</span>
-          </div>
-          <div className="flex items-center gap-2 px-4 py-2 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg">
-            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
-            <span className="text-green-700 dark:text-green-300 font-medium">Department Roles</span>
+        {/* Enhanced Legend */}
+        <div className="mb-16">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+            <h2 className="text-2xl font-bold text-white mb-6 text-center">Staff Hierarchy</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="flex items-center gap-3 p-4 bg-red-500/20 rounded-xl border border-red-400/30">
+                <div className="w-4 h-4 bg-red-500 rounded-full shadow-lg"></div>
+                <span className="text-white font-semibold">Executive Level</span>
+              </div>
+              <div className="flex items-center gap-3 p-4 bg-orange-500/20 rounded-xl border border-orange-400/30">
+                <div className="w-4 h-4 bg-orange-500 rounded-full shadow-lg"></div>
+                <span className="text-white font-semibold">Management Level</span>
+              </div>
+              <div className="flex items-center gap-3 p-4 bg-blue-500/20 rounded-xl border border-blue-400/30">
+                <div className="w-4 h-4 bg-blue-500 rounded-full shadow-lg"></div>
+                <span className="text-white font-semibold">Coordinators</span>
+              </div>
+              <div className="flex items-center gap-3 p-4 bg-green-500/20 rounded-xl border border-green-400/30">
+                <div className="w-4 h-4 bg-green-500 rounded-full shadow-lg"></div>
+                <span className="text-white font-semibold">Department Roles</span>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -294,18 +303,27 @@ export default function StaffPage() {
           ))}
         </div>
 
-        {/* Contact Information */}
-        <div className="mt-12 bg-white dark:bg-gray-900 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 p-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
-            Chain of Command
-          </h2>
-          <div className="text-center text-gray-600 dark:text-gray-300">
-            <p className="mb-4">
-              Please follow the proper chain of command when reporting issues or seeking assistance.
-            </p>
-            <p className="text-sm">
-              For urgent matters, contact your immediate supervisor first. Only escalate to higher levels when necessary.
-            </p>
+        {/* Enhanced Contact Information */}
+        <div className="mt-20">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
+            <h2 className="text-3xl font-bold text-white mb-6 text-center">
+              Chain of Command
+            </h2>
+            <div className="text-center">
+              <p className="text-blue-200/90 text-lg mb-6 leading-relaxed">
+                Please follow the proper chain of command when reporting issues or seeking assistance.
+              </p>
+              <div className="bg-white/5 rounded-xl p-6 border border-white/10">
+                <p className="text-blue-200/80 text-base">
+                  For urgent matters, contact your immediate supervisor first. Only escalate to higher levels when necessary.
+                </p>
+              </div>
+              <div className="mt-6 flex justify-center space-x-2">
+                <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
