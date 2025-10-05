@@ -259,7 +259,7 @@ export default function DepartmentsPage() {
                 >
                   <div className="pt-6">
                     <h3 
-                      className="font-bold text-xl mb-6 flex items-center"
+                      className="font-bold text-2xl mb-8 flex items-center"
                       style={{
                         color: dept.title === "Fox Valley Metro Police Department" ? "white" :
                                dept.title === "Outagamie County Sheriff's Office" ? "white" :
@@ -268,15 +268,18 @@ export default function DepartmentsPage() {
                                dept.title === "Wisconsin Department of Transportation" ? "white" : "#374151"
                       }}
                     >
-                      <div className="w-2 h-2 rounded-full bg-white/80 mr-3"></div>
+                      <div className="w-3 h-3 rounded-full bg-white/90 mr-4 shadow-lg"></div>
                       Chain of Command
+                      <div className="ml-4 h-px bg-gradient-to-r from-white/60 to-transparent flex-1"></div>
                     </h3>
-                    <div className="grid gap-3">
+                    <div className="space-y-4">
                       {dept.ranks.map((rank, rankIndex) => (
                         <div 
                           key={rankIndex}
-                          className={`pl-6 py-3 rounded-lg transition-all duration-200 hover:scale-[1.02] ${
-                            rank.isCommand ? 'bg-white/20 shadow-md' : 'bg-white/10'
+                          className={`group relative overflow-hidden rounded-xl transition-all duration-300 hover:scale-[1.02] hover:shadow-lg ${
+                            rank.isCommand 
+                              ? 'bg-white/25 shadow-lg border border-white/30 backdrop-blur-sm' 
+                              : 'bg-white/15 hover:bg-white/20 border border-white/20 backdrop-blur-sm'
                           }`}
                           style={{
                             color: dept.title === "Fox Valley Metro Police Department" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.9)") :
@@ -287,26 +290,53 @@ export default function DepartmentsPage() {
                                    (rank.isCommand ? "#dc2626" : "#374151")
                           }}
                         >
-                          <div className="flex items-center">
-                            <div 
-                              className="w-3 h-3 rounded-full mr-4 flex-shrink-0"
-                              style={{
-                                backgroundColor: dept.title === "Fox Valley Metro Police Department" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.7)") :
-                                               dept.title === "Outagamie County Sheriff's Office" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.7)") :
-                                               dept.title === "Greenville Fire & Rescue" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.7)") :
-                                               dept.title === "Wisconsin State Patrol" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.7)") :
-                                               dept.title === "Wisconsin Department of Transportation" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.7)") :
-                                               (rank.isCommand ? "#dc2626" : "#d1d5db")
-                              }}
-                            ></div>
-                            <span className={`font-medium ${rank.isCommand ? 'text-lg' : 'text-base'}`}>
-                              {rank.name}
-                            </span>
-                            {rank.isCommand && (
-                              <span className="ml-3 px-2 py-1 bg-white/20 rounded-full text-xs font-semibold uppercase tracking-wide">
-                                Leadership
-                              </span>
-                            )}
+                          {/* Gradient overlay for leadership positions */}
+                          {rank.isCommand && (
+                            <div className="absolute inset-0 bg-gradient-to-r from-white/10 to-transparent"></div>
+                          )}
+                          
+                          <div className="relative px-6 py-4">
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center">
+                                <div className="relative">
+                                  <div 
+                                    className={`w-4 h-4 rounded-full mr-5 flex-shrink-0 shadow-md ${
+                                      rank.isCommand ? 'ring-2 ring-white/50' : ''
+                                    }`}
+                                    style={{
+                                      backgroundColor: dept.title === "Fox Valley Metro Police Department" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.8)") :
+                                                     dept.title === "Outagamie County Sheriff's Office" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.8)") :
+                                                     dept.title === "Greenville Fire & Rescue" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.8)") :
+                                                     dept.title === "Wisconsin State Patrol" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.8)") :
+                                                     dept.title === "Wisconsin Department of Transportation" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.8)") :
+                                                     (rank.isCommand ? "#dc2626" : "#d1d5db")
+                                    }}
+                                  ></div>
+                                  {rank.isCommand && (
+                                    <div className="absolute -top-1 -right-1 w-2 h-2 bg-white rounded-full shadow-sm"></div>
+                                  )}
+                                </div>
+                                
+                                <div className="flex flex-col">
+                                  <span className={`font-semibold ${rank.isCommand ? 'text-xl' : 'text-lg'} tracking-wide`}>
+                                    {rank.name}
+                                  </span>
+                                  {rank.isCommand && (
+                                    <span className="text-sm opacity-80 mt-1">
+                                      Leadership Position
+                                    </span>
+                                  )}
+                                </div>
+                              </div>
+                              
+                              {rank.isCommand && (
+                                <div className="flex items-center">
+                                  <span className="px-3 py-1.5 bg-white/30 rounded-full text-xs font-bold uppercase tracking-wider shadow-md backdrop-blur-sm">
+                                    Leadership
+                                  </span>
+                                </div>
+                              )}
+                            </div>
                           </div>
                         </div>
                       ))}
