@@ -259,30 +259,11 @@ export default function DepartmentsPage() {
                 >
                   <div className="pt-6">
                     <h3 
-                      className="font-bold text-2xl mb-8 flex items-center"
-                      style={{
-                        color: dept.title === "Fox Valley Metro Police Department" ? "white" :
-                               dept.title === "Outagamie County Sheriff's Office" ? "white" :
-                               dept.title === "Greenville Fire & Rescue" ? "white" :
-                               dept.title === "Wisconsin State Patrol" ? "white" :
-                               dept.title === "Wisconsin Department of Transportation" ? "#1f2937" : "#374151"
-                      }}
+                      className="font-bold text-2xl mb-8 flex items-center text-white"
                     >
-                      <div 
-                        className="w-3 h-3 rounded-full mr-4 shadow-lg"
-                        style={{
-                          backgroundColor: dept.title === "Wisconsin Department of Transportation" ? "#1f2937" : "rgba(255,255,255,0.9)"
-                        }}
-                      ></div>
+                      <div className="w-3 h-3 rounded-full bg-white/90 mr-4 shadow-lg"></div>
                       Chain of Command
-                      <div 
-                        className="ml-4 h-px bg-gradient-to-r flex-1"
-                        style={{
-                          background: dept.title === "Wisconsin Department of Transportation" 
-                            ? "linear-gradient(to right, rgba(31,41,55,0.6), transparent)"
-                            : "linear-gradient(to right, rgba(255,255,255,0.6), transparent)"
-                        }}
-                      ></div>
+                      <div className="ml-4 h-px bg-gradient-to-r from-white/60 to-transparent flex-1"></div>
                     </h3>
                     <div className="space-y-4">
                       {dept.ranks.map((rank, rankIndex) => (
@@ -293,14 +274,6 @@ export default function DepartmentsPage() {
                               ? 'bg-white/25 shadow-lg border border-white/30 backdrop-blur-sm' 
                               : 'bg-white/15 hover:bg-white/20 border border-white/20 backdrop-blur-sm'
                           }`}
-                          style={{
-                            color: dept.title === "Fox Valley Metro Police Department" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.9)") :
-                                   dept.title === "Outagamie County Sheriff's Office" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.9)") :
-                                   dept.title === "Greenville Fire & Rescue" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.9)") :
-                                   dept.title === "Wisconsin State Patrol" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.9)") :
-                                   dept.title === "Wisconsin Department of Transportation" ? (rank.isCommand ? "#1f2937" : "#374151") :
-                                   (rank.isCommand ? "#dc2626" : "#374151")
-                          }}
                         >
                           {/* Gradient overlay for leadership positions */}
                           {rank.isCommand && (
@@ -313,33 +286,23 @@ export default function DepartmentsPage() {
                                 <div className="relative">
                                   <div 
                                     className={`w-4 h-4 rounded-full mr-5 flex-shrink-0 shadow-md ${
-                                      rank.isCommand ? (dept.title === "Wisconsin Department of Transportation" ? 'ring-2 ring-gray-500/50' : 'ring-2 ring-white/50') : ''
+                                      rank.isCommand ? 'ring-2 ring-white/50' : ''
                                     }`}
                                     style={{
-                                      backgroundColor: dept.title === "Fox Valley Metro Police Department" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.8)") :
-                                                     dept.title === "Outagamie County Sheriff's Office" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.8)") :
-                                                     dept.title === "Greenville Fire & Rescue" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.8)") :
-                                                     dept.title === "Wisconsin State Patrol" ? (rank.isCommand ? "white" : "rgba(255,255,255,0.8)") :
-                                                     dept.title === "Wisconsin Department of Transportation" ? (rank.isCommand ? "#1f2937" : "#6b7280") :
-                                                     (rank.isCommand ? "#dc2626" : "#d1d5db")
+                                      backgroundColor: rank.isCommand ? "white" : "rgba(255,255,255,0.8)"
                                     }}
                                   ></div>
                                   {rank.isCommand && (
-                                    <div 
-                                      className="absolute -top-1 -right-1 w-2 h-2 rounded-full shadow-sm"
-                                      style={{
-                                        backgroundColor: dept.title === "Wisconsin Department of Transportation" ? "#1f2937" : "white"
-                                      }}
-                                    ></div>
+                                    <div className="absolute -top-1 -right-1 w-2 h-2 bg-white rounded-full shadow-sm"></div>
                                   )}
                                 </div>
                                 
                                 <div className="flex flex-col">
-                                  <span className={`font-semibold ${rank.isCommand ? 'text-xl' : 'text-lg'} tracking-wide`}>
+                                  <span className={`font-semibold text-white ${rank.isCommand ? 'text-xl' : 'text-lg'} tracking-wide`}>
                                     {rank.name}
                                   </span>
                                   {rank.isCommand && (
-                                    <span className="text-sm opacity-80 mt-1">
+                                    <span className="text-sm text-white/80 mt-1">
                                       Leadership Position
                                     </span>
                                   )}
@@ -348,7 +311,7 @@ export default function DepartmentsPage() {
                               
                               {rank.isCommand && (
                                 <div className="flex items-center">
-                                  <span className="px-3 py-1.5 bg-white/30 rounded-full text-xs font-bold uppercase tracking-wider shadow-md backdrop-blur-sm">
+                                  <span className="px-3 py-1.5 bg-white/30 rounded-full text-xs font-bold uppercase tracking-wider shadow-md backdrop-blur-sm text-white">
                                     Leadership
                                   </span>
                                 </div>
