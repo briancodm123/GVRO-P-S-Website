@@ -15,6 +15,22 @@ export default function HandbookPage() {
     )
   }
 
+  // Prevent copying and right-click
+  const handleContextMenu = (e: React.MouseEvent) => {
+    e.preventDefault()
+  }
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    // Prevent Ctrl+C, Ctrl+A, Ctrl+V, Ctrl+X, F12, Ctrl+Shift+I
+    if (
+      (e.ctrlKey && (e.key === 'c' || e.key === 'a' || e.key === 'v' || e.key === 'x')) ||
+      e.key === 'F12' ||
+      (e.ctrlKey && e.shiftKey && e.key === 'I')
+    ) {
+      e.preventDefault()
+    }
+  }
+
   const sections = [
     {
       number: 1,
@@ -384,7 +400,12 @@ export default function HandbookPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 py-16 px-4 sm:px-6 lg:px-8">
+    <div 
+      className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 py-16 px-4 sm:px-6 lg:px-8 select-none" 
+      style={{ userSelect: 'none', WebkitUserSelect: 'none', MozUserSelect: 'none', msUserSelect: 'none' }}
+      onContextMenu={handleContextMenu}
+      onKeyDown={handleKeyDown}
+    >
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-16">
