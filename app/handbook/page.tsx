@@ -20,7 +20,7 @@ export default function HandbookPage() {
       number: 1,
       title: "General Conduct & Professionalism",
       content: [
-        "1.1. Common Sense - Members are expected to apply common sense in all situations. Not every circumstance can be covered by the handbook, so it is your responsibility to act reasonably, professionally, and with respect for others.",
+        "1.1. Common Sense - Members are expected to apply common sense in all situations. Not every circumstance can be covered by the handbook, so it is your responsibility to act reasonably, professionally, and with respect for others. Rules are written to guide behavior, but your judgment must align with the spirit of these expectations.",
         "1.2. Discord Terms of Service - All members must comply with Discord Terms of Service at all times. This includes avoiding harassment, hate speech, scams, illegal activity, or the use of unauthorized bots or clients.",
         "1.3. Roblox Terms of Service - The Roblox Terms of Service apply whenever you are representing GVRO. Exploiting, bypassing filters, glitching, or engaging in prohibited activity on Roblox will not be tolerated.",
         "1.4. Confidentiality - Confidentiality is essential. Members must not leak or share private GVRO information, including restricted channels, documents, discussions, or assets.",
@@ -28,14 +28,14 @@ export default function HandbookPage() {
         "1.6. Abuse of Authority - Authority is a privilege, not a right. Any misuse of staff tools such as warnings, kicks, mutes, or bans will be considered abuse of authority.",
         "1.7. Drama - Drama is disruptive to both staff and roleplay. Conflicts with members or staff must be handled professionally through tickets.",
         "1.8. Moderation Enforcement - When issuing punishments, staff must provide valid evidence. Screenshots, recordings, or logs are required for transparency and fairness.",
-        "1.9. Social Media & External Conduct - Members are representatives of GVRO even outside of Roblox/Discord. Negative behavior, harassment, or toxicity directed at others in external servers, games, or platforms can still result in action within GVRO.",
-        "1.10. Misuse of Tickets or Reports - Tickets and reporting systems must only be used for legitimate issues. Submitting false reports, spamming tickets, or using the system to harass others wastes staff time and will result in disciplinary action.",
+        "1.9. Social Media & External Conduct - Members are representatives of GVRO even outside of Roblox/Discord. Negative behavior, harassment, or toxicity directed at others can still result in action within GVRO.",
+        "1.10. Misuse of Tickets or Reports - Tickets and reporting systems must only be used for legitimate issues. Submitting false reports, spamming tickets, or using the system to harass others wastes staff time.",
         "1.11. Interdepartment Cooperation - Departments must work together professionally. Rivalries, interference with other department roleplay scenes, or \"one-upping\" behavior is not tolerated.",
-        "1.12. Chain of Command Respect - Members must respect the authority of higher-ranking staff and department leaders. Disrespect, insubordination, or ignoring directives disrupts operations and will not be tolerated.",
+        "1.12. Chain of Command Respect - Members must respect the authority of higher-ranking staff and department leaders. Disrespect, insubordination, or ignoring directives disrupts operations.",
         "1.13. Event & Training Attendance - If you register or are required to attend an official GVRO event or training, you must show up on time unless excused.",
         "1.14. Department Transfers - Members may not switch departments at will. Transfers require approval from both department heads and leadership.",
         "1.15. Use of Language & Communication - Members must use clear, respectful language in roleplay and staff communication.",
-        "1.16. Radio & Comms Discipline - Radio/communications must remain professional and concise. Unnecessary chatter, soundboards, music, or irrelevant conversation clutters comms and disrupts operations.",
+        "1.16. Radio & Comms Discipline - Radio/communications must remain professional and concise. Unnecessary chatter, soundboards, music, or irrelevant conversation clutters comms.",
         "1.17. Personal Vendettas - Moderation or roleplay actions may not be taken to settle personal disputes.",
         "1.18. Respect for Civilians & Non-Department Members - Members must treat civilians and non-department participants fairly.",
         "1.19. Maturity Requirement - Members are expected to maintain maturity in all communications, regardless of age.",
@@ -50,27 +50,27 @@ export default function HandbookPage() {
       number: 2,
       title: "Vehicle & Driving Conduct",
       content: [
-        "2.1. Traffic Flow - Driving against the flow of traffic while on duty is strictly prohibited.",
-        "2.2. U-Turns - Performing U-turns over medians or other unsafe locations is prohibited.",
-        "2.3. Reckless Driving - Reckless driving while on duty is not permitted.",
+        "2.1. Traffic Flow - Driving against the flow of traffic while on duty is strictly prohibited. This behavior is unrealistic and unsafe.",
+        "2.2. U-Turns - Performing U-turns over medians or other unsafe locations is prohibited. In real life, such actions would result in significant vehicle damage.",
+        "2.3. Reckless Driving - Reckless driving while on duty is not permitted. Examples include ignoring traffic laws, running stop signs, cutting off vehicles, or speeding excessively.",
         "2.4. Responding Speeds - Members must not exceed 105 MPH (168 KM/H) while responding to emergencies or engaging in pursuits.",
         "2.5. Traffic Stops - Traffic stops may only be performed on civilians. Members are never permitted to pull over staff, hosts/co-hosts, or other Public Services.",
         "2.6. Unauthorized Chases - Unauthorized pursuits are prohibited. Only designated High Speed Unit personnel may engage in pursuits.",
-        "2.7. Emergency Lighting Systems (ELS) - ELS and sirens must only be used in legitimate roleplay situations.",
-        "2.8. Vehicle Use & Scene Realism - Vehicles used must fit the context of the roleplay."
+        "2.7. Emergency Lighting Systems (ELS) - ELS and sirens must only be used in legitimate roleplay situations, such as active calls, traffic stops, or emergency responses.",
+        "2.8. Vehicle Use & Scene Realism - Vehicles used must fit the context of the roleplay. Excessive spawning, abandoning vehicles, or using unrealistic vehicles disrupts immersion."
       ]
     },
     {
       number: 3,
       title: "Roleplay & Operational Standards",
       content: [
-        "3.1. Use of Force & Roleplay Realism - Members must use appropriate force in all roleplay interactions.",
-        "3.2. Corruption Roleplay - Corruption roleplay is strictly prohibited unless explicitly authorized by GVRO leadership.",
+        "3.1. Use of Force & Roleplay Realism - Members must use appropriate force in all roleplay interactions. Escalation of force must be proportional to the situation.",
+        "3.2. Corruption Roleplay - Corruption roleplay is strictly prohibited unless explicitly authorized by GVRO leadership for a planned event.",
         "3.3. Off-Duty Conduct - When not on duty, members must still act responsibly and not disrupt roleplay sessions.",
-        "3.4. Use of Recording & Media - Members may record sessions for evidence, training, or promotional purposes.",
+        "3.4. Use of Recording & Media - Members may record sessions for evidence, training, or promotional purposes. However, recordings must respect member privacy.",
         "3.5. Scene Ownership & Control - Once a roleplay scene is established, it is under the control of the initiating department.",
-        "3.6. Staff Powers Outside of Roleplay - Staff must not use their powers to interfere with roleplay unless absolutely necessary.",
-        "3.7. Retaliation Against Reports - Members may not retaliate against others for filing reports.",
+        "3.6. Staff Powers Outside of Roleplay - Staff must not use their powers to interfere with roleplay unless absolutely necessary for enforcement or safety.",
+        "3.7. Retaliation Against Reports - Members may not retaliate against others for filing reports, opening tickets, or cooperating with staff investigations.",
         "3.8. Mic/VC Etiquette - If using voice communications, members must maintain a clear and professional tone.",
         "3.9. Event Interference - Members who are not part of a scheduled training or event may not interfere, troll, or otherwise disrupt the session.",
         "3.10. Unauthorized Roleplay Scenarios - Members may not create large-scale roleplay scenarios without approval from staff.",
@@ -101,16 +101,16 @@ export default function HandbookPage() {
       number: 4,
       title: "Policies, Attendance & LOA",
       content: [
-        "4.1. Radio Traffic Only VC - While on patrol, members are required to remain in Dispatch Communications channels.",
+        "4.1. Radio Traffic Only VC - While on patrol, members are required to remain in Dispatch Communications channels (1 or 2).",
         "4.2. Promotions - Promotions are based on activity, professionalism, and overall contribution to GVRO.",
-        "4.3. Resignations - Members may resign at any time. Upon returning, they may not retain their former rank.",
-        "4.4. Leave of Absence (LOA) - Members may request an LOA under specific rules: Minimum Duration: 7 days, Maximum Duration: 28 days, Members must wait at least 10 days between LOA requests.",
+        "4.3. Resignations - Members may resign at any time. Upon returning, they may not retain their former rank, depending on the length and circumstances of their absence.",
+        "4.4. Leave of Absence (LOA) - Members may request an LOA under the following rules: Minimum Duration: 7 days, Maximum Duration: 28 days, Members must wait at least 10 days between LOA requests.",
         "4.5. Attendance Tracking - Members are required to log attendance for all official events, trainings, and shifts.",
         "4.6. Late Arrival / Early Departure - Arriving late or leaving early without valid reason or prior notice is a violation.",
-        "4.7. LOA Extensions & Violations - Extensions may be requested if valid circumstances occur.",
+        "4.7. LOA Extensions & Violations - Extensions may be requested if valid circumstances occur (illness, personal emergencies).",
         "4.8. Return from LOA / Resumption of Duties - Members must check in with their department upon return from LOA.",
         "4.9. Inactivity Policy - Members must maintain a minimum activity level according to their department requirements.",
-        "4.10. Event Participation Policy - Mandatory events must be attended unless excused.",
+        "4.10. Event Participation Policy - Mandatory events (trainings, drills, simulations) must be attended unless excused.",
         "4.11. Accountability for Scheduling Conflicts - Members must proactively communicate conflicts that affect attendance."
       ]
     },
@@ -130,19 +130,19 @@ export default function HandbookPage() {
       title: "Appeals & Review Procedures",
       content: [
         "6.1. Submitting Appeals - Members may appeal warnings, strikes, suspensions, or terminations through the official GVRO ticket system.",
-        "6.2. Evidence & Documentation - All appeals must include relevant screenshots, recordings, logs, or witness statements.",
-        "6.3. Review Process - Appeals are reviewed by the appropriate staff level.",
+        "6.2. Evidence & Documentation - All appeals must include relevant screenshots, recordings, logs, or witness statements to support the case.",
+        "6.3. Review Process - Appeals are reviewed by the appropriate staff level. Minor issues may be reviewed by department heads or moderators.",
         "6.4. Timeline for Responses - GVRO staff aim to respond to appeals within 72 hours.",
-        "6.5. Final Decisions - Decisions made after an appeal are final."
+        "6.5. Final Decisions - Decisions made after an appeal are final. Attempting to bypass the appeal process will result in disciplinary action."
       ]
     },
     {
       number: 7,
       title: "Training & Certification",
       content: [
-        "7.1. Mandatory Training - Specialized roles require completion of official GVRO training courses.",
-        "7.2. Certification Requirements - Certifications may have expiration dates or renewal requirements.",
-        "7.3. Attendance & Participation - Attendance in scheduled trainings is mandatory.",
+        "7.1. Mandatory Training - Specialized roles (HSU, EMS advanced skills, fire command, etc.) require completion of official GVRO training courses.",
+        "7.2. Certification Requirements - Certifications may have expiration dates or renewal requirements. Members are responsible for keeping certifications up to date.",
+        "7.3. Attendance & Participation - Attendance in scheduled trainings is mandatory. Missing multiple training sessions without valid reason may affect promotions.",
         "7.4. Training Records - All completed trainings and certifications are documented in department records."
       ]
     },
@@ -150,10 +150,10 @@ export default function HandbookPage() {
       number: 8,
       title: "Community & External Conduct",
       content: [
-        "8.1. Social Media & Public Representation - Members representing GVRO on social media must maintain professionalism.",
-        "8.2. Interaction with External Servers - Participation in other servers must not conflict with GVRO responsibilities.",
-        "8.3. Behavior Outside Roleplay - While off duty, members are expected to behave responsibly.",
-        "8.4. Collaboration & Networking - Members are encouraged to network with other communities for learning and collaboration."
+        "8.1. Social Media & Public Representation - Members representing GVRO on social media, forums, or public platforms must maintain professionalism.",
+        "8.2. Interaction with External Servers or Groups - Participation in other servers, groups, or communities must not conflict with GVRO responsibilities.",
+        "8.3. Behavior Outside Roleplay - While off duty, members are expected to behave responsibly. Publicly posting confidential GVRO information can result in disciplinary action.",
+        "8.4. Collaboration & Networking - Members are encouraged to network with other communities or groups for learning and collaboration."
       ]
     },
     {
@@ -163,17 +163,165 @@ export default function HandbookPage() {
         "9.1. Overseer Level - Public Services Overseer (ultimate authority), Associate Public Services Overseer, Assistant Public Services Overseer, Relations Overseer, Community Overseer, Events Overseer.",
         "9.2. Management Level - Lead Management, Assistant Lead Management.",
         "9.3. Managerial Level - Senior Public Services Manager, Public Services Manager, Junior Public Services Manager, Trainee Public Services Manager.",
-        "9.4. Escalation Procedure - Concerns should first be directed to Managers, then escalated upward as necessary."
+        "9.4. Escalation Procedure - Concerns should first be directed to Managers, then escalated upward as necessary. Appeals, disciplinary disputes, and serious matters must go directly to Overseer level."
       ]
     },
     {
       number: 10,
       title: "Uniforms, Equipment & Identification",
       content: [
-        "10.1. Uniform Standards - All members must wear the designated department uniform while on duty.",
-        "10.2. Vehicle Standards - Only approved department vehicles may be used while on duty.",
-        "10.3. Callsigns & Identification - Members must use correct callsigns during patrols, events, and operations.",
-        "10.4. Equipment Use - Only authorized equipment may be used in roleplay scenarios."
+        "10.1. Uniform Standards - All members must wear the designated department uniform while on duty. Unauthorized modifications (colors, accessories, decals) are prohibited.",
+        "10.2. Vehicle Standards - Only approved department vehicles may be used while on duty. Unauthorized custom vehicles or liveries are not permitted.",
+        "10.3. Callsigns & Identification - Members must use correct callsigns during patrols, events, and operations. Impersonating another rank or using false identification will result in strikes or suspension.",
+        "10.4. Equipment Use - Only authorized equipment may be used in roleplay scenarios. Unauthorized use of tactical or medical gear is prohibited unless cleared by leadership."
+      ]
+    },
+    {
+      number: 11,
+      title: "Activity Requirements & Promotions",
+      content: [
+        "11.1. Minimum Activity Standards - Members must log a minimum of X patrols or hours per week (set by management). Excessive inactivity without LOA may result in disciplinary review.",
+        "11.2. Promotion Eligibility - Members must maintain professionalism, meet training requirements, and show consistent activity. Promotions are based on attendance, behavior, leadership qualities, and certifications.",
+        "11.3. Inactivity Handling - Inactive members without LOA will be placed on probation. Continued inactivity may result in removal from Public Services."
+      ]
+    },
+    {
+      number: 12,
+      title: "Leadership Accountability & Oversight",
+      content: [
+        "12.1. Leadership Conduct - Leaders are held to the same standards as all members, with additional expectations for fairness and professionalism.",
+        "12.2. Oversight System - Leadership actions (terminations, blacklists, promotions) may be reviewed by the Overseer Team for accountability.",
+        "12.3. Checks & Balances - Any staff member may report leadership misconduct through the proper escalation chain. Abuse of leadership powers may result in immediate suspension and review."
+      ]
+    },
+    {
+      number: 13,
+      title: "Emergency Override Policy",
+      content: [
+        "13.1. Purpose - The Emergency Override Policy grants staff authority to stabilize sessions during severe disruptions (e.g., raids, mass FRP, trolling waves).",
+        "13.2. Authority - Only Overseers, Lead Management, or Event Overseers may activate an Emergency Override. Managers may recommend an override but cannot enforce it without approval.",
+        "13.3. Actions Permitted Under Override - Temporary server lockdowns, mass-kicking disruptive users, freezing or pausing roleplay until order is restored, restricting channels or disabling voice comms if necessary.",
+        "13.4. Post-Event Review - All Emergency Override actions must be logged and reviewed within 24 hours."
+      ]
+    },
+    {
+      number: 14,
+      title: "Recognition & Rewards",
+      content: [
+        "14.1. Commendations - Members may be nominated for commendations for professionalism, leadership, or outstanding contributions.",
+        "14.2. Awards System - Examples include: Member of the Month, Service Excellence Award, Training Excellence Award. Awards may be presented monthly or quarterly depending on performance.",
+        "14.3. Promotion Through Merit - Exceptional service may fast-track members for promotion with Overseer approval.",
+        "14.4. Public Recognition - Commendations may be announced in community channels to highlight positive role models."
+      ]
+    },
+    {
+      number: 15,
+      title: "Mental Health & Wellness",
+      content: [
+        "15.1. Stress Management - Members are encouraged to take breaks during long shifts or high-intensity roleplay sessions. Leadership should monitor members for signs of burnout or excessive stress.",
+        "15.2. Reporting & Support - Members may confidentially report mental health concerns to designated support staff. GVRO may provide guidance or temporary duty relief to assist members in maintaining wellness.",
+        "15.3. Wellness Policies - Members should prioritize personal well-being over roleplay immersion. Activities that compromise mental health must be reported."
+      ]
+    },
+    {
+      number: 16,
+      title: "Diversity, Equity & Inclusion (DEI)",
+      content: [
+        "16.1. Respect & Representation - All members must treat each other respectfully regardless of race, gender, religion, sexuality, or other personal characteristics.",
+        "16.2. Inclusive Roleplay - Roleplay scenarios should avoid offensive stereotypes or discriminatory actions. Inclusion promotes realistic, fair, and enjoyable experiences for all participants.",
+        "16.3. Anti-Discrimination Policy - Any discriminatory behavior, harassment, or exclusion may result in strikes, suspension, or termination."
+      ]
+    },
+    {
+      number: 17,
+      title: "Technology, Cybersecurity & Data Handling",
+      content: [
+        "17.1. Authorized Tools - Members may only use approved bots, scripts, or software provided by GVRO.",
+        "17.2. Data Security - Access to confidential GVRO data must remain strictly controlled. Unauthorized copying, sharing, or exposing sensitive information will result in immediate disciplinary action.",
+        "17.3. Reporting Breaches - Members must report hacks, exploits, or phishing attempts immediately to leadership. Ignoring or covering up security incidents may lead to suspension or termination."
+      ]
+    },
+    {
+      number: 18,
+      title: "Recruitment & Membership Intake",
+      content: [
+        "18.1. Application & Vetting - All prospective members must complete the official GVRO application process. Background checks (activity history, prior conduct) will be conducted to ensure eligibility.",
+        "18.2. Probation & Training - New members undergo a probation period during which behavior, attendance, and roleplay skill are evaluated. Mentorship programs may be assigned to assist onboarding.",
+        "18.3. Restrictions & Anti-Abuse Measures - Members may not manipulate or exploit recruitment for personal gain. Unauthorized recruitment, solicitation, or \"double-dipping\" in other communities is prohibited."
+      ]
+    },
+    {
+      number: 19,
+      title: "Event & Scenario Planning",
+      content: [
+        "19.1. Proposal Process - All large-scale events must be approved by Leadership or the Events Overseer. Proposals should include objectives, involved departments, and expected duration.",
+        "19.2. Coordination & Execution - Departments must communicate clearly to avoid conflicts during events. Staff may assign specific roles or zones of control for operational clarity.",
+        "19.3. Post-Event Review - After events, leadership will conduct a debrief to evaluate performance and identify improvements."
+      ]
+    },
+    {
+      number: 20,
+      title: "Community Engagement & Outreach",
+      content: [
+        "20.1. Public Interaction - Members engaging with the public, media, or other Roblox communities must maintain professionalism.",
+        "20.2. External Events - Public events, collaborations, or competitions require prior approval. Members must follow GVRO rules and maintain a positive reputation.",
+        "20.3. Media & Promotion - Social media posts, streams, or videos must not reveal confidential information or staff strategies."
+      ]
+    },
+    {
+      number: 21,
+      title: "Internal Documentation & Reporting",
+      content: [
+        "21.1. Shift Logs - Members must record all relevant shift activity accurately and promptly.",
+        "21.2. Incident Reports - Reports for FRP, accidents, or disciplinary incidents must include complete evidence and be submitted in a standard format.",
+        "21.3. Record Retention - Historical records will be securely stored. Tampering, falsifying, or deleting records is prohibited and subject to severe consequences."
+      ]
+    },
+    {
+      number: 22,
+      title: "Equipment & Resource Management",
+      content: [
+        "22.1. Authorized Equipment - Only assigned members may access or use department vehicles, weapons, or tactical gear.",
+        "22.2. Maintenance & Care - Equipment must be maintained in working order. Malfunctions or damage must be reported immediately.",
+        "22.3. Check-In/Check-Out Procedures - Departments will track equipment issuance. Failing to follow procedures may result in disciplinary action."
+      ]
+    },
+    {
+      number: 23,
+      title: "Ethics & Integrity",
+      content: [
+        "23.1. Conflict of Interest - Members may not engage in actions that create personal gain at the expense of GVRO operations.",
+        "23.2. Honesty & Accountability - Members are expected to provide truthful reports, logs, and evidence. Deceptive practices will result in strikes, suspension, or termination.",
+        "23.3. Impartiality - Staff must remain neutral when enforcing rules, regardless of personal relationships or biases."
+      ]
+    },
+    {
+      number: 24,
+      title: "Simulation & Training Scenarios",
+      content: [
+        "24.1. Realistic Training - Training exercises should mimic real-world scenarios without affecting live roleplay.",
+        "24.2. Evaluation & Feedback - Participants will be evaluated on performance, teamwork, and roleplay realism. Constructive feedback will be provided to improve future operations.",
+        "24.3. Safety & Oversight - Scenario coordinators must ensure physical and virtual safety, pausing exercises if necessary."
+      ]
+    },
+    {
+      number: 25,
+      title: "Public Relations & Media Policy",
+      content: [
+        "25.1. Official Statements - Only designated leadership may issue statements on behalf of GVRO.",
+        "25.2. Streaming & Recording Guidelines - Recordings for streams or videos must comply with privacy standards and not disclose confidential operations.",
+        "25.3. Community Representation - Members must maintain professionalism when interacting publicly, promoting GVRO positively and accurately."
+      ]
+    },
+    {
+      number: 26,
+      title: "Systems, Databases & Digital Resources",
+      content: [
+        "26.1. Shift Logs & Forms - All members are required to complete shift logs for patrols, events, and official duties. Logs must be submitted promptly and accurately, including times, locations, actions taken, and any relevant evidence.",
+        "26.2. Incident & Activity Reports - Any significant events, FRP violations, accidents, or disciplinary incidents must be documented using the official reporting system. Reports must include clear, factual details and evidence.",
+        "26.3. Member & Department Databases - GVRO maintains databases using MongoDB for member records, including attendance, training certifications, disciplinary history, and role assignments. Access is restricted to authorized personnel only.",
+        "26.4. Data Privacy & Security - All information stored in GVRO systems is confidential. Members must not share, leak, or misuse internal data. Unauthorized access, tampering, or distribution of sensitive information will result in immediate disciplinary action.",
+        "26.5. Accountability & Oversight - Department leaders are responsible for monitoring database usage and ensuring shift logs and reports are properly maintained. Leadership may audit logs, reports, and database entries at any time to verify accuracy and compliance."
       ]
     }
   ]
