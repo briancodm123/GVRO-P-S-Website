@@ -27,6 +27,9 @@ export default function RootLayout({
             </main>
             <footer className="bg-gvro-red dark:bg-gvro-red-dark text-white text-center p-4 mt-auto">
               <p>&copy; 2025 Department Hub | All Rights Reserved</p>
+              <p className="text-xs mt-2 opacity-70">
+                Made by <a href="https://mxtor.net" target="_blank" rel="noopener noreferrer" className="hover:opacity-100 transition-opacity underline">Kyle</a>
+              </p>
             </footer>
           </div>
         </ThemeProvider>
