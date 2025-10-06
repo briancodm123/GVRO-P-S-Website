@@ -75,7 +75,7 @@ export default function RadioCodesPage() {
 
   const signals = [
     { code: 'Signal 1', meaning: 'Officer need help', category: 'Emergency', description: 'Officer requires immediate assistance' },
-    { code: 'Signal 2', meaning: 'Intoxicated Person', category: 'Criminal', description: 'Person under influence' },
+    { code: 'Signal 2', meaning: 'Intoxicated Person', category: 'Criminal', description: 'Person under influence', banned: true },
     { code: 'Signal 3', meaning: 'Hit and Run accident', category: 'Criminal', description: 'Vehicle fled accident scene' },
     { code: 'Signal 4', meaning: 'Auto Accident', category: 'Emergency', description: 'Motor vehicle accident' },
     { code: 'Signal 5', meaning: 'Murder / Homicide', category: 'Emergency', description: 'Homicide reported' },
@@ -257,7 +257,7 @@ export default function RadioCodesPage() {
           <p className="text-gray-300 leading-relaxed mb-6 text-lg">
             The following codes are banned from roleplay scenarios and should not be used:
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-red-500/10 rounded-xl p-6 border border-red-500/30 hover:bg-red-500/15 transition-colors">
               <h4 className="font-bold text-red-400 mb-2 text-lg">10-55 - Intoxicated Driver</h4>
               <p className="text-gray-300 text-sm">This code is prohibited in roleplay scenarios</p>
@@ -265,6 +265,10 @@ export default function RadioCodesPage() {
             <div className="bg-red-500/10 rounded-xl p-6 border border-red-500/30 hover:bg-red-500/15 transition-colors">
               <h4 className="font-bold text-red-400 mb-2 text-lg">10-64 - Sexual Assault</h4>
               <p className="text-gray-300 text-sm">This code is prohibited in roleplay scenarios</p>
+            </div>
+            <div className="bg-red-500/10 rounded-xl p-6 border border-red-500/30 hover:bg-red-500/15 transition-colors">
+              <h4 className="font-bold text-red-400 mb-2 text-lg">Signal 2 - Intoxicated Person</h4>
+              <p className="text-gray-300 text-sm">This signal is prohibited in roleplay scenarios</p>
             </div>
           </div>
         </div>
@@ -332,7 +336,7 @@ export default function RadioCodesPage() {
           </div>
           <div className="bg-gradient-to-br from-red-500/20 to-red-600/20 backdrop-blur-sm rounded-2xl p-6 border border-red-500/30 text-center hover:scale-105 transition-transform">
             <AlertTriangle className="w-8 h-8 text-red-400 mx-auto mb-3" />
-            <h3 className="text-3xl font-bold text-red-400 mb-2">2</h3>
+            <h3 className="text-3xl font-bold text-red-400 mb-2">3</h3>
             <p className="text-gray-300 text-sm font-medium">Banned</p>
           </div>
           <div className="bg-gradient-to-br from-purple-500/20 to-purple-600/20 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/30 text-center hover:scale-105 transition-transform">
