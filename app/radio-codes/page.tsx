@@ -81,7 +81,8 @@ export default function RadioCodesPage() {
     { code: 'Signal 20', meaning: 'Mentally Disturbed Person', category: 'Emergency', description: 'Person with mental health issues' },
     { code: 'Signal 25', meaning: 'Fire', category: 'Emergency', description: 'Fire reported' },
     { code: 'Signal 30', meaning: 'Shots Fired', category: 'Emergency', description: 'Gunshots reported' },
-    { code: 'Signal 32', meaning: 'Person with a Gun', category: 'Emergency', description: 'Subject armed with firearm' }
+    { code: 'Signal 32', meaning: 'Person with a firearm', category: 'Emergency', description: 'Subject armed with firearm' },
+    { code: 'Signal 100', meaning: 'Emergency Traffic', category: 'Emergency', description: 'Emergency traffic only - clear radio' }
   ]
 
   const codes = [
