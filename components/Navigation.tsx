@@ -3,12 +3,10 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useEffect } from 'react'
-import { Moon, Sun, Menu, X } from 'lucide-react'
-import { useTheme } from './ThemeProvider'
+import { Menu, X } from 'lucide-react'
 
 const Navigation = () => {
   const pathname = usePathname()
-  const { theme, setTheme } = useTheme()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
 
@@ -26,19 +24,13 @@ const Navigation = () => {
     { href: '/contact', label: 'Contact' },
   ]
 
-  const toggleTheme = () => {
-    if (mounted) {
-      setTheme(theme === 'dark' ? 'light' : 'dark')
-    }
-  }
-
   const closeMenu = () => {
     setIsMenuOpen(false)
   }
 
   if (!mounted) {
     return (
-      <nav className="fixed w-full z-50 bg-black/70 backdrop-blur-md text-white p-4 shadow-md">
+      <nav className="fixed w-full z-50 bg-black/70 backdrop-blur-md text-white p-4 shadow-md border-b border-white/20">
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="text-xl font-bold tracking-wide">Department Hub</div>
           <div className="hidden md:flex items-center space-x-6">
@@ -54,16 +46,16 @@ const Navigation = () => {
   }
 
   return (
-    <nav className="fixed w-full z-50 bg-black/70 dark:bg-black/90 backdrop-blur-md text-white p-4 shadow-md">
+    <nav className="fixed w-full z-50 bg-black/70 backdrop-blur-md text-white p-4 shadow-md border-b border-white/20">
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <Link 
-          href="/" 
-          className="text-xl font-bold tracking-wide hover:text-red-400 transition-colors duration-200"
+        <Link
+          href="/"
+          className="text-xl font-bold tracking-wide hover:text-[#ccfd7f] transition-colors duration-200"
           onClick={closeMenu}
         >
           Department Hub
         </Link>
-        
+
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
@@ -71,32 +63,18 @@ const Navigation = () => {
               key={item.href}
               href={item.href}
               className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
-                pathname === item.href 
-                  ? 'text-red-400 bg-white/10' 
-                  : 'text-white hover:text-red-400 hover:bg-white/5'
+                pathname === item.href
+                  ? 'text-[#ccfd7f] bg-white/10'
+                  : 'text-white hover:text-[#ccfd7f] hover:bg-white/5'
               }`}
             >
               {item.label}
             </Link>
           ))}
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-lg hover:bg-white/10 transition-colors duration-200 ml-2"
-            aria-label="Toggle theme"
-          >
-            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
         </div>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center space-x-2">
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-lg hover:bg-white/10 transition-colors duration-200"
-            aria-label="Toggle theme"
-          >
-            {theme === 'dark' ? <Sun size={20} /> : <Moon size={20} />}
-          </button>
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="p-2 rounded-lg hover:bg-white/10 transition-colors duration-200"
@@ -109,8 +87,8 @@ const Navigation = () => {
 
       {/* Mobile Navigation */}
       <div className={`md:hidden transition-all duration-300 ease-in-out ${
-        isMenuOpen 
-          ? 'max-h-96 opacity-100' 
+        isMenuOpen
+          ? 'max-h-96 opacity-100'
           : 'max-h-0 opacity-0 overflow-hidden'
       }`}>
         <div className="px-2 pt-2 pb-3 space-y-1 border-t border-white/20 mt-4">
@@ -120,8 +98,8 @@ const Navigation = () => {
               href={item.href}
               className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                 pathname === item.href
-                  ? 'text-red-400 bg-white/10'
-                  : 'text-white hover:text-red-400 hover:bg-white/5'
+                  ? 'text-[#ccfd7f] bg-white/10'
+                  : 'text-white hover:text-[#ccfd7f] hover:bg-white/5'
               }`}
               onClick={closeMenu}
             >

@@ -1,119 +1,100 @@
 'use client'
 
 import { useState } from 'react'
-import { ChevronDown, ChevronRight } from 'lucide-react'
-
-interface DepartmentProps {
-  title: string
-  description: string
-  division?: string
-  isOpen?: boolean
-  ranks: { name: string; isCommand: boolean }[]
-}
+import { ChevronDown, ChevronRight, Shield, Users, Car, Zap, Building2 } from 'lucide-react'
 
 export default function DepartmentsPage() {
-  const [departments, setDepartments] = useState<DepartmentProps[]>([
+  const [departments, setDepartments] = useState([
     {
       title: "Wisconsin State Patrol",
       description: "Statewide law enforcement, highway patrol, and specialized divisions.",
-      division: "High Speed Unit — Specializes in high-speed pursuit and traffic enforcement.",
+      division: "High Speed Unit",
+      divisionDescription: "Specializes in high-speed pursuit and traffic enforcement.",
+      isOpen: false,
+      color: "#18223c",
+      icon: Car,
       ranks: [
-        { name: "State Superintendent", isCommand: true },
-        { name: "Assistant Superintendent", isCommand: true },
+        { name: "Superintendent", isCommand: true },
         { name: "Deputy Superintendent", isCommand: true },
-        { name: "Colonel", isCommand: false },
-        { name: "Lieutenant Colonel", isCommand: false },
-        { name: "Major", isCommand: false },
+        { name: "Major", isCommand: true },
         { name: "Captain", isCommand: false },
         { name: "Lieutenant", isCommand: false },
         { name: "Sergeant", isCommand: false },
-        { name: "Corporal", isCommand: false },
-        { name: "Master Trooper", isCommand: false },
         { name: "Senior Trooper", isCommand: false },
-        { name: "State Trooper", isCommand: false },
-        { name: "Probationary Trooper", isCommand: false },
-        { name: "Cadet", isCommand: false }
+        { name: "Trooper", isCommand: false },
+        { name: "Probationary Trooper", isCommand: false }
       ]
     },
     {
       title: "Outagamie County Sheriff's Office",
       description: "County law enforcement, jail management, and support to local municipalities.",
-      division: "High Speed Unit (HSU) — Handles high-speed pursuits, traffic enforcement, and specialized patrols.",
+      division: "High Speed Unit (HSU)",
+      divisionDescription: "Handles high-speed pursuits, traffic enforcement, and specialized patrols.",
+      isOpen: false,
+      color: "#836d5a",
+      icon: Building2,
       ranks: [
         { name: "Sheriff", isCommand: true },
         { name: "Undersheriff", isCommand: true },
-        { name: "Assistant Sheriff", isCommand: true },
-        { name: "Chief Deputy", isCommand: false },
-        { name: "Captain", isCommand: false },
+        { name: "Captain", isCommand: true },
         { name: "Lieutenant", isCommand: false },
         { name: "Sergeant", isCommand: false },
-        { name: "Corporal", isCommand: false },
+        { name: "Deputy Sheriff", isCommand: false },
         { name: "Senior Deputy", isCommand: false },
-        { name: "Deputy First Class", isCommand: false },
         { name: "Deputy", isCommand: false },
-        { name: "Probationary Deputy", isCommand: false },
-        { name: "Recruit", isCommand: false }
+        { name: "Probationary Deputy", isCommand: false }
       ]
     },
     {
       title: "Fox Valley Metro Police Department",
       description: "Responsible for local law enforcement, patrols, and community safety in the Fox Valley area.",
-      division: "This department is a division of Wisconsin State Patrol & Outagamie County Sheriff's Office.",
+      division: "Specialized Division",
+      divisionDescription: "This department is a division of Wisconsin State Patrol & Outagamie County Sheriff's Office.",
+      isOpen: false,
+      color: "#1e90ff",
+      icon: Shield,
       ranks: [
         { name: "Chief of Police", isCommand: true },
-        { name: "Assistant Chief of Police", isCommand: true },
-        { name: "Dept. Chief of Police", isCommand: true },
-        { name: "Colonel", isCommand: false },
-        { name: "Lieutenant Colonel", isCommand: false },
-        { name: "Major", isCommand: false },
-        { name: "Shift Commander", isCommand: false },
-        { name: "Captain III", isCommand: false },
-        { name: "Lieutenant III", isCommand: false },
-        { name: "Sergeant Major", isCommand: false },
-        { name: "Master Sergeant", isCommand: false },
-        { name: "Captain I", isCommand: false },
-        { name: "Lieutenant II", isCommand: false },
-        { name: "Staff Sergeant", isCommand: false },
+        { name: "Deputy Chief", isCommand: true },
+        { name: "Captain", isCommand: true },
+        { name: "Lieutenant", isCommand: false },
         { name: "Sergeant", isCommand: false },
         { name: "Corporal", isCommand: false },
-        { name: "Lance Corporal", isCommand: false },
-        { name: "Officer First Class", isCommand: false },
-        { name: "Officer Second Class", isCommand: false },
-        { name: "Officer in Training", isCommand: false }
+        { name: "Senior Officer", isCommand: false },
+        { name: "Officer", isCommand: false },
+        { name: "Probationary Officer", isCommand: false }
       ]
     },
     {
       title: "Greenville Fire & Rescue",
       description: "Firefighting, emergency medical response, and rescue operations within Greenville.",
-      division: "GvEMS (Greenville Emergency Medical Services) — Provides advanced life support and medical response services.",
+      division: "GvEMS",
+      divisionDescription: "Greenville Emergency Medical Services — Provides advanced life support and medical response services.",
+      isOpen: false,
+      color: "#ff0000",
+      icon: Zap,
       ranks: [
-        { name: "District Overseer", isCommand: true },
         { name: "Fire Chief", isCommand: true },
-        { name: "Deputy Fire Chief", isCommand: true },
-        { name: "Chief of EMS", isCommand: false },
-        { name: "Assistant Fire Chief", isCommand: false },
-        { name: "Battalion Chief", isCommand: false },
-        { name: "District Chief", isCommand: false },
-        { name: "Shift Commander", isCommand: false },
-        { name: "Shift Supervisor", isCommand: false },
-        { name: "Shift Advisor", isCommand: false },
+        { name: "Deputy Chief", isCommand: true },
+        { name: "Battalion Chief", isCommand: true },
         { name: "Captain", isCommand: false },
         { name: "Lieutenant", isCommand: false },
         { name: "Engineer", isCommand: false },
-        { name: "Senior Firefighter/Paramedic", isCommand: false },
         { name: "Firefighter/Paramedic", isCommand: false },
         { name: "Firefighter/EMT", isCommand: false },
-        { name: "Probationary Firefighter", isCommand: false },
-        { name: "Recruit", isCommand: false }
+        { name: "Probationary Firefighter", isCommand: false }
       ]
     },
     {
       title: "Wisconsin Department of Transportation",
       description: "Traffic control, road maintenance, highway safety, and transportation infrastructure management.",
+      isOpen: false,
+      color: "#ffff00",
+      icon: Building2,
       ranks: [
         { name: "Operations Director", isCommand: true },
         { name: "Assist. Operations Director", isCommand: true },
-        { name: "Secretary", isCommand: true },
+        { name: "Secretary", isCommand: false },
         { name: "Assistant Secretary", isCommand: false },
         { name: "Operation Lead", isCommand: false },
         { name: "Technician Lead", isCommand: false },
@@ -128,196 +109,164 @@ export default function DepartmentsPage() {
     }
   ])
 
-  const toggleDepartment = (index: number) => {
-    setDepartments(prevDepartments => 
-      prevDepartments.map((dept, i) => 
+  const toggleDepartment = (index: number, e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    console.log('Toggling department:', index)
+    setDepartments(prevDepartments =>
+      prevDepartments.map((dept, i) =>
         i === index ? { ...dept, isOpen: !dept.isOpen } : dept
       )
     )
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 py-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen text-white py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       <div className="max-w-6xl mx-auto">
+        {/* Header Section */}
         <div className="text-center mb-20">
-          <h1 className="text-5xl font-bold text-white mb-6 tracking-tight">
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-tight">
             Departments Overview
           </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded-full"></div>
-          <p className="text-blue-200/80 text-lg mt-8 max-w-2xl mx-auto leading-relaxed">
+          <div className="w-24 h-1 bg-[#ccfd7f] mx-auto rounded-full"></div>
+          <p className="text-gray-300 text-lg mt-8 max-w-2xl mx-auto leading-relaxed">
             Explore the organizational structure and chain of command for each department
           </p>
         </div>
         
         <div className="space-y-8">
-          {departments.map((dept, index) => (
-            <div 
-              key={index} 
-              className="rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-[1.02]"
-              style={{
-                backgroundColor: dept.title === "Fox Valley Metro Police Department" ? "#1e90ff" :
-                                dept.title === "Outagamie County Sheriff's Office" ? "#836d5a" :
-                                dept.title === "Greenville Fire & Rescue" ? "#ff0000" :
-                                dept.title === "Wisconsin State Patrol" ? "#18223c" :
-                                dept.title === "Wisconsin Department of Transportation" ? "#ffff00" : "rgba(255,255,255,0.95)"
-              }}
-            >
+          {departments.map((dept, index) => {
+            const IconComponent = dept.icon
+            return (
               <div 
-                className="p-8 cursor-pointer group"
-                onClick={() => toggleDepartment(index)}
+                key={index} 
+                className="rounded-2xl shadow-xl overflow-hidden transition-all duration-300 hover:shadow-2xl  bg-white/10 backdrop-blur-sm border border-white/20"
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex-1">
-                <h2
-                  className="text-3xl font-bold mb-4 transition-colors duration-200"
-                  style={{
-                    color: dept.title === "Fox Valley Metro Police Department" ? "white" :
-                           dept.title === "Outagamie County Sheriff's Office" ? "white" :
-                           dept.title === "Greenville Fire & Rescue" ? "white" :
-                           dept.title === "Wisconsin State Patrol" ? "white" :
-                           dept.title === "Wisconsin Department of Transportation" ? "#1f2937" : "#1f2937"
-                  }}
+                <div 
+                  className="p-8 cursor-pointer group hover:bg-white/5 transition-all duration-300"
+                  onClick={(e) => toggleDepartment(index, e)}
                 >
-                  {dept.title}
-                </h2>
-                <p
-                  className="mb-4 text-lg leading-relaxed"
-                  style={{
-                    color: dept.title === "Fox Valley Metro Police Department" ? "rgba(255,255,255,0.9)" :
-                           dept.title === "Outagamie County Sheriff's Office" ? "rgba(255,255,255,0.9)" :
-                           dept.title === "Greenville Fire & Rescue" ? "rgba(255,255,255,0.9)" :
-                           dept.title === "Wisconsin State Patrol" ? "rgba(255,255,255,0.9)" :
-                           dept.title === "Wisconsin Department of Transportation" ? "#374151" : "#4b5563"
-                  }}
-                >
-                  {dept.description}
-                </p>
-                    {dept.division && (
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-6">
                       <div 
-                        className="rounded-lg p-4 border-l-4"
-                        style={{
-                          backgroundColor: dept.title === "Fox Valley Metro Police Department" ? "rgba(255,255,255,0.2)" :
-                                          dept.title === "Outagamie County Sheriff's Office" ? "rgba(255,255,255,0.2)" :
-                                          dept.title === "Greenville Fire & Rescue" ? "rgba(255,255,255,0.2)" :
-                                          dept.title === "Wisconsin State Patrol" ? "rgba(255,255,255,0.2)" :
-                                          dept.title === "Wisconsin Department of Transportation" ? "rgba(0,0,0,0.1)" : "#f9fafb",
-                          borderLeftColor: dept.title === "Fox Valley Metro Police Department" ? "white" :
-                                         dept.title === "Outagamie County Sheriff's Office" ? "white" :
-                                         dept.title === "Greenville Fire & Rescue" ? "white" :
-                                         dept.title === "Wisconsin State Patrol" ? "white" :
-                                         dept.title === "Wisconsin Department of Transportation" ? "#1f2937" : "#3b82f6"
-                        }}
+                        className="w-18 h-18 rounded-2xl flex items-center justify-center shadow-lg transition-transform duration-300 "
+                        style={{ backgroundColor: `${dept.color}20` }}
                       >
-                        <p 
-                          className="text-sm font-semibold mb-1"
-                          style={{
-                            color: dept.title === "Fox Valley Metro Police Department" ? "white" :
-                                   dept.title === "Outagamie County Sheriff's Office" ? "white" :
-                                   dept.title === "Greenville Fire & Rescue" ? "white" :
-                                   dept.title === "Wisconsin State Patrol" ? "white" : "#374151"
-                          }}
-                        >
-                          Specialized Division
-                        </p>
-                        <p 
-                          style={{
-                            color: dept.title === "Fox Valley Metro Police Department" ? "rgba(255,255,255,0.9)" :
-                                   dept.title === "Outagamie County Sheriff's Office" ? "rgba(255,255,255,0.9)" :
-                                   dept.title === "Greenville Fire & Rescue" ? "rgba(255,255,255,0.9)" :
-                                   dept.title === "Wisconsin State Patrol" ? "rgba(255,255,255,0.9)" : "#4b5563"
-                          }}
-                        >
-                          {dept.division}
-                        </p>
+                        <IconComponent className="w-10 h-10" style={{ color: dept.color }} />
                       </div>
-                    )}
-                  </div>
-                  <div 
-                    className="ml-8 transition-all duration-200 transform group-hover:scale-110"
-                    style={{
-                      color: dept.title === "Fox Valley Metro Police Department" ? "rgba(255,255,255,0.8)" :
-                             dept.title === "Outagamie County Sheriff's Office" ? "rgba(255,255,255,0.8)" :
-                             dept.title === "Greenville Fire & Rescue" ? "rgba(255,255,255,0.8)" :
-                             dept.title === "Wisconsin State Patrol" ? "rgba(255,255,255,0.8)" : "#9ca3af"
-                    }}
-                  >
-                    {dept.isOpen ? <ChevronDown size={28} /> : <ChevronRight size={28} />}
+                      <div className="flex-1">
+                        <h2 className="text-3xl font-bold text-white mb-3 group-hover:text-[#ccfd7f] transition-colors duration-300">
+                          {dept.title}
+                        </h2>
+                        <p className="text-gray-300 text-lg leading-relaxed mb-4">
+                          {dept.description}
+                        </p>
+                        {dept.division && (
+                          <div className="space-y-2">
+                            <div 
+                              className="inline-flex items-center px-4 py-2 rounded-xl border"
+                              style={{
+                                backgroundColor: `${dept.color}20`,
+                                borderColor: `${dept.color}40`
+                              }}
+                            >
+                              <span 
+                                className="text-sm font-semibold"
+                                style={{ color: dept.color }}
+                              >
+                                {dept.division}
+                              </span>
+                            </div>
+                            {dept.divisionDescription && (
+                              <p className="text-gray-400 text-sm">
+                                {dept.divisionDescription}
+                              </p>
+                            )}
+                          </div>
+                        )}
+                      </div>
+                    </div>
+                    <div 
+                      className={`ml-8 transition-all duration-300 transform  ${dept.isOpen ? 'rotate-180' : ''}`}
+                      style={{ color: dept.color }}
+                    >
+                      <ChevronDown size={32} />
+                    </div>
                   </div>
                 </div>
-              </div>
-              
-              {dept.isOpen && (
-                <div 
-                  className="px-8 pb-8 border-t border-gray-200 transition-all duration-500 ease-in-out"
-                  style={{
-                    backgroundColor: dept.title === "Fox Valley Metro Police Department" ? "#1e90ff" :
-                                    dept.title === "Outagamie County Sheriff's Office" ? "#836d5a" :
-                                    dept.title === "Greenville Fire & Rescue" ? "#ff0000" :
-                                    dept.title === "Wisconsin State Patrol" ? "#18223c" :
-                                    dept.title === "Wisconsin Department of Transportation" ? "#ffff00" : "white"
-                  }}
-                >
-                  <div className="pt-6">
-                    <h3 className="font-bold text-2xl mb-8 text-white">
-                      Chain of Command
-                    </h3>
-                    <div className="space-y-3">
-                      {dept.ranks.map((rank, rankIndex) => (
-                        <div 
-                          key={rankIndex}
-                          className={`p-4 rounded-lg border ${
-                            rank.isCommand 
-                              ? 'bg-white/20 border-white/30' 
-                              : 'bg-white/10 border-white/20'
-                          }`}
-                        >
-                          <div className="flex items-center justify-between">
-                            <div className="flex items-center">
-                              <div 
-                                className="w-3 h-3 rounded-full mr-4"
-                                style={{
-                                  backgroundColor: rank.isCommand ? "white" : "rgba(255,255,255,0.7)"
-                                }}
-                              ></div>
-                              <div>
-                                <span className={`font-semibold text-white ${rank.isCommand ? 'text-lg' : 'text-base'}`}>
-                                  {rank.name}
-                                </span>
+
+                {dept.isOpen && (
+                  <div className="px-8 pb-8 border-t border-white/20 transition-all duration-500 ease-in-out bg-white/5 animate-in slide-in-from-top-2">
+                    <div className="pt-6">
+                      <h3 className="font-bold text-2xl mb-8 flex items-center text-white">
+                        <div className="w-3 h-3 rounded-full bg-[#ccfd7f] mr-4 shadow-lg animate-pulse"></div>
+                        Chain of Command
+                        <div className="ml-4 h-px bg-[#ccfd7f]/60 flex-1"></div>
+                      </h3>
+                      <div className="space-y-4">
+                        {dept.ranks.map((rank, rankIndex) => (
+                          <div
+                            key={rankIndex}
+                            className={`group relative overflow-hidden rounded-xl transition-all duration-300  hover:shadow-lg ${
+                              rank.isCommand
+                                ? 'bg-white/10 shadow-lg border border-white/20 backdrop-blur-sm'
+                                : 'bg-white/5 hover:bg-white/10 border border-white/10 backdrop-blur-sm'
+                            }`}
+                          >
+                            <div className="relative px-6 py-4">
+                              <div className="flex items-center justify-between">
+                                <div className="flex items-center">
+                                  <div className="relative">
+                                    <div
+                                      className={`w-4 h-4 rounded-full mr-5 flex-shrink-0 shadow-md ${
+                                        rank.isCommand ? 'ring-2 ring-[#ccfd7f]/50' : ''
+                                      }`}
+                                      style={{
+                                        backgroundColor: rank.isCommand ? "#ccfd7f" : "rgba(255,255,255,0.8)"
+                                      }}
+                                    ></div>
+                                    {rank.isCommand && (
+                                      <div className="absolute -top-1 -right-1 w-2 h-2 rounded-full shadow-sm bg-[#ccfd7f]"></div>
+                                    )}
+                                  </div>
+
+                                  <div className="flex flex-col">
+                                    <span className={`font-semibold text-white ${rank.isCommand ? 'text-xl' : 'text-lg'} tracking-wide`}>
+                                      {rank.name}
+                                    </span>
+                                    {rank.isCommand && (
+                                      <span className="text-sm text-gray-300 mt-1">
+                                        Leadership Position
+                                      </span>
+                                    )}
+                                  </div>
+                                </div>
+
                                 {rank.isCommand && (
-                                  <div className="text-xs text-white/80 mt-1">
-                                    Leadership Position
+                                  <div className="flex items-center">
+                                    <span className="px-3 py-1.5 bg-[#ccfd7f]/20 rounded-full text-xs font-bold uppercase tracking-wider shadow-md backdrop-blur-sm text-[#ccfd7f]">
+                                      Leadership
+                                    </span>
                                   </div>
                                 )}
                               </div>
                             </div>
-                            
-                            {rank.isCommand && (
-                              <span className="px-2 py-1 bg-white/20 rounded text-xs font-bold text-white">
-                                LEADERSHIP
-                              </span>
-                            )}
                           </div>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
-              )}
-            </div>
-          ))}
+                )}
+              </div>
+            )
+          })}
         </div>
-        
-        <div className="mt-20 text-center">
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-            <p className="text-blue-200/90 text-lg font-medium">
-              Click on any department to view their complete chain of command structure
-            </p>
-            <div className="mt-4 flex justify-center space-x-2">
-              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-              <div className="w-2 h-2 bg-blue-400 rounded-full"></div>
-            </div>
-          </div>
+
+        {/* Instructions */}
+        <div className="mt-16 text-center">
+          <p className="text-gray-400 text-lg">
+            Click on any department to view their complete chain of command structure
+          </p>
         </div>
       </div>
     </div>

@@ -1,254 +1,253 @@
 'use client'
 
-import React, { useState } from 'react'
-import { Copy, Check, Search, X } from 'lucide-react'
-import { penalCodes } from '@/data/penalCodes'
+import { useState } from 'react'
+import { Search, Copy, Filter, AlertTriangle, DollarSign, Clock, Car, Scale, Eye, EyeOff } from 'lucide-react'
+import { penalCodes } from '../../data/penalCodes'
 
 export default function PenalCodesPage() {
-  const [copiedCode, setCopiedCode] = useState<string | null>(null)
   const [searchTerm, setSearchTerm] = useState('')
+  const [selectedType, setSelectedType] = useState<string>('All')
+  const [showImpoundOnly, setShowImpoundOnly] = useState(false)
+  const [copiedCode, setCopiedCode] = useState<string | null>(null)
 
   const getTypeColor = (type: string) => {
     switch (type) {
-      case 'Citation':
-        return 'text-blue-600 bg-blue-50'
-      case 'Misdemeanor':
-        return 'text-orange-600 bg-orange-50'
-      case 'Felony':
-        return 'text-red-600 bg-red-50'
-      default:
-        return 'text-gray-600 bg-gray-50'
+      case 'Citation': return 'bg-blue-500/20 text-blue-400 border-blue-500/30'
+      case 'Misdemeanor': return 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30'
+      case 'Felony': return 'bg-red-500/20 text-red-400 border-red-500/30'
+      default: return 'bg-gray-500/20 text-gray-400 border-gray-500/30'
     }
   }
 
-  const copyPenalCode = async (code: any) => {
-    // Extract numeric value from fine (remove $ and any non-numeric characters except commas)
-    const fineValue = code.fine.replace(/[$|]/g, '').split(' ')[0].replace(/,/g, '')
-    const ticketCommand = `/ticket user: offenses: ${code.code} fine: ${fineValue}`
-    
+  const copyToClipboard = async (code: string) => {
     try {
-      await navigator.clipboard.writeText(ticketCommand)
-      setCopiedCode(code.code)
+      await navigator.clipboard.writeText(code)
+      setCopiedCode(code)
       setTimeout(() => setCopiedCode(null), 2000)
     } catch (err) {
       console.error('Failed to copy: ', err)
     }
   }
 
-  // Filter penal codes based on search term
-  const filteredPenalCodes = penalCodes.map(section => ({
-    ...section,
-    codes: section.codes.filter(code => 
-      code.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      code.meaning.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      code.type.toLowerCase().includes(searchTerm.toLowerCase())
-    )
-  })).filter(section => section.codes.length > 0)
+  const filteredCodes = penalCodes.flatMap(section => 
+    section.codes.filter(code => {
+      const matchesSearch = code.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           code.meaning.toLowerCase().includes(searchTerm.toLowerCase())
+      const matchesType = selectedType === 'All' || code.type === selectedType
+      const matchesImpound = !showImpoundOnly || code.impoundment === 'Y'
+      return matchesSearch && matchesType && matchesImpound
+    }).map(code => ({ ...code, section: section.title }))
+  )
 
-  const clearSearch = () => {
-    setSearchTerm('')
-  }
+  const typeOptions = ['All', 'Citation', 'Misdemeanor', 'Felony']
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 py-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen text-white py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
+        {/* Header Section */}
+        <div className="text-center mb-12">
           <h1 className="text-5xl font-bold text-white mb-6 tracking-tight">
-            Greenville, Wisconsin State Legislation Penal Codes
+            Penal Codes
           </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded-full"></div>
-          <p className="text-blue-200/80 text-lg mt-8 max-w-3xl mx-auto leading-relaxed">
-            Comprehensive reference for all law enforcement penal codes, fines, and penalties
+          <div className="w-24 h-1 bg-[#ccfd7f] mx-auto rounded-full"></div>
+          <p className="text-gray-300 text-lg mt-8 max-w-2xl mx-auto leading-relaxed">
+            Comprehensive database of Greenville Roleplay Operations penal codes and violations
           </p>
         </div>
-        
-        {/* Search Bar */}
-        <div className="mb-8 bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-          <div className="relative">
-            <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-              <Search className="h-5 w-5 text-white/60" />
+
+        {/* Search and Filter Controls */}
+        <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            {/* Search Input */}
+            <div className="md:col-span-2">
+              <div className="relative">
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-6 h-6" />
+                <input
+                  type="text"
+                  placeholder="Search codes or descriptions..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-12 pr-6 py-4 bg-white/10 border border-white/20 rounded-2xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#ccfd7f]/50 focus:border-[#ccfd7f]/50 text-lg"
+                />
+              </div>
             </div>
-            <input
-              type="text"
-              placeholder="Search penal codes, violations, or types..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-12 pr-12 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-blue-500/50 focus:border-blue-500/50 backdrop-blur-sm"
-            />
+
+            {/* Type Filter */}
+            <div>
+              <select
+                value={selectedType}
+                onChange={(e) => setSelectedType(e.target.value)}
+                className="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl text-white focus:outline-none focus:ring-2 focus:ring-[#ccfd7f]/50 focus:border-[#ccfd7f]/50 text-lg"
+              >
+                {typeOptions.map(type => (
+                  <option key={type} value={type} className="bg-slate-800 text-white">
+                    {type}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            {/* Impound Filter */}
+            <div className="flex items-center">
+              <button
+                onClick={() => setShowImpoundOnly(!showImpoundOnly)}
+                className={`flex items-center space-x-3 px-6 py-4 rounded-2xl border transition-all duration-300 text-lg ${
+                  showImpoundOnly 
+                    ? 'bg-[#ccfd7f]/20 border-[#ccfd7f]/50 text-[#ccfd7f]' 
+                    : 'bg-white/10 border-white/20 text-gray-300 hover:bg-white/20'
+                }`}
+              >
+                {showImpoundOnly ? <Eye className="w-6 h-6" /> : <EyeOff className="w-6 h-6" />}
+                <span className="font-medium">Impound Only</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Results Counter */}
+          <div className="mt-6 flex items-center justify-between">
+            <p className="text-gray-400 text-lg">
+              Showing {filteredCodes.length} of {penalCodes.flatMap(s => s.codes).length} codes
+            </p>
             {searchTerm && (
               <button
-                onClick={clearSearch}
-                className="absolute inset-y-0 right-0 pr-4 flex items-center hover:bg-white/10 rounded-r-xl transition-colors duration-200"
+                onClick={() => setSearchTerm('')}
+                className="text-[#ccfd7f] hover:text-[#b8e85c] text-lg font-medium transition-colors"
               >
-                <X className="h-5 w-5 text-white/60 hover:text-white" />
+                Clear Search
               </button>
             )}
           </div>
-          {searchTerm && (
-            <div className="mt-3 text-sm text-blue-200/80">
-              Found {filteredPenalCodes.reduce((total, section) => total + section.codes.length, 0)} results
-            </div>
-          )}
         </div>
 
-        <div className="mb-12 bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-          <div className="flex items-center">
-            <div className="p-3 bg-blue-500/20 rounded-xl mr-4">
-              <Copy className="text-blue-400" size={24} />
-            </div>
-            <div>
-              <h3 className="font-bold text-white text-xl mb-2">Quick Copy Feature</h3>
-              <p className="text-blue-200/90 text-base">
-                Click the copy button next to any penal code to copy the ticket command: 
-                <code className="bg-white/10 px-3 py-1 rounded-lg text-sm ml-2 font-mono text-blue-300">
-                  /ticket user: offenses: [code] fine: [amount]
-                </code>
-              </p>
-            </div>
+        {/* Quick Stats */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
+            <Scale className="w-8 h-8 text-[#ccfd7f] mx-auto mb-3" />
+            <h3 className="text-2xl font-bold text-white mb-1">{penalCodes.length}</h3>
+            <p className="text-gray-300 text-sm">Sections</p>
+          </div>
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
+            <AlertTriangle className="w-8 h-8 text-[#ccfd7f] mx-auto mb-3" />
+            <h3 className="text-2xl font-bold text-white mb-1">{penalCodes.flatMap(s => s.codes).length}</h3>
+            <p className="text-gray-300 text-sm">Total Codes</p>
+          </div>
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
+            <Car className="w-8 h-8 text-[#ccfd7f] mx-auto mb-3" />
+            <h3 className="text-2xl font-bold text-white mb-1">{penalCodes.flatMap(s => s.codes).filter(c => c.impoundment === 'Y').length}</h3>
+            <p className="text-gray-300 text-sm">Impoundable</p>
+          </div>
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 text-center">
+            <DollarSign className="w-8 h-8 text-[#ccfd7f] mx-auto mb-3" />
+            <h3 className="text-2xl font-bold text-white mb-1">$50-$10K</h3>
+            <p className="text-gray-300 text-sm">Fine Range</p>
           </div>
         </div>
 
-        {filteredPenalCodes.length > 0 ? (
-          <div className="bg-white/10 backdrop-blur-sm shadow-2xl rounded-2xl border border-white/20 overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="min-w-full">
-                <thead>
-                  <tr className="bg-gradient-to-r from-red-600/90 to-red-700/90 text-white backdrop-blur-sm">
-                    <th className="px-8 py-6 text-left text-sm font-bold uppercase tracking-wider">Penal Code</th>
-                    <th className="px-8 py-6 text-left text-sm font-bold uppercase tracking-wider">Violation</th>
-                    <th className="px-8 py-6 text-left text-sm font-bold uppercase tracking-wider">Type</th>
-                    <th className="px-8 py-6 text-left text-sm font-bold uppercase tracking-wider">Fine</th>
-                    <th className="px-8 py-6 text-left text-sm font-bold uppercase tracking-wider">Jail Time</th>
-                    <th className="px-8 py-6 text-center text-sm font-bold uppercase tracking-wider">Impound</th>
-                    <th className="px-8 py-6 text-center text-sm font-bold uppercase tracking-wider">Copy</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-white/10">
-                  {filteredPenalCodes.map((section, sectionIndex) => (
-                    <React.Fragment key={sectionIndex}>
-                      <tr className="bg-white/5 backdrop-blur-sm">
-                        <td colSpan={7} className="px-8 py-6">
-                          <div className="flex items-center">
-                            <div className="w-3 h-3 bg-red-500 rounded-full mr-4"></div>
-                            <h3 className="font-bold text-white text-xl">{section.title}</h3>
-                          </div>
-                        </td>
-                      </tr>
-                      {section.codes.map((code, codeIndex) => (
-                        <tr 
-                          key={`${sectionIndex}-${codeIndex}`} 
-                          className="hover:bg-white/10 transition-all duration-200 group backdrop-blur-sm"
+        {/* Codes Table */}
+        <div className="bg-white/10 backdrop-blur-sm rounded-3xl border border-white/20 overflow-hidden">
+          <div className="overflow-x-auto">
+            <table className="w-full">
+              <thead className="bg-white/5">
+                <tr>
+                  <th className="px-8 py-6 text-left text-lg font-semibold text-white">Code</th>
+                  <th className="px-8 py-6 text-left text-lg font-semibold text-white">Description</th>
+                  <th className="px-8 py-6 text-center text-lg font-semibold text-white">Type</th>
+                  <th className="px-8 py-6 text-center text-lg font-semibold text-white">Fine</th>
+                  <th className="px-8 py-6 text-center text-lg font-semibold text-white">Impound</th>
+                  <th className="px-8 py-6 text-center text-lg font-semibold text-white">Section</th>
+                  <th className="px-8 py-6 text-center text-lg font-semibold text-white">Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredCodes.length > 0 ? (
+                  filteredCodes.map((code, index) => (
+                    <tr key={index} className="border-t border-white/10 hover:bg-white/5 transition-colors">
+                      <td className="px-8 py-6">
+                        <code className="text-[#ccfd7f] font-mono text-lg bg-white/10 px-4 py-2 rounded-lg">
+                          {code.code}
+                        </code>
+                      </td>
+                      <td className="px-8 py-6 text-gray-300 text-lg max-w-md">
+                        {code.meaning}
+                      </td>
+                      <td className="px-8 py-6 text-center">
+                        <span className={`inline-flex items-center px-4 py-2 rounded-full text-sm font-medium border ${getTypeColor(code.type)}`}>
+                          {code.type}
+                        </span>
+                      </td>
+                      <td className="px-8 py-6 text-center text-gray-300 text-lg">
+                        <div className="flex items-center justify-center space-x-2">
+                          <DollarSign className="w-5 h-5 text-green-400" />
+                          <span>{code.fine}</span>
+                        </div>
+                      </td>
+                      <td className="px-8 py-6 text-center">
+                        {code.impoundment === 'Y' ? (
+                          <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-red-500/20 text-red-400 border border-red-500/30">
+                            Yes
+                          </span>
+                        ) : (
+                          <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium bg-gray-500/20 text-gray-400 border border-gray-500/30">
+                            No
+                          </span>
+                        )}
+                      </td>
+                      <td className="px-8 py-6 text-center text-gray-400 text-sm">
+                        {code.section}
+                      </td>
+                      <td className="px-8 py-6 text-center">
+                        <button
+                          onClick={() => copyToClipboard(code.code)}
+                          className={`inline-flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                            copiedCode === code.code
+                              ? 'bg-green-500/20 text-green-400 border border-green-500/30'
+                              : 'bg-white/10 text-gray-300 border border-white/20 hover:bg-white/20'
+                          }`}
                         >
-                          <td className="px-8 py-6">
-                            <div className="flex items-center">
-                              <div className="w-2 h-2 bg-white/60 rounded-full mr-3 group-hover:bg-blue-400 transition-colors duration-200"></div>
-                              <span className="font-mono text-sm text-white font-semibold">{code.code}</span>
-                            </div>
-                          </td>
-                          <td className="px-8 py-6">
-                            <p className="text-sm leading-relaxed text-white/90">{code.meaning}</p>
-                          </td>
-                          <td className="px-8 py-6">
-                            <span className={`inline-flex items-center px-4 py-2 rounded-full text-xs font-bold backdrop-blur-sm ${
-                              code.type === 'Citation' ? 'text-blue-300 bg-blue-500/20 border border-blue-400/30' :
-                              code.type === 'Misdemeanor' ? 'text-orange-300 bg-orange-500/20 border border-orange-400/30' :
-                              code.type === 'Felony' ? 'text-red-300 bg-red-500/20 border border-red-400/30' :
-                              'text-gray-300 bg-gray-500/20 border border-gray-400/30'
-                            }`}>
-                              {code.type}
-                            </span>
-                          </td>
-                          <td className="px-8 py-6">
-                            <div className="flex items-center">
-                              <svg className="w-4 h-4 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-                              </svg>
-                              <span className="text-sm font-semibold text-white">
-                                {code.fine.includes('|') ? code.fine.split(' | ')[0] : code.fine}
-                              </span>
-                            </div>
-                          </td>
-                          <td className="px-8 py-6">
-                            <div className="flex items-center">
-                              <svg className="w-4 h-4 text-orange-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
-                              </svg>
-                              <span className="text-sm font-semibold text-white">
-                                {code.fine.includes('|') ? code.fine.split(' | ')[1] : '-'}
-                              </span>
-                            </div>
-                          </td>
-                          <td className="px-8 py-6 text-center">
-                            <div className="flex justify-center">
-                              <span className={`inline-flex items-center justify-center w-10 h-10 rounded-full text-sm font-bold shadow-md backdrop-blur-sm ${
-                                code.impoundment === 'Y' 
-                                  ? 'bg-red-500/20 text-red-300 border-2 border-red-400/30' 
-                                  : 'bg-green-500/20 text-green-300 border-2 border-green-400/30'
-                              }`}>
-                                {code.impoundment}
-                              </span>
-                            </div>
-                          </td>
-                          <td className="px-8 py-6 text-center">
-                            <button
-                              onClick={() => copyPenalCode(code)}
-                              className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-white/10 hover:bg-white/20 transition-all duration-200 group hover:scale-110 shadow-md hover:shadow-lg backdrop-blur-sm border border-white/20"
-                              title={`Copy ticket command for ${code.code}`}
-                            >
-                              {copiedCode === code.code ? (
-                                <Check size={20} className="text-green-400" />
-                              ) : (
-                                <Copy size={20} className="text-white/70 group-hover:text-white" />
-                              )}
-                            </button>
-                          </td>
-                        </tr>
-                      ))}
-                    </React.Fragment>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+                          <Copy className="w-4 h-4" />
+                          <span>{copiedCode === code.code ? 'Copied!' : 'Copy'}</span>
+                        </button>
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <tr>
+                    <td colSpan={7} className="px-8 py-16 text-center text-gray-400">
+                      <div className="flex flex-col items-center space-y-4">
+                        <Search className="w-16 h-16 text-gray-500" />
+                        <p className="text-2xl font-medium">No codes found</p>
+                        <p className="text-lg">Try adjusting your search terms or filters</p>
+                      </div>
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
           </div>
-        ) : (
-          <div className="bg-white/10 backdrop-blur-sm shadow-2xl rounded-2xl border border-white/20 p-12 text-center">
-            <div className="p-4 bg-red-500/20 rounded-xl w-fit mx-auto mb-6">
-              <Search className="w-8 h-8 text-red-400" />
-            </div>
-            <h3 className="text-2xl font-bold text-white mb-4">No Results Found</h3>
-            <p className="text-blue-200/80 text-lg mb-6">
-              No penal codes match your search for "<span className="text-white font-semibold">{searchTerm}</span>"
-            </p>
-            <button
-              onClick={clearSearch}
-              className="bg-white/10 hover:bg-white/20 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-200 border border-white/20 hover:border-white/30"
-            >
-              Clear Search
-            </button>
-          </div>
-        )}
-        
-        <div className="mt-16 grid md:grid-cols-3 gap-8">
-          <div className="bg-white/95 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
-            <div className="flex items-center mb-4">
-              <div className="w-4 h-4 bg-blue-500 rounded-full mr-3"></div>
-              <h3 className="font-bold text-blue-600 text-lg">Citation</h3>
-            </div>
-            <p className="text-gray-600 leading-relaxed">Minor violations typically resolved with fines</p>
-          </div>
-          <div className="bg-white/95 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
-            <div className="flex items-center mb-4">
-              <div className="w-4 h-4 bg-orange-500 rounded-full mr-3"></div>
-              <h3 className="font-bold text-orange-600 text-lg">Misdemeanor</h3>
-            </div>
-            <p className="text-gray-600 leading-relaxed">Moderate offenses with fines and potential jail time</p>
-          </div>
-          <div className="bg-white/95 backdrop-blur-sm p-8 rounded-2xl shadow-xl border border-white/20 hover:shadow-2xl transition-all duration-300 hover:scale-[1.02]">
-            <div className="flex items-center mb-4">
-              <div className="w-4 h-4 bg-red-500 rounded-full mr-3"></div>
-              <h3 className="font-bold text-red-600 text-lg">Felony</h3>
-            </div>
-            <p className="text-gray-600 leading-relaxed">Serious crimes with significant penalties</p>
+        </div>
+
+        {/* Quick Copy Section */}
+        <div className="mt-12 bg-white/10 backdrop-blur-sm rounded-3xl p-8 border border-white/20">
+          <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
+            <div className="w-4 h-4 rounded-full bg-[#ccfd7f] mr-4 shadow-lg"></div>
+            Quick Copy Common Codes
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {[
+              'GV § 346.57(5)',
+              'GV § 346.63(1)', 
+              'GV § 346.10',
+              'GV § 343.05'
+            ].map((code, index) => (
+              <button
+                key={index}
+                onClick={() => copyToClipboard(code)}
+                className="flex items-center justify-center space-x-3 px-6 py-4 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl text-lg font-medium text-gray-300 hover:text-white transition-all duration-300"
+              >
+                <Copy className="w-5 h-5" />
+                <span>{code}</span>
+              </button>
+            ))}
           </div>
         </div>
       </div>

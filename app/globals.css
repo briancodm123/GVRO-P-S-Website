@@ -31,3 +31,19 @@ body {
     text-wrap: balance;
   }
 }
+
+/* Prevent unwanted zooming on scroll */
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent zoom on double tap for mobile */
+* {
+  touch-action: manipulation;
+}

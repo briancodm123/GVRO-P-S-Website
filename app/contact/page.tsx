@@ -1,97 +1,167 @@
 'use client'
 
-import { Clock, Mail, ArrowLeft, MessageCircle } from 'lucide-react'
-import Link from 'next/link'
+import { Mail, MessageCircle, Clock, Users, Phone, MapPin } from 'lucide-react'
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 py-16 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-16">
-          <div className="p-6 bg-white/10 backdrop-blur-sm rounded-2xl w-fit mx-auto mb-8 border border-white/20">
-            <Mail className="w-16 h-16 text-white mx-auto" />
-          </div>
-          
+    <div className="min-h-screen text-white py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
+      <div className="max-w-6xl mx-auto">
+        {/* Header Section */}
+        <div className="text-center mb-20">
           <h1 className="text-5xl font-bold text-white mb-6 tracking-tight">
             Contact Us
           </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto rounded-full mb-8"></div>
-          <p className="text-blue-200/80 text-lg mt-8 max-w-2xl mx-auto leading-relaxed">
-            Get in touch with our team for questions, support, or feedback
+          <div className="w-24 h-1 bg-[#ccfd7f] mx-auto rounded-full"></div>
+          <p className="text-gray-300 text-lg mt-8 max-w-2xl mx-auto leading-relaxed">
+            Get in touch with our team and join our community
           </p>
         </div>
 
-        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-12 border border-white/20 text-center">
-          <div className="p-6 bg-yellow-500/20 rounded-xl w-fit mx-auto mb-8">
-            <Clock className="w-12 h-12 text-yellow-400" />
-          </div>
-          
-          <h2 className="text-3xl font-bold text-white mb-6">Coming Soon</h2>
-          <p className="text-blue-200/90 text-lg mb-8 leading-relaxed max-w-2xl mx-auto">
-            We're currently developing a comprehensive contact system to better serve our community. 
-            This will include direct messaging, support tickets, and streamlined communication channels 
-            for all your needs.
-          </p>
-          
-          <div className="bg-white/5 rounded-xl p-6 border border-white/10 mb-8">
-            <h3 className="text-xl font-semibold text-white mb-4">What to Expect</h3>
-            <div className="grid md:grid-cols-2 gap-4 text-left">
-              <div className="flex items-start">
-                <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                <span className="text-blue-200/90">Direct messaging system</span>
-              </div>
-              <div className="flex items-start">
-                <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                <span className="text-blue-200/90">Support ticket management</span>
-              </div>
-              <div className="flex items-start">
-                <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                <span className="text-blue-200/90">Faster response times</span>
-              </div>
-              <div className="flex items-start">
-                <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
-                <span className="text-blue-200/90">Priority support channels</span>
-              </div>
+        {/* Coming Soon Notice */}
+        <div className="mb-12">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-12 border border-white/20 text-center">
+            <div className="w-24 h-24 bg-[#ccfd7f] rounded-full flex items-center justify-center mx-auto mb-8">
+              <Clock className="w-12 h-12 text-slate-900" />
             </div>
-          </div>
-
-          <div className="bg-white/5 rounded-xl p-6 border border-white/10 mb-8">
-            <h3 className="text-xl font-semibold text-white mb-4">Current Contact Methods</h3>
-            <div className="space-y-4">
-              <div className="flex items-center justify-center gap-3">
-                <MessageCircle className="w-5 h-5 text-blue-400" />
-                <span className="text-blue-200/90">Discord Server: Primary communication</span>
-              </div>
-              <div className="flex items-center justify-center gap-3">
-                <Mail className="w-5 h-5 text-blue-400" />
-                <span className="text-blue-200/90">Email: gvropublicsafetyservices@gmail.com</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
-              href="/"
-              className="bg-white/10 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200 border border-white/20 hover:border-white/30 flex items-center justify-center gap-3"
-            >
-              <ArrowLeft size={20} />
-              Back to Home
-            </Link>
-            <a
-              href="https://discord.gg/Xgw7JDQ2HY"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white font-semibold px-8 py-4 rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl hover:scale-105"
-            >
-              Join Discord for Support
-            </a>
+            <h2 className="text-4xl font-bold text-white mb-6">Coming Soon</h2>
+            <p className="text-gray-300 text-xl leading-relaxed max-w-2xl mx-auto">
+              We're working on an advanced contact system that will make it easier than ever to reach our team and get the support you need.
+            </p>
           </div>
         </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-blue-200/60 text-sm">
-            For immediate assistance, please join our Discord server
-          </p>
+        {/* Current Contact Methods */}
+        <div className="mb-16">
+          <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-12 border border-white/20">
+            <h2 className="text-3xl font-bold text-white mb-8 flex items-center">
+              <div className="w-4 h-4 rounded-full bg-[#ccfd7f] mr-6 shadow-lg"></div>
+              Current Contact Methods
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="flex items-center space-x-6 p-8 bg-white/5 rounded-2xl hover:bg-white/10 transition-all duration-300">
+                <div className="w-16 h-16 bg-[#ccfd7f] rounded-2xl flex items-center justify-center">
+                  <MessageCircle className="w-8 h-8 text-slate-900" />
+                </div>
+                <div>
+                  <h3 className="text-white font-semibold text-2xl">Discord Server</h3>
+                  <p className="text-gray-300 text-lg">Join our community Discord for real-time support</p>
+                  <a 
+                    href="https://discord.gg/Xgw7JDQ2HY" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-[#ccfd7f] font-medium hover:underline text-lg"
+                  >
+                    Join Discord →
+                  </a>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-6 p-8 bg-white/5 rounded-2xl hover:bg-white/10 transition-all duration-300">
+                <div className="w-16 h-16 bg-[#ccfd7f] rounded-2xl flex items-center justify-center">
+                  <Mail className="w-8 h-8 text-slate-900" />
+                </div>
+                <div>
+                  <h3 className="text-white font-semibold text-2xl">Email Support</h3>
+                  <p className="text-gray-300 text-lg">Send us an email for detailed inquiries</p>
+                  <a 
+                    href="mailto:support@gvro.com" 
+                    className="text-[#ccfd7f] font-medium hover:underline text-lg"
+                  >
+                    support@gvro.com →
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Upcoming Features */}
+        <div className="mb-16">
+          <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-12 border border-white/20">
+            <h2 className="text-3xl font-bold text-white mb-8 flex items-center">
+              <div className="w-4 h-4 rounded-full bg-[#ccfd7f] mr-6 shadow-lg"></div>
+              Upcoming Features
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <div className="text-center p-8 bg-white/5 rounded-2xl">
+                <div className="w-20 h-20 bg-[#ccfd7f] rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <Phone className="w-10 h-10 text-slate-900" />
+                </div>
+                <h3 className="text-white font-semibold text-xl mb-3">Live Chat Support</h3>
+                <p className="text-gray-300 text-lg">Real-time chat with our support team</p>
+              </div>
+
+              <div className="text-center p-8 bg-white/5 rounded-2xl">
+                <div className="w-20 h-20 bg-[#ccfd7f] rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <Users className="w-10 h-10 text-slate-900" />
+                </div>
+                <h3 className="text-white font-semibold text-xl mb-3">Staff Directory</h3>
+                <p className="text-gray-300 text-lg">Direct contact with department leaders</p>
+              </div>
+
+              <div className="text-center p-8 bg-white/5 rounded-2xl">
+                <div className="w-20 h-20 bg-[#ccfd7f] rounded-2xl flex items-center justify-center mx-auto mb-6">
+                  <MapPin className="w-10 h-10 text-slate-900" />
+                </div>
+                <h3 className="text-white font-semibold text-xl mb-3">Location Services</h3>
+                <p className="text-gray-300 text-lg">Find our facilities and meeting locations</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Quick Actions */}
+        <div className="mb-16">
+          <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-12 border border-white/20">
+            <h2 className="text-3xl font-bold text-white mb-8 flex items-center">
+              <div className="w-4 h-4 rounded-full bg-[#ccfd7f] mr-6 shadow-lg"></div>
+              Quick Actions
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <a 
+                href="/applications"
+                className="block p-8 bg-white/5 rounded-2xl hover:bg-white/10 transition-all duration-300 text-center"
+              >
+                <h3 className="text-white font-semibold text-2xl mb-3">Apply for a Position</h3>
+                <p className="text-gray-300 text-lg">Join our team and start your career in public service</p>
+              </a>
+
+              <a 
+                href="/staff"
+                className="block p-8 bg-white/5 rounded-2xl hover:bg-white/10 transition-all duration-300 text-center"
+              >
+                <h3 className="text-white font-semibold text-2xl mb-3">Meet Our Staff</h3>
+                <p className="text-gray-300 text-lg">Learn about our leadership team and department structure</p>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Notice */}
+        <div className="mt-24">
+          <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-12 border border-white/20 text-center">
+            <h3 className="text-2xl font-bold text-white mb-6">Need Immediate Help?</h3>
+            <p className="text-gray-300 leading-relaxed mb-8 text-lg">
+              For urgent matters or emergency situations, please contact us through Discord or email immediately. 
+              We're here to help and will respond as quickly as possible.
+            </p>
+            <div className="flex justify-center space-x-6">
+              <a 
+                href="https://discord.gg/Xgw7JDQ2HY" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="px-8 py-4 bg-[#ccfd7f] text-slate-900 rounded-2xl hover:bg-[#b8e85c] transition-colors duration-300 font-semibold text-lg"
+              >
+                Join Discord
+              </a>
+              <a 
+                href="mailto:support@gvro.com"
+                className="px-8 py-4 bg-white/10 text-white rounded-2xl hover:bg-white/20 transition-colors duration-300 font-semibold text-lg border border-white/20"
+              >
+                Send Email
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
