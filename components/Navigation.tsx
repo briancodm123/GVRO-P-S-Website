@@ -19,6 +19,7 @@ const Navigation = () => {
     { href: '/departments', label: 'Departments' },
     { href: '/applications', label: 'Applications' },
     { href: '/penal-codes', label: 'Penal Codes' },
+    { href: '/radio-codes', label: 'Radio Codes' },
     { href: '/handbook', label: 'Handbook' },
     { href: '/staff', label: 'Staff' },
     { href: '/contact', label: 'Contact' },

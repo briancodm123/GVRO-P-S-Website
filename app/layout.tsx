@@ -9,10 +9,9 @@ export const metadata: Metadata = {
   title: 'GVRO Department Hub',
   description: 'Greenville Roleplay Operations Public Services Hub',
   icons: {
-    icon: [
-      { url: '/favicon.png', sizes: 'any' },
-      { url: '/favicon.png', type: 'image/png' },
-    ],
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
   },
 }
 
@@ -47,6 +46,7 @@ export default function RootLayout({
                     <a href="/departments" className="block text-gray-300 hover:text-[#ccfd7f] transition-colors">Departments</a>
                     <a href="/applications" className="block text-gray-300 hover:text-[#ccfd7f] transition-colors">Applications</a>
                     <a href="/penal-codes" className="block text-gray-300 hover:text-[#ccfd7f] transition-colors">Penal Codes</a>
+                    <a href="/radio-codes" className="block text-gray-300 hover:text-[#ccfd7f] transition-colors">Radio Codes</a>
                     <a href="/staff" className="block text-gray-300 hover:text-[#ccfd7f] transition-colors">Staff Directory</a>
                   </div>
                 </div>
