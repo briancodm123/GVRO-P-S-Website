@@ -214,7 +214,7 @@ export default function StaffPage() {
       ]
     },
     {
-      level: 'Department Leadership',
+      level: 'Department Staff',
       levelColor: 'bg-green-500/20 text-green-400 border-green-500/30',
       roles: [
         {
@@ -252,13 +252,7 @@ export default function StaffPage() {
             'Assist with evaluations and performance reports.',
             'Manage department workflows and procedures.'
           ]
-        }
-      ]
-    },
-    {
-      level: 'Department Staff',
-      levelColor: 'bg-green-500/20 text-green-400 border-green-500/30',
-      roles: [
+        },
         {
           title: 'Department Supervisors',
           description: 'Entry-level leadership overseeing small groups and enforcing standards.',
@@ -282,12 +276,12 @@ export default function StaffPage() {
             'Follow procedure when reporting issues or concerns.',
             'Support department initiatives and community engagement.'
           ]
-        },
+        }
       ]
     }
   ]
 
-  const levelOptions = ['All', 'Executive Level', 'High Command', 'Management Level', 'Coordinators', 'Department Leadership', 'Department Staff']
+  const levelOptions = ['All', 'Executive Level', 'High Command', 'Management Level', 'Coordinators', 'Department Staff']
 
   const filteredRoles = selectedLevel === 'All' 
     ? staffRoles 
@@ -324,7 +318,6 @@ export default function StaffPage() {
                 level === 'High Command' ? 'bg-blue-400' :
                 level === 'Management Level' ? 'bg-orange-400' :
                 level === 'Coordinators' ? 'bg-blue-400' :
-                level === 'Department Leadership' ? 'bg-green-400' :
                 level === 'Department Staff' ? 'bg-green-400' :
                 'bg-gray-400'
               }`}></div>
