@@ -12,18 +12,18 @@ export default function StaffPage() {
       levelColor: 'bg-red-500/20 text-red-400 border-red-500/30',
       roles: [
         {
-          title: 'Public Services Overseer',
+          title: 'Public Affairs Overseer',
           description: 'Oversees server systems, backend decisions, and administrative infrastructure. Contact only in critical circumstances.',
           icon: Wrench,
           responsibilities: [
             'Maintain backend systems, integrations, and core infrastructure.',
             'Implement server-wide changes approved by leadership.',
-            'Handle escalations outside Public Services scope.',
+            'Handle escalations outside Public Affairs scope.',
             'Remain informed but not directly involved in moderation.'
           ]
         },
         {
-          title: 'Ass. Public Services Overseer',
+          title: 'Ass. Public Affairs Overseer',
           description: 'Assistant role supporting public services operations and oversight.',
           icon: Settings,
           responsibilities: [
@@ -35,7 +35,7 @@ export default function StaffPage() {
           ]
         },
         {
-          title: 'Assist. Public Services Overseer',
+          title: 'Assist. Public Affairs Overseer',
           description: 'Assistant role supporting public services oversight and coordination.',
           icon: Headphones,
           responsibilities: [
@@ -131,7 +131,7 @@ export default function StaffPage() {
           ]
         },
         {
-          title: 'Public Services Manager',
+          title: 'Public Affairs Manager',
           description: 'Supervises daily staff functions, reports, and operational consistency.',
           icon: Shield,
           responsibilities: [
@@ -139,11 +139,11 @@ export default function StaffPage() {
             'Monitor staff behavior and resolve minor conflicts.',
             'Handle shift reports, complaints, and escalations.',
             'Relay feedback between staff and Tier 2 management.',
-            'Mentor and guide Trainee Public Services Managers into full staff roles.'
+            'Mentor and guide Trainee Public Affairs Managers into full staff roles.'
           ]
         },
         {
-          title: 'Junior Public Services Management',
+          title: 'Junior Public Affairs Management',
           description: 'Assists full managers with shift supervision, tickets, and staff duties.',
           icon: Shield,
           responsibilities: [
@@ -155,7 +155,7 @@ export default function StaffPage() {
           ]
         },
         {
-          title: 'Trainee Public Services Manager',
+          title: 'Trainee Public Affairs Manager',
           description: 'Trial staff evaluated for performance, reliability, and leadership potential.',
           icon: Users,
           responsibilities: [
@@ -324,7 +324,7 @@ export default function StaffPage() {
               <span>{level}</span>
             </button>
           ))}
-        </div>
+          </div>
 
         {/* Staff Roles */}
         <div className="space-y-8">
@@ -333,7 +333,7 @@ export default function StaffPage() {
               <div className="text-center">
                 <h2 className="text-2xl font-bold text-white mb-2">{level.level}</h2>
                 <div className="w-16 h-0.5 bg-[#ccfd7f] mx-auto rounded-full"></div>
-              </div>
+          </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {level.roles.map((role, roleIndex) => (
@@ -344,13 +344,13 @@ export default function StaffPage() {
                     <div className="flex items-start space-x-4 mb-4">
                       <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg bg-[#ccfd7f]/20 flex-shrink-0">
                         <role.icon className="w-6 h-6 text-[#ccfd7f]" />
-                      </div>
+          </div>
                       <div className="flex-1">
                         <h3 className="text-lg font-bold text-white mb-2">{role.title}</h3>
                         <p className="text-gray-300 text-sm leading-relaxed">{role.description}</p>
-                      </div>
-                    </div>
-                    
+          </div>
+        </div>
+
                     <div className="mt-4">
                       <h4 className="text-sm font-bold text-white mb-3 flex items-center">
                         <div className="w-1.5 h-1.5 rounded-full bg-[#ccfd7f] mr-2"></div>
@@ -376,8 +376,8 @@ export default function StaffPage() {
         <div className="mt-16 bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
           <h3 className="text-2xl font-bold text-white mb-6 text-center">Chain of Command</h3>
           <p className="text-gray-300 text-center text-lg mb-6">
-            Please follow the proper chain of command when reporting issues or seeking assistance.
-          </p>
+              Please follow the proper chain of command when reporting issues or seeking assistance.
+            </p>
           <div className="bg-white/5 rounded-lg p-6 border border-white/10">
             <p className="text-gray-300 text-center">
               For urgent matters, contact your immediate supervisor first. Only escalate to higher levels when necessary.

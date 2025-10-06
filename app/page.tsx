@@ -25,7 +25,7 @@ export default function Home() {
           </h1>
           <div className="w-24 h-1 bg-[#ccfd7f] mx-auto rounded-full mb-6"></div>
           <p className="text-lg md:text-xl lg:text-2xl mb-10 text-gray-300 leading-relaxed max-w-3xl mx-auto">
-            Department Hub - Coordinating Public Services, Departments, and Community
+            Department Hub - Coordinating Public Affairs, Departments, and Community
           </p>
           <a
             href="https://discord.gg/Xgw7JDQ2HY"

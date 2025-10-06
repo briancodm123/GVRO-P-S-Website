@@ -17,8 +17,8 @@ export default function HandbookPage() {
       id: "notice",
       title: "Notice",
       content: [
-        "This handbook is the official property of Greenville Roleplay Operation (GVRO). It is intended solely for members of GVRO Public Services.",
-        "Unauthorized distribution, reproduction, or use in other servers will result in an immediate and permanent blacklist from GVRO Public Services."
+        "This handbook is the official property of Greenville Roleplay Operation (GVRO). It is intended solely for members of GVRO Public Affairs.",
+        "Unauthorized distribution, reproduction, or use in other servers will result in an immediate and permanent blacklist from GVRO Public Affairs."
       ]
     },
     {
@@ -71,7 +71,7 @@ export default function HandbookPage() {
         "TBD – To Be Determined",
         "NFA – No Further Action",
         "IA – Internal Affairs",
-        "PS – Public Services",
+        "PS – Public Affairs",
         "OpsSec – Operations Security",
         "LoA – Leave of Absence",
         "NDA – Non-Disclosure Agreement",
@@ -118,7 +118,7 @@ export default function HandbookPage() {
         "2.2. U-Turns – Performing U-turns over medians or unsafe locations is prohibited.",
         "2.3. Reckless Driving – Reckless driving while on duty is not permitted. Members are expected to drive responsibly and realistically.",
         "2.4. Responding Speeds – Members must not exceed 105 MPH (168 KM/H) while responding to emergencies or engaging in pursuits.",
-        "2.5. Traffic Stops – Traffic stops may only be performed on civilians. Members are never permitted to pull over staff or other Public Services.",
+        "2.5. Traffic Stops – Traffic stops may only be performed on civilians. Members are never permitted to pull over staff or other Public Affairs.",
         "2.6. Unauthorized Chases – Only designated High Speed Unit personnel may engage in pursuits. Unauthorized chasing will result in discipline.",
         "2.7. Emergency Lighting Systems (ELS) – ELS and sirens must only be used in legitimate roleplay situations. Misuse will result in strikes or suspension.",
         "2.8. Vehicle Use & Scene Realism – Vehicles used must fit the context of the roleplay. Excessive spawning or abandoning vehicles disrupts immersion."
@@ -277,9 +277,9 @@ export default function HandbookPage() {
       title: "9.0 – Chain of Command & Leadership Structure",
       content: [
         "9.1. Overseer Level:",
-        "• Public Services Overseer – Ultimate authority over all operations",
-        "• Associate Public Services Overseer – Assists the Overseer",
-        "• Assistant Public Services Overseer – Supports policy enforcement",
+        "• Public Affairs Overseer – Ultimate authority over all operations",
+        "• Associate Public Affairs Overseer – Assists the Overseer",
+        "• Assistant Public Affairs Overseer – Supports policy enforcement",
         "• Relations Overseer – Handles external partnerships",
         "• Community Overseer – Oversees internal member welfare",
         "• Events Overseer – Manages large-scale events",
@@ -289,10 +289,10 @@ export default function HandbookPage() {
         "• Assistant Lead Management – Supports Lead Management",
         "",
         "9.3. Managerial Level:",
-        "• Senior Public Services Manager – Supervises Managers",
-        "• Public Services Manager – Handles shift logs and coordination",
-        "• Junior Public Services Manager – Entry-level management",
-        "• Trainee Public Services Manager – Undergoing evaluation",
+        "• Senior Public Affairs Manager – Supervises Managers",
+        "• Public Affairs Manager – Handles shift logs and coordination",
+        "• Junior Public Affairs Manager – Entry-level management",
+        "• Trainee Public Affairs Manager – Undergoing evaluation",
         "",
         "9.4. Escalation Procedure – Concerns should be directed to Managers first, then escalated upward."
       ]
@@ -485,11 +485,11 @@ export default function HandbookPage() {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold text-white mb-5 tracking-tight">
-            Greenville Roleplay Operation™<br/>Public Services Handbook
+            Greenville Roleplay Operation™<br/>Public Affairs Handbook
           </h1>
           <div className="w-20 h-1 bg-[#ccfd7f] mx-auto rounded-full"></div>
           <p className="text-gray-300 text-base mt-6 max-w-2xl mx-auto leading-relaxed">
-            Comprehensive guide to policies, procedures, and standards for GVRO Public Services
+            Comprehensive guide to policies, procedures, and standards for GVRO Public Affairs
           </p>
         </div>
 
@@ -500,8 +500,8 @@ export default function HandbookPage() {
             <h3 className="text-lg font-bold text-white">Confidential Document</h3>
           </div>
           <p className="text-gray-300 leading-relaxed text-sm">
-            This handbook is the official property of Greenville Roleplay Operation (GVRO). It is intended solely for members of GVRO Public Services. 
-            Unauthorized distribution, reproduction, or use in other servers will result in an immediate and permanent blacklist from GVRO Public Services.
+            This handbook is the official property of Greenville Roleplay Operation (GVRO). It is intended solely for members of GVRO Public Affairs. 
+            Unauthorized distribution, reproduction, or use in other servers will result in an immediate and permanent blacklist from GVRO Public Affairs.
           </p>
         </div>
 

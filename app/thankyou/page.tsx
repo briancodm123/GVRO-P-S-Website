@@ -15,7 +15,7 @@ export default function ThankYouPage() {
           </h1>
           
           <p className="text-lg mb-8 text-gray-600 dark:text-gray-300">
-            Your message has been successfully sent to the Public Services staff. 
+            Your message has been successfully sent to the Public Affairs staff. 
             We will get back to you as soon as possible.
           </p>
           

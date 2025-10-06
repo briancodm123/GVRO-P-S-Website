@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'GVRO Department Hub',
-  description: 'Greenville Roleplay Operations Public Services Hub',
+          description: 'Greenville Roleplay Operations Public Affairs Hub',
   icons: {
     icon: '/favicon.png',
     shortcut: '/favicon.png',

@@ -242,7 +242,7 @@ export default function RadioCodesPage() {
           </h1>
           <div className="w-24 h-1 bg-gradient-to-r from-[#ccfd7f] to-[#b8e85c] mx-auto rounded-full mb-6"></div>
           <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
-            Comprehensive reference for all radio codes, signals, and 10-codes used by GVRO Public Services
+            Comprehensive reference for all radio codes, signals, and 10-codes used by GVRO Public Affairs
           </p>
         </div>
 
