@@ -8,6 +8,9 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
   title: 'GVRO Department Hub',
   description: 'Greenville Roleplay Operations Public Services Hub',
+  icons: {
+    icon: '/favicon.png',
+  },
 }
 
 export default function RootLayout({
