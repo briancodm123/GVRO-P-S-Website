@@ -42,13 +42,13 @@ export default function RadioCodesPage() {
     { code: '10-50', meaning: 'Motor Vehicle Accident', category: 'Emergency', description: 'Traffic accident' },
     { code: '10-51', meaning: 'Request DOT', category: 'Service', description: 'Request Department of Transportation' },
     { code: '10-52', meaning: 'Vehicle License Plate', category: 'Information', description: 'Request vehicle registration info' },
-    { code: '10-53', meaning: 'Request FD', category: 'Service', description: 'Request Fire Department', banned: true },
+    { code: '10-53', meaning: 'Request FD', category: 'Service', description: 'Request Fire Department' },
     { code: '10-55', meaning: 'Intoxicated Driver', category: 'Criminal', description: 'Driver under influence', banned: true },
     { code: '10-56', meaning: 'Intoxicated Pedestrian', category: 'Criminal', description: 'Pedestrian under influence' },
     { code: '10-60', meaning: 'Assault by Animal', category: 'Emergency', description: 'Animal attack reported' },
     { code: '10-61', meaning: 'Vehicle Theft', category: 'Criminal', description: 'Stolen vehicle reported' },
     { code: '10-62', meaning: 'Kidnapping', category: 'Emergency', description: 'Abduction reported' },
-    { code: '10-64', meaning: 'Sexual Assault', category: 'Emergency', description: 'Sexual assault reported' },
+    { code: '10-64', meaning: 'Sexual Assault', category: 'Emergency', description: 'Sexual assault reported', banned: true },
     { code: '10-65', meaning: 'Armed Robbery', category: 'Emergency', description: 'Robbery with weapon' },
     { code: '10-66', meaning: 'Reckless Driving', category: 'Traffic', description: 'Dangerous driving behavior' },
     { code: '10-67', meaning: 'Fire', category: 'Emergency', description: 'Fire reported' },
@@ -191,11 +191,11 @@ export default function RadioCodesPage() {
           </p>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-red-500/10 rounded-lg p-4 border border-red-500/30">
-              <h4 className="font-bold text-red-400 mb-2">10-53 - Road Blocked</h4>
+              <h4 className="font-bold text-red-400 mb-2">10-55 - Intoxicated Driver</h4>
               <p className="text-gray-300 text-sm">This code is prohibited in roleplay scenarios</p>
             </div>
             <div className="bg-red-500/10 rounded-lg p-4 border border-red-500/30">
-              <h4 className="font-bold text-red-400 mb-2">10-55 - Suspicious Person</h4>
+              <h4 className="font-bold text-red-400 mb-2">10-64 - Sexual Assault</h4>
               <p className="text-gray-300 text-sm">This code is prohibited in roleplay scenarios</p>
             </div>
           </div>
