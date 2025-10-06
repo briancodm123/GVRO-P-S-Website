@@ -115,7 +115,7 @@ export default function StaffPage() {
       ]
     },
     {
-      level: 'Management Level',
+      level: 'Low Command ',
       levelColor: 'bg-orange-500/20 text-orange-400 border-orange-500/30',
       roles: [
         {
@@ -299,7 +299,7 @@ export default function StaffPage() {
     }
   ]
 
-  const levelOptions = ['All', 'Executive Level', 'High Command', 'Management Level', 'Coordinators', 'Department Leadership', 'Department Staff']
+  const levelOptions = ['All', 'Executive Level', 'High Command', '', 'Coordinators', 'Department Leadership', 'Department Staff']
 
   const filteredRoles = selectedLevel === 'All' 
     ? staffRoles 
@@ -334,7 +334,7 @@ export default function StaffPage() {
               <div className={`w-2 h-2 rounded-full ${
                 level === 'Executive Level' ? 'bg-red-400' :
                 level === 'High Command' ? 'bg-blue-400' :
-                level === 'Management Level' ? 'bg-orange-400' :
+                level === '' ? 'bg-orange-400' :
                 level === 'Coordinators' ? 'bg-blue-400' :
                 level === 'Department Leadership' ? 'bg-green-400' :
                 level === 'Department Staff' ? 'bg-green-400' :
