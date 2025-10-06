@@ -1,10 +1,18 @@
 'use client'
 
 import { useState } from 'react'
-import { Radio, Copy, Check, AlertTriangle, Shield, Phone } from 'lucide-react'
+import { Radio, Copy, Check, AlertTriangle, Shield, Phone, Search, Filter, Zap, BookOpen, ChevronDown, ChevronUp } from 'lucide-react'
 
 export default function RadioCodesPage() {
+  const [searchTerm, setSearchTerm] = useState('')
+  const [selectedType, setSelectedType] = useState<string>('All')
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
+  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
+    'Response Codes': true,
+    '10-Codes': true,
+    'Signals': true,
+    'NATO Phonetic': true
+  })
 
   const tenCodes = [
     { code: '10-1', meaning: 'Frequency Change', category: 'Communication', description: 'Change radio frequency' },
@@ -89,23 +97,11 @@ export default function RadioCodesPage() {
     { code: 'Code 1', meaning: 'Routine Response', category: 'Priority', description: 'No lights or sirens, normal response' },
     { code: 'Code 2', meaning: 'Urgent Response', category: 'Priority', description: 'Lights only, no sirens' },
     { code: 'Code 3', meaning: 'Emergency Response', category: 'Priority', description: 'Lights and sirens, maximum speed' },
-    { code: 'Code 4', meaning: 'No Further Assistance', category: 'Status', description: 'Situation under control' },
-    { code: 'Code 5', meaning: 'Stakeout', category: 'Tactical', description: 'Undercover surveillance' },
+    { code: 'Code 4', meaning: 'No Further Action', category: 'Status', description: 'No additional response needed' },
+    { code: 'Code 5', meaning: 'Stakeout', category: 'Tactical', description: 'Surveillance operation' },
     { code: 'Code 6', meaning: 'Out of Service', category: 'Status', description: 'Unit not available' },
-    { code: 'Code 7', meaning: 'Out of Service - Meal', category: 'Status', description: 'On meal break' },
-    { code: 'Code 8', meaning: 'Out of Service - Fuel', category: 'Status', description: 'Getting fuel' },
-    { code: 'Code 9', meaning: 'Set Up Roadblock', category: 'Tactical', description: 'Establish traffic checkpoint' },
-    { code: 'Code 10', meaning: 'Fight in Progress', category: 'Emergency', description: 'Physical altercation' },
-    { code: 'Code 11', meaning: 'Dog Case', category: 'General', description: 'Animal-related incident' },
-    { code: 'Code 12', meaning: 'Stand By', category: 'Status', description: 'Wait for further instructions' },
-    { code: 'Code 13', meaning: 'Weather/Road Report', category: 'Information', description: 'Request conditions' },
-    { code: 'Code 14', meaning: 'Prowler Report', category: 'Criminal', description: 'Suspicious person' },
-    { code: 'Code 15', meaning: 'Civil Disturbance', category: 'Emergency', description: 'Group disturbance' },
-    { code: 'Code 16', meaning: 'Domestic Problem', category: 'Emergency', description: 'Domestic violence' },
-    { code: 'Code 17', meaning: 'Meet Complainant', category: 'General', description: 'Meet with complainant' },
-    { code: 'Code 18', meaning: 'Quickly', category: 'Priority', description: 'Respond urgently' },
-    { code: 'Code 19', meaning: 'Return to Station', category: 'Status', description: 'Return to headquarters' },
-    { code: 'Code 20', meaning: 'Location', category: 'Information', description: 'What is your location?' }
+    { code: 'Code 7', meaning: 'Meal Break', category: 'Status', description: 'Officer on break' },
+    { code: 'Code 8', meaning: 'In Service', category: 'Status', description: 'Unit available for calls' }
   ]
 
   const phoneticAlphabet = [
@@ -137,7 +133,6 @@ export default function RadioCodesPage() {
     { letter: 'Z', phonetic: 'Zulu' }
   ]
 
-
   const copyToClipboard = async (code: string) => {
     try {
       await navigator.clipboard.writeText(code)
@@ -146,6 +141,13 @@ export default function RadioCodesPage() {
     } catch (err) {
       console.error('Failed to copy: ', err)
     }
+  }
+
+  const toggleSection = (sectionName: string) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [sectionName]: !prev[sectionName]
+    }))
   }
 
   const getCategoryColor = (category: string) => {
@@ -166,284 +168,316 @@ export default function RadioCodesPage() {
     }
   }
 
+  const getTypeIcon = (type: string) => {
+    switch (type) {
+      case 'Code': return Shield
+      case '10-Code': return Radio
+      case 'Signal': return Zap
+      case 'Phonetic': return Phone
+      default: return Radio
+    }
+  }
+
+  const typeOptions = ['All', 'Code', '10-Code', 'Signal', 'Phonetic']
+
+  // Organize all codes into sections
+  const radioSections = [
+    {
+      title: 'Response Codes',
+      icon: Shield,
+      color: 'from-blue-500/20 to-blue-600/20',
+      borderColor: 'border-blue-500/30',
+      codes: codes.map(code => ({ ...code, type: 'Code', section: 'Response Codes' }))
+    },
+    {
+      title: '10-Codes',
+      icon: Radio,
+      color: 'from-green-500/20 to-green-600/20',
+      borderColor: 'border-green-500/30',
+      codes: tenCodes.map(code => ({ ...code, type: '10-Code', section: '10-Codes' }))
+    },
+    {
+      title: 'Signals',
+      icon: Zap,
+      color: 'from-purple-500/20 to-purple-600/20',
+      borderColor: 'border-purple-500/30',
+      codes: signals.map(signal => ({ ...signal, type: 'Signal', section: 'Signals' }))
+    },
+    {
+      title: 'NATO Phonetic',
+      icon: Phone,
+      color: 'from-teal-500/20 to-teal-600/20',
+      borderColor: 'border-teal-500/30',
+      codes: phoneticAlphabet.map(letter => ({ 
+        code: letter.letter, 
+        meaning: letter.phonetic, 
+        category: 'Phonetic', 
+        description: `NATO phonetic alphabet for letter ${letter.letter}`,
+        type: 'Phonetic',
+        section: 'NATO Phonetic'
+      }))
+    }
+  ]
+
+  const filteredCodes = radioSections.flatMap(section => 
+    section.codes.filter(code => {
+      const matchesSearch = code.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           code.meaning.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                           code.description.toLowerCase().includes(searchTerm.toLowerCase())
+      const matchesType = selectedType === 'All' || code.type === selectedType
+      return matchesSearch && matchesType
+    })
+  )
+
   return (
     <div className="min-h-screen text-white py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
+        {/* Header Section */}
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-white mb-5 tracking-tight">
-            Radio Codes & Signals
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#ccfd7f]/20 to-[#ccfd7f]/10 rounded-2xl mb-6 border border-[#ccfd7f]/30">
+            <Radio className="w-10 h-10 text-[#ccfd7f]" />
+          </div>
+          <h1 className="text-5xl font-bold text-white mb-4 tracking-tight">
+            Radio Codes
           </h1>
-          <div className="w-20 h-1 bg-[#ccfd7f] mx-auto rounded-full"></div>
-          <p className="text-gray-300 text-base mt-6 max-w-2xl mx-auto leading-relaxed">
+          <div className="w-24 h-1 bg-gradient-to-r from-[#ccfd7f] to-[#b8e85c] mx-auto rounded-full mb-6"></div>
+          <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
             Comprehensive reference for all radio codes, signals, and 10-codes used by GVRO Public Services
           </p>
         </div>
 
-
         {/* Banned Roleplays Notice */}
-        <div className="bg-red-500/20 border border-red-500/50 rounded-xl p-6 mb-8">
-          <div className="flex items-center space-x-3 mb-3">
-            <AlertTriangle className="w-6 h-6 text-red-400" />
-            <h3 className="text-lg font-bold text-white">Banned Roleplays</h3>
+        <div className="bg-gradient-to-r from-red-500/20 to-red-600/20 border border-red-500/50 rounded-2xl p-8 mb-10 backdrop-blur-sm">
+          <div className="flex items-center space-x-4 mb-4">
+            <div className="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center">
+              <AlertTriangle className="w-6 h-6 text-red-400" />
+            </div>
+            <h3 className="text-2xl font-bold text-white">Banned Roleplays</h3>
           </div>
-          <p className="text-gray-300 leading-relaxed mb-4">
+          <p className="text-gray-300 leading-relaxed mb-6 text-lg">
             The following codes are banned from roleplay scenarios and should not be used:
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-red-500/10 rounded-lg p-4 border border-red-500/30">
-              <h4 className="font-bold text-red-400 mb-2">10-55 - Intoxicated Driver</h4>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-red-500/10 rounded-xl p-6 border border-red-500/30 hover:bg-red-500/15 transition-colors">
+              <h4 className="font-bold text-red-400 mb-2 text-lg">10-55 - Intoxicated Driver</h4>
               <p className="text-gray-300 text-sm">This code is prohibited in roleplay scenarios</p>
             </div>
-            <div className="bg-red-500/10 rounded-lg p-4 border border-red-500/30">
-              <h4 className="font-bold text-red-400 mb-2">10-64 - Sexual Assault</h4>
+            <div className="bg-red-500/10 rounded-xl p-6 border border-red-500/30 hover:bg-red-500/15 transition-colors">
+              <h4 className="font-bold text-red-400 mb-2 text-lg">10-64 - Sexual Assault</h4>
               <p className="text-gray-300 text-sm">This code is prohibited in roleplay scenarios</p>
             </div>
+          </div>
+        </div>
+
+        {/* Search and Filter Controls */}
+        <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 mb-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Search Input */}
+            <div className="md:col-span-2">
+              <div className="relative">
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+                <input
+                  type="text"
+                  placeholder="Search codes, signals, or descriptions..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full pl-12 pr-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#ccfd7f]/50 focus:border-[#ccfd7f]/50 text-sm"
+                />
+              </div>
+            </div>
+
+            {/* Type Filter */}
+            <div>
+              <select
+                value={selectedType}
+                onChange={(e) => setSelectedType(e.target.value)}
+                className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#ccfd7f]/50 focus:border-[#ccfd7f]/50 text-sm"
+              >
+                {typeOptions.map(type => (
+                  <option key={type} value={type} className="bg-slate-800 text-white">
+                    {type}
+                  </option>
+                ))}
+              </select>
+            </div>
+          </div>
+
+          {/* Results Counter */}
+          <div className="mt-6 flex items-center justify-between">
+            <p className="text-gray-400 text-sm">
+              Showing {filteredCodes.length} of {radioSections.flatMap(s => s.codes).length} codes
+            </p>
+            {searchTerm && (
+              <button
+                onClick={() => setSearchTerm('')}
+                className="text-[#ccfd7f] hover:text-[#b8e85c] text-sm font-medium transition-colors px-4 py-2 rounded-lg hover:bg-[#ccfd7f]/10"
+              >
+                Clear Search
+              </button>
+            )}
           </div>
         </div>
 
         {/* Quick Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
-            <Shield className="w-6 h-6 text-[#ccfd7f] mx-auto mb-2" />
-            <h3 className="text-2xl font-bold text-white mb-1">{codes.length}</h3>
-            <p className="text-gray-300 text-sm">Codes</p>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+          <div className="bg-gradient-to-br from-blue-500/20 to-blue-600/20 backdrop-blur-sm rounded-2xl p-6 border border-blue-500/30 text-center hover:scale-105 transition-transform">
+            <Shield className="w-8 h-8 text-blue-400 mx-auto mb-3" />
+            <h3 className="text-3xl font-bold text-white mb-2">{radioSections.length}</h3>
+            <p className="text-gray-300 text-sm font-medium">Sections</p>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
-            <Radio className="w-6 h-6 text-[#ccfd7f] mx-auto mb-2" />
-            <h3 className="text-2xl font-bold text-white mb-1">{tenCodes.length + signals.length}</h3>
-            <p className="text-gray-300 text-sm">10-Codes & Signals</p>
+          <div className="bg-gradient-to-br from-green-500/20 to-green-600/20 backdrop-blur-sm rounded-2xl p-6 border border-green-500/30 text-center hover:scale-105 transition-transform">
+            <Radio className="w-8 h-8 text-green-400 mx-auto mb-3" />
+            <h3 className="text-3xl font-bold text-white mb-2">{radioSections.flatMap(s => s.codes).length}</h3>
+            <p className="text-gray-300 text-sm font-medium">Total Codes</p>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
-            <Phone className="w-6 h-6 text-[#ccfd7f] mx-auto mb-2" />
-            <h3 className="text-2xl font-bold text-white mb-1">{phoneticAlphabet.length}</h3>
-            <p className="text-gray-300 text-sm">Phonetic</p>
+          <div className="bg-gradient-to-br from-red-500/20 to-red-600/20 backdrop-blur-sm rounded-2xl p-6 border border-red-500/30 text-center hover:scale-105 transition-transform">
+            <AlertTriangle className="w-8 h-8 text-red-400 mx-auto mb-3" />
+            <h3 className="text-3xl font-bold text-red-400 mb-2">2</h3>
+            <p className="text-gray-300 text-sm font-medium">Banned</p>
           </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
-            <AlertTriangle className="w-6 h-6 text-red-400 mx-auto mb-2" />
-            <h3 className="text-2xl font-bold text-red-400 mb-1">2</h3>
-            <p className="text-gray-300 text-sm">Banned</p>
+          <div className="bg-gradient-to-br from-purple-500/20 to-purple-600/20 backdrop-blur-sm rounded-2xl p-6 border border-purple-500/30 text-center hover:scale-105 transition-transform">
+            <BookOpen className="w-8 h-8 text-purple-400 mx-auto mb-3" />
+            <h3 className="text-3xl font-bold text-white mb-2">4</h3>
+            <p className="text-gray-300 text-sm font-medium">Categories</p>
           </div>
         </div>
 
-        {/* Three Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          {/* Codes Column */}
-          <div className="space-y-6">
-            <div className="text-center mb-6">
-              <h2 className="text-2xl font-bold text-white mb-2 flex items-center justify-center">
-                <Shield className="w-6 h-6 text-[#ccfd7f] mr-2" />
-                Codes
-              </h2>
-              <div className="w-16 h-0.5 bg-[#ccfd7f] mx-auto rounded-full"></div>
-            </div>
-            <div className="space-y-4">
-              {codes.map((code, index) => (
-                <div
-                  key={index}
-                  className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:border-[#ccfd7f]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#ccfd7f]/10"
-                >
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-[#ccfd7f]/20">
-                        <Shield className="w-4 h-4 text-[#ccfd7f]" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-white">{code.code}</h3>
-                        <p className="text-sm text-gray-400">Code</p>
-                      </div>
-                    </div>
-                    <button
-                      onClick={() => copyToClipboard(code.code)}
-                      className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
-                    >
-                      {copiedCode === code.code ? (
-                        <Check className="w-4 h-4 text-[#ccfd7f]" />
-                      ) : (
-                        <Copy className="w-4 h-4 text-gray-400" />
-                      )}
-                    </button>
-                  </div>
-                  <div className="mb-3">
-                    <h4 className="text-lg font-semibold mb-1 text-white">{code.meaning}</h4>
-                    <p className="text-gray-300 text-sm leading-relaxed">{code.description}</p>
-                  </div>
-                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${getCategoryColor(code.category)}`}>
-                    {code.category}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+        {/* Organized Sections */}
+        <div className="space-y-8">
+          {radioSections.map((section, sectionIndex) => {
+            const sectionCodes = section.codes.filter(code => {
+              const matchesSearch = code.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                   code.meaning.toLowerCase().includes(searchTerm.toLowerCase()) ||
+                                   code.description.toLowerCase().includes(searchTerm.toLowerCase())
+              const matchesType = selectedType === 'All' || code.type === selectedType
+              return matchesSearch && matchesType
+            })
 
-          {/* 10-Codes & Signals Column */}
-          <div className="space-y-6">
-            <div className="text-center mb-6">
-              <h2 className="text-2xl font-bold text-white mb-2 flex items-center justify-center">
-                <Radio className="w-6 h-6 text-[#ccfd7f] mr-2" />
-                10-Codes & Signals
-              </h2>
-              <div className="w-16 h-0.5 bg-[#ccfd7f] mx-auto rounded-full"></div>
-            </div>
-            <div className="space-y-4">
-              {/* 10-Codes */}
-              {tenCodes.map((code, index) => {
-                const isBanned = code.banned
-                return (
-                  <div
-                    key={index}
-                    className={`bg-white/10 backdrop-blur-sm rounded-xl p-4 border transition-all duration-300 hover:shadow-xl ${
-                      isBanned 
-                        ? 'border-red-500/50 bg-red-500/5' 
-                        : 'border-white/20 hover:border-[#ccfd7f]/50 hover:shadow-[#ccfd7f]/10'
-                    }`}
-                  >
-                    <div className="flex items-start justify-between mb-3">
-                      <div className="flex items-center space-x-3">
-                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
-                          isBanned ? 'bg-red-500/20' : 'bg-[#ccfd7f]/20'
-                        }`}>
-                          <Radio className={`w-4 h-4 ${isBanned ? 'text-red-400' : 'text-[#ccfd7f]'}`} />
-                        </div>
-                        <div>
-                          <h3 className={`text-lg font-bold ${isBanned ? 'text-red-400' : 'text-white'}`}>
-                            {code.code}
-                          </h3>
-                          <p className="text-sm text-gray-400">10-Code</p>
-                        </div>
+            if (sectionCodes.length === 0) return null
+
+            const isExpanded = expandedSections[section.title]
+            const IconComponent = section.icon
+
+            return (
+              <div key={sectionIndex} className="bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden">
+                {/* Section Header */}
+                <button
+                  onClick={() => toggleSection(section.title)}
+                  className={`w-full p-6 bg-gradient-to-r ${section.color} border-b ${section.borderColor} hover:bg-opacity-80 transition-all duration-300`}
+                >
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                        <IconComponent className="w-6 h-6 text-white" />
                       </div>
-                      <button
-                        onClick={() => copyToClipboard(code.code)}
-                        className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
-                      >
-                        {copiedCode === code.code ? (
-                          <Check className="w-4 h-4 text-[#ccfd7f]" />
-                        ) : (
-                          <Copy className="w-4 h-4 text-gray-400" />
-                        )}
-                      </button>
+                      <div className="text-left">
+                        <h2 className="text-2xl font-bold text-white">{section.title}</h2>
+                        <p className="text-gray-300 text-sm">{sectionCodes.length} codes</p>
+                      </div>
                     </div>
-                    <div className="mb-3">
-                      <h4 className={`text-lg font-semibold mb-1 ${isBanned ? 'text-red-300' : 'text-white'}`}>
-                        {code.meaning}
-                      </h4>
-                      <p className="text-gray-300 text-sm leading-relaxed">{code.description}</p>
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className={`px-3 py-1 rounded-full text-xs font-medium ${getCategoryColor(code.category)}`}>
-                        {code.category}
+                    <div className="flex items-center space-x-3">
+                      <span className="px-3 py-1 bg-white/20 text-white text-sm font-medium rounded-lg">
+                        {sectionCodes.length}
                       </span>
-                      {isBanned && (
-                        <span className="px-3 py-1 rounded-full text-xs font-medium bg-red-500/20 text-red-400 border border-red-500/30">
-                          BANNED
-                        </span>
-                      )}
-                    </div>
-                  </div>
-                )
-              })}
-              
-              {/* Signals */}
-              {signals.map((signal, index) => (
-                <div
-                  key={`signal-${index}`}
-                  className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:border-[#ccfd7f]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#ccfd7f]/10"
-                >
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-[#ccfd7f]/20">
-                        <Radio className="w-4 h-4 text-[#ccfd7f]" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-white">{signal.code}</h3>
-                        <p className="text-sm text-gray-400">Signal</p>
-                      </div>
-                    </div>
-                    <button
-                      onClick={() => copyToClipboard(signal.code)}
-                      className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
-                    >
-                      {copiedCode === signal.code ? (
-                        <Check className="w-4 h-4 text-[#ccfd7f]" />
+                      {isExpanded ? (
+                        <ChevronUp className="w-6 h-6 text-white" />
                       ) : (
-                        <Copy className="w-4 h-4 text-gray-400" />
+                        <ChevronDown className="w-6 h-6 text-white" />
                       )}
-                    </button>
+                    </div>
                   </div>
-                  <div className="mb-3">
-                    <h4 className="text-lg font-semibold mb-1 text-white">{signal.meaning}</h4>
-                    <p className="text-gray-300 text-sm leading-relaxed">{signal.description}</p>
-                  </div>
-                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${getCategoryColor(signal.category)}`}>
-                    {signal.category}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+                </button>
 
-          {/* NATO Phonetic Alphabet Column */}
-          <div className="space-y-6">
-            <div className="text-center mb-6">
-              <h2 className="text-2xl font-bold text-white mb-2 flex items-center justify-center">
-                <Phone className="w-6 h-6 text-[#ccfd7f] mr-2" />
-                NATO Phonetic
-              </h2>
-              <div className="w-16 h-0.5 bg-[#ccfd7f] mx-auto rounded-full"></div>
-            </div>
-            <div className="space-y-4">
-              {phoneticAlphabet.map((letter, index) => (
-                <div
-                  key={index}
-                  className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:border-[#ccfd7f]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#ccfd7f]/10"
-                >
-                  <div className="flex items-start justify-between mb-3">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-[#ccfd7f]/20">
-                        <Phone className="w-4 h-4 text-[#ccfd7f]" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-white">{letter.letter}</h3>
-                        <p className="text-sm text-gray-400">Phonetic</p>
-                      </div>
+                {/* Section Content */}
+                {isExpanded && (
+                  <div className="p-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      {sectionCodes.map((code, codeIndex) => {
+                        const TypeIcon = getTypeIcon(code.type)
+                        const isBanned = (code as any).banned
+                        
+                        return (
+                          <div
+                            key={codeIndex}
+                            className={`bg-white/10 backdrop-blur-sm rounded-xl p-5 border transition-all duration-300 hover:shadow-xl ${
+                              isBanned 
+                                ? 'border-red-500/50 hover:border-red-400/70 hover:shadow-red-500/20' 
+                                : 'border-white/20 hover:border-[#ccfd7f]/50 hover:shadow-[#ccfd7f]/20'
+                            } hover:scale-105`}
+                          >
+                            <div className="flex items-start justify-between mb-4">
+                              <div className="flex items-center space-x-3">
+                                <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
+                                  isBanned ? 'bg-red-500/20' : 'bg-[#ccfd7f]/20'
+                                }`}>
+                                  <TypeIcon className={`w-5 h-5 ${isBanned ? 'text-red-400' : 'text-[#ccfd7f]'}`} />
+                                </div>
+                                <div>
+                                  <h3 className={`text-lg font-bold ${isBanned ? 'text-red-400' : 'text-white'}`}>
+                                    {code.code}
+                                  </h3>
+                                  <p className="text-sm text-gray-400">{code.type}</p>
+                                </div>
+                              </div>
+                              <div className="flex items-center space-x-2">
+                                <button
+                                  onClick={() => copyToClipboard(code.code)}
+                                  className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+                                >
+                                  {copiedCode === code.code ? (
+                                    <Check className="w-4 h-4 text-[#ccfd7f]" />
+                                  ) : (
+                                    <Copy className="w-4 h-4 text-gray-400" />
+                                  )}
+                                </button>
+                                {isBanned && (
+                                  <span className="px-2 py-1 bg-red-500/20 text-red-400 text-xs font-bold rounded-lg border border-red-500/30">
+                                    BANNED
+                                  </span>
+                                )}
+                              </div>
+                            </div>
+                            <div className="mb-4">
+                              <h4 className={`text-lg font-semibold mb-2 ${isBanned ? 'text-red-300' : 'text-white'}`}>
+                                {code.meaning}
+                              </h4>
+                              <p className={`text-sm leading-relaxed ${isBanned ? 'text-red-200' : 'text-gray-300'}`}>
+                                {code.description}
+                              </p>
+                            </div>
+                            <span className={`px-3 py-1 rounded-full text-xs font-medium border ${getCategoryColor(code.category)}`}>
+                              {code.category}
+                            </span>
+                          </div>
+                        )
+                      })}
                     </div>
-                    <button
-                      onClick={() => copyToClipboard(letter.letter)}
-                      className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
-                    >
-                      {copiedCode === letter.letter ? (
-                        <Check className="w-4 h-4 text-[#ccfd7f]" />
-                      ) : (
-                        <Copy className="w-4 h-4 text-gray-400" />
-                      )}
-                    </button>
                   </div>
-                  <div className="mb-3">
-                    <h4 className="text-lg font-semibold mb-1 text-white">{letter.phonetic}</h4>
-                    <p className="text-gray-300 text-sm leading-relaxed">
-                      NATO phonetic alphabet for letter {letter.letter}
-                    </p>
-                  </div>
-                  <span className="px-3 py-1 rounded-full text-xs font-medium bg-teal-500/20 text-teal-400 border border-teal-500/30">
-                    Phonetic
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+                )}
+              </div>
+            )
+          })}
         </div>
 
-        {/* Footer Notice */}
-        <div className="mt-12 bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-          <div className="flex items-center space-x-3 mb-4">
-            <Shield className="w-6 h-6 text-[#ccfd7f]" />
-            <h3 className="text-xl font-bold text-white">Important Notice</h3>
+        {/* No Results */}
+        {filteredCodes.length === 0 && (
+          <div className="text-center py-16">
+            <div className="w-24 h-24 bg-gray-500/20 rounded-2xl flex items-center justify-center mx-auto mb-6">
+              <Search className="w-12 h-12 text-gray-500" />
+            </div>
+            <h3 className="text-2xl font-bold text-white mb-3">No codes found</h3>
+            <p className="text-gray-400 text-lg mb-6">Try adjusting your search or filter criteria</p>
+            <button
+              onClick={() => {
+                setSearchTerm('')
+                setSelectedType('All')
+              }}
+              className="px-6 py-3 bg-[#ccfd7f]/20 text-[#ccfd7f] rounded-xl hover:bg-[#ccfd7f]/30 transition-colors font-medium"
+            >
+              Clear All Filters
+            </button>
           </div>
-          <p className="text-gray-300 leading-relaxed">
-            These radio codes are for official GVRO Public Services use only. Unauthorized use or misuse of these codes 
-            may result in disciplinary action. Always follow proper radio etiquette and procedures when communicating.
-          </p>
-        </div>
+        )}
       </div>
     </div>
   )
