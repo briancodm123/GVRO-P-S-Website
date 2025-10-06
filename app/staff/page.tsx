@@ -119,7 +119,7 @@ export default function StaffPage() {
       levelColor: 'bg-orange-500/20 text-orange-400 border-orange-500/30',
       roles: [
         {
-          title: 'Senior Public Service Manager',
+          title: 'Senior Public Affairs Manager',
           description: 'Senior management role with advanced responsibilities and leadership duties.',
           icon: Shield,
           responsibilities: [
