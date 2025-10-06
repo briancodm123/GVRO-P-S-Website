@@ -1,11 +1,9 @@
 'use client'
 
 import { useState } from 'react'
-import { Radio, Search, Copy, Check, AlertTriangle, Shield, Car, Users, Phone, Clock, MapPin, Zap } from 'lucide-react'
+import { Radio, Copy, Check, AlertTriangle, Shield, Phone } from 'lucide-react'
 
 export default function RadioCodesPage() {
-  const [searchTerm, setSearchTerm] = useState('')
-  const [selectedCategory, setSelectedCategory] = useState('All')
   const [copiedCode, setCopiedCode] = useState<string | null>(null)
 
   const tenCodes = [
@@ -138,28 +136,6 @@ export default function RadioCodesPage() {
     { letter: 'Z', phonetic: 'Zulu' }
   ]
 
-  const allCodes = [
-    ...tenCodes.map(code => ({ ...code, type: '10-Code' })),
-    ...signals.map(signal => ({ ...signal, type: 'Signal' })),
-    ...codes.map(code => ({ ...code, type: 'Code' })),
-    ...phoneticAlphabet.map(letter => ({ 
-      code: letter.letter, 
-      meaning: letter.phonetic, 
-      category: 'Phonetic', 
-      description: `NATO phonetic alphabet for letter ${letter.letter}`,
-      type: 'Phonetic'
-    }))
-  ]
-
-  const categories = ['All', 'General', 'Communication', 'Status', 'Emergency', 'Criminal', 'Priority', 'Information', 'Service', 'Tactical', 'Violation', 'Traffic', 'Phonetic']
-
-  const filteredCodes = allCodes.filter(item => {
-    const matchesSearch = item.code.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         item.meaning.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         item.description.toLowerCase().includes(searchTerm.toLowerCase())
-    const matchesCategory = selectedCategory === 'All' || item.category === selectedCategory
-    return matchesSearch && matchesCategory
-  })
 
   const copyToClipboard = async (code: string) => {
     try {
@@ -189,16 +165,6 @@ export default function RadioCodesPage() {
     }
   }
 
-  const getTypeIcon = (type: string) => {
-    switch (type) {
-      case '10-Code': return Radio
-      case 'Signal': return Zap
-      case 'Code': return Shield
-      case 'Phonetic': return Phone
-      default: return Radio
-    }
-  }
-
   return (
     <div className="min-h-screen text-white py-12 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       <div className="max-w-7xl mx-auto">
@@ -213,35 +179,6 @@ export default function RadioCodesPage() {
           </p>
         </div>
 
-        {/* Search and Filter */}
-        <div className="mb-8 space-y-4">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-            <input
-              type="text"
-              placeholder="Search codes, meanings, or descriptions..."
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#ccfd7f]/50 focus:border-[#ccfd7f]/50"
-            />
-          </div>
-
-          <div className="flex flex-wrap gap-2">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-lg border transition-all duration-300 text-sm font-medium ${
-                  selectedCategory === category
-                    ? 'bg-[#ccfd7f]/20 border-[#ccfd7f]/50 text-[#ccfd7f]'
-                    : 'bg-white/10 border-white/20 text-gray-300 hover:bg-white/20'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-        </div>
 
         {/* Banned Roleplays Notice */}
         <div className="bg-red-500/20 border border-red-500/50 rounded-xl p-6 mb-8">
@@ -265,21 +202,16 @@ export default function RadioCodesPage() {
         </div>
 
         {/* Quick Stats */}
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-8">
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
-            <Radio className="w-6 h-6 text-[#ccfd7f] mx-auto mb-2" />
-            <h3 className="text-2xl font-bold text-white mb-1">{tenCodes.length}</h3>
-            <p className="text-gray-300 text-sm">10-Codes</p>
-          </div>
-          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
-            <Zap className="w-6 h-6 text-[#ccfd7f] mx-auto mb-2" />
-            <h3 className="text-2xl font-bold text-white mb-1">{signals.length}</h3>
-            <p className="text-gray-300 text-sm">Signals</p>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
             <Shield className="w-6 h-6 text-[#ccfd7f] mx-auto mb-2" />
             <h3 className="text-2xl font-bold text-white mb-1">{codes.length}</h3>
             <p className="text-gray-300 text-sm">Codes</p>
+          </div>
+          <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
+            <Radio className="w-6 h-6 text-[#ccfd7f] mx-auto mb-2" />
+            <h3 className="text-2xl font-bold text-white mb-1">{tenCodes.length}</h3>
+            <p className="text-gray-300 text-sm">10-Codes</p>
           </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
             <Phone className="w-6 h-6 text-[#ccfd7f] mx-auto mb-2" />
@@ -293,68 +225,173 @@ export default function RadioCodesPage() {
           </div>
         </div>
 
-        {/* Codes Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredCodes.map((item, index) => {
-            const IconComponent = getTypeIcon(item.type)
-            const isBanned = item.banned
-            return (
-              <div
-                key={index}
-                className={`bg-white/10 backdrop-blur-sm rounded-xl p-6 border transition-all duration-300 hover:shadow-xl ${
-                  isBanned 
-                    ? 'border-red-500/50 bg-red-500/5' 
-                    : 'border-white/20 hover:border-[#ccfd7f]/50 hover:shadow-[#ccfd7f]/10'
-                }`}
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center space-x-3">
-                    <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                      isBanned ? 'bg-red-500/20' : 'bg-[#ccfd7f]/20'
-                    }`}>
-                      <IconComponent className={`w-5 h-5 ${isBanned ? 'text-red-400' : 'text-[#ccfd7f]'}`} />
+        {/* Three Column Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Codes Column */}
+          <div className="space-y-6">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl font-bold text-white mb-2 flex items-center justify-center">
+                <Shield className="w-6 h-6 text-[#ccfd7f] mr-2" />
+                Codes
+              </h2>
+              <div className="w-16 h-0.5 bg-[#ccfd7f] mx-auto rounded-full"></div>
+            </div>
+            <div className="space-y-4">
+              {codes.map((code, index) => (
+                <div
+                  key={index}
+                  className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:border-[#ccfd7f]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#ccfd7f]/10"
+                >
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-[#ccfd7f]/20">
+                        <Shield className="w-4 h-4 text-[#ccfd7f]" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold text-white">{code.code}</h3>
+                        <p className="text-sm text-gray-400">Code</p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className={`text-lg font-bold ${isBanned ? 'text-red-400' : 'text-white'}`}>
-                        {item.code}
-                      </h3>
-                      <p className="text-sm text-gray-400">{item.type}</p>
+                    <button
+                      onClick={() => copyToClipboard(code.code)}
+                      className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+                    >
+                      {copiedCode === code.code ? (
+                        <Check className="w-4 h-4 text-[#ccfd7f]" />
+                      ) : (
+                        <Copy className="w-4 h-4 text-gray-400" />
+                      )}
+                    </button>
+                  </div>
+                  <div className="mb-3">
+                    <h4 className="text-lg font-semibold mb-1 text-white">{code.meaning}</h4>
+                    <p className="text-gray-300 text-sm leading-relaxed">{code.description}</p>
+                  </div>
+                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${getCategoryColor(code.category)}`}>
+                    {code.category}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 10-Codes Column */}
+          <div className="space-y-6">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl font-bold text-white mb-2 flex items-center justify-center">
+                <Radio className="w-6 h-6 text-[#ccfd7f] mr-2" />
+                10-Codes
+              </h2>
+              <div className="w-16 h-0.5 bg-[#ccfd7f] mx-auto rounded-full"></div>
+            </div>
+            <div className="space-y-4">
+              {tenCodes.map((code, index) => {
+                const isBanned = code.banned
+                return (
+                  <div
+                    key={index}
+                    className={`bg-white/10 backdrop-blur-sm rounded-xl p-4 border transition-all duration-300 hover:shadow-xl ${
+                      isBanned 
+                        ? 'border-red-500/50 bg-red-500/5' 
+                        : 'border-white/20 hover:border-[#ccfd7f]/50 hover:shadow-[#ccfd7f]/10'
+                    }`}
+                  >
+                    <div className="flex items-start justify-between mb-3">
+                      <div className="flex items-center space-x-3">
+                        <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${
+                          isBanned ? 'bg-red-500/20' : 'bg-[#ccfd7f]/20'
+                        }`}>
+                          <Radio className={`w-4 h-4 ${isBanned ? 'text-red-400' : 'text-[#ccfd7f]'}`} />
+                        </div>
+                        <div>
+                          <h3 className={`text-lg font-bold ${isBanned ? 'text-red-400' : 'text-white'}`}>
+                            {code.code}
+                          </h3>
+                          <p className="text-sm text-gray-400">10-Code</p>
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => copyToClipboard(code.code)}
+                        className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+                      >
+                        {copiedCode === code.code ? (
+                          <Check className="w-4 h-4 text-[#ccfd7f]" />
+                        ) : (
+                          <Copy className="w-4 h-4 text-gray-400" />
+                        )}
+                      </button>
+                    </div>
+                    <div className="mb-3">
+                      <h4 className={`text-lg font-semibold mb-1 ${isBanned ? 'text-red-300' : 'text-white'}`}>
+                        {code.meaning}
+                      </h4>
+                      <p className="text-gray-300 text-sm leading-relaxed">{code.description}</p>
+                    </div>
+                    <div className="flex items-center justify-between">
+                      <span className={`px-3 py-1 rounded-full text-xs font-medium ${getCategoryColor(code.category)}`}>
+                        {code.category}
+                      </span>
+                      {isBanned && (
+                        <span className="px-3 py-1 rounded-full text-xs font-medium bg-red-500/20 text-red-400 border border-red-500/30">
+                          BANNED
+                        </span>
+                      )}
                     </div>
                   </div>
-                  <button
-                    onClick={() => copyToClipboard(item.code)}
-                    className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
-                  >
-                    {copiedCode === item.code ? (
-                      <Check className="w-4 h-4 text-[#ccfd7f]" />
-                    ) : (
-                      <Copy className="w-4 h-4 text-gray-400" />
-                    )}
-                  </button>
-                </div>
+                )
+              })}
+            </div>
+          </div>
 
-                <div className="mb-4">
-                  <h4 className={`text-lg font-semibold mb-2 ${isBanned ? 'text-red-300' : 'text-white'}`}>
-                    {item.meaning}
-                  </h4>
-                  <p className="text-gray-300 text-sm leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
-
-                <div className="flex items-center justify-between">
-                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${getCategoryColor(item.category)}`}>
-                    {item.category}
+          {/* NATO Phonetic Alphabet Column */}
+          <div className="space-y-6">
+            <div className="text-center mb-6">
+              <h2 className="text-2xl font-bold text-white mb-2 flex items-center justify-center">
+                <Phone className="w-6 h-6 text-[#ccfd7f] mr-2" />
+                NATO Phonetic
+              </h2>
+              <div className="w-16 h-0.5 bg-[#ccfd7f] mx-auto rounded-full"></div>
+            </div>
+            <div className="space-y-4">
+              {phoneticAlphabet.map((letter, index) => (
+                <div
+                  key={index}
+                  className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:border-[#ccfd7f]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#ccfd7f]/10"
+                >
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-[#ccfd7f]/20">
+                        <Phone className="w-4 h-4 text-[#ccfd7f]" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold text-white">{letter.letter}</h3>
+                        <p className="text-sm text-gray-400">Phonetic</p>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => copyToClipboard(letter.letter)}
+                      className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+                    >
+                      {copiedCode === letter.letter ? (
+                        <Check className="w-4 h-4 text-[#ccfd7f]" />
+                      ) : (
+                        <Copy className="w-4 h-4 text-gray-400" />
+                      )}
+                    </button>
+                  </div>
+                  <div className="mb-3">
+                    <h4 className="text-lg font-semibold mb-1 text-white">{letter.phonetic}</h4>
+                    <p className="text-gray-300 text-sm leading-relaxed">
+                      NATO phonetic alphabet for letter {letter.letter}
+                    </p>
+                  </div>
+                  <span className="px-3 py-1 rounded-full text-xs font-medium bg-teal-500/20 text-teal-400 border border-teal-500/30">
+                    Phonetic
                   </span>
-                  {isBanned && (
-                    <span className="px-3 py-1 rounded-full text-xs font-medium bg-red-500/20 text-red-400 border border-red-500/30">
-                      BANNED
-                    </span>
-                  )}
                 </div>
-              </div>
-            )
-          })}
+              ))}
+            </div>
+          </div>
         </div>
 
         {/* Footer Notice */}
