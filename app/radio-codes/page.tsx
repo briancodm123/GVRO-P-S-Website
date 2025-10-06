@@ -15,12 +15,12 @@ export default function RadioCodesPage() {
     { code: '10-7', meaning: 'Out of Service', category: 'Status', description: 'Unit is out of service' },
     { code: '10-8', meaning: 'In Service', category: 'Status', description: 'Unit is in service and available' },
     { code: '10-9', meaning: 'Repeat', category: 'Communication', description: 'Repeat last transmission' },
-    { code: '10-10', meaning: 'Scene Ongoing', category: 'Status', description: 'Scene is still active' },
+    { code: '10-10', meaning: 'Scene ongoing', category: 'Status', description: 'Scene is still active' },
     { code: '10-11', meaning: 'Traffic Stop', category: 'Traffic', description: 'Conducting traffic stop' },
     { code: '10-12', meaning: 'Escort in Progress', category: 'Service', description: 'Providing escort service' },
     { code: '10-13', meaning: 'Disregard', category: 'Communication', description: 'Cancel previous message' },
     { code: '10-14', meaning: 'Welfare Check', category: 'Service', description: 'Check on person\'s welfare' },
-    { code: '10-15', meaning: 'Meet at Location', category: 'General', description: 'Meet at specified location' },
+    { code: '10-15', meaning: 'Meet at location', category: 'General', description: 'Meet at specified location' },
     { code: '10-16', meaning: 'Estimated Time of Arrival', category: 'Information', description: 'What is your ETA?' },
     { code: '10-17', meaning: 'Suspect Armed', category: 'Emergency', description: 'Subject is armed' },
     { code: '10-20', meaning: 'Location', category: 'Information', description: 'What is your location?' },
@@ -54,10 +54,10 @@ export default function RadioCodesPage() {
     { code: '10-67', meaning: 'Fire', category: 'Emergency', description: 'Fire reported' },
     { code: '10-68', meaning: 'Not in Use', category: 'Status', description: 'Code not currently used' },
     { code: '10-70', meaning: 'Foot Pursuit', category: 'Criminal', description: 'Chase on foot' },
-    { code: '10-71', meaning: 'Supervisor Needed', category: 'Emergency', description: 'Request supervisor' },
+    { code: '10-71', meaning: 'Supervisor needed', category: 'Emergency', description: 'Request supervisor' },
     { code: '10-73', meaning: 'Advise Status', category: 'Communication', description: 'Provide current status' },
     { code: '10-81', meaning: 'Active Supervisor', category: 'Status', description: 'Supervisor is active' },
-    { code: '10-90', meaning: 'Bank Alarm', category: 'Emergency', description: 'Bank alarm activated' },
+    { code: '10-90', meaning: 'Bank alarm', category: 'Emergency', description: 'Bank alarm activated' },
     { code: '10-93', meaning: 'Warning', category: 'General', description: 'Issue warning' },
     { code: '10-97', meaning: 'En Route', category: 'Status', description: 'On the way to location' },
     { code: '10-99', meaning: 'Officer In Distress', category: 'Emergency', description: 'Officer needs immediate help' },
@@ -66,9 +66,9 @@ export default function RadioCodesPage() {
   ]
 
   const signals = [
-    { code: 'Signal 1', meaning: 'Officer Need Help', category: 'Emergency', description: 'Officer requires immediate assistance' },
+    { code: 'Signal 1', meaning: 'Officer need help', category: 'Emergency', description: 'Officer requires immediate assistance' },
     { code: 'Signal 2', meaning: 'Intoxicated Person', category: 'Criminal', description: 'Person under influence' },
-    { code: 'Signal 3', meaning: 'Hit and Run Accident', category: 'Criminal', description: 'Vehicle fled accident scene' },
+    { code: 'Signal 3', meaning: 'Hit and Run accident', category: 'Criminal', description: 'Vehicle fled accident scene' },
     { code: 'Signal 4', meaning: 'Auto Accident', category: 'Emergency', description: 'Motor vehicle accident' },
     { code: 'Signal 5', meaning: 'Murder / Homicide', category: 'Emergency', description: 'Homicide reported' },
     { code: 'Signal 6', meaning: 'Burglary', category: 'Criminal', description: 'Breaking and entering' },
@@ -210,8 +210,8 @@ export default function RadioCodesPage() {
           </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
             <Radio className="w-6 h-6 text-[#ccfd7f] mx-auto mb-2" />
-            <h3 className="text-2xl font-bold text-white mb-1">{tenCodes.length}</h3>
-            <p className="text-gray-300 text-sm">10-Codes</p>
+            <h3 className="text-2xl font-bold text-white mb-1">{tenCodes.length + signals.length}</h3>
+            <p className="text-gray-300 text-sm">10-Codes & Signals</p>
           </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
             <Phone className="w-6 h-6 text-[#ccfd7f] mx-auto mb-2" />
@@ -275,16 +275,17 @@ export default function RadioCodesPage() {
             </div>
           </div>
 
-          {/* 10-Codes Column */}
+          {/* 10-Codes & Signals Column */}
           <div className="space-y-6">
             <div className="text-center mb-6">
               <h2 className="text-2xl font-bold text-white mb-2 flex items-center justify-center">
                 <Radio className="w-6 h-6 text-[#ccfd7f] mr-2" />
-                10-Codes
+                10-Codes & Signals
               </h2>
               <div className="w-16 h-0.5 bg-[#ccfd7f] mx-auto rounded-full"></div>
             </div>
             <div className="space-y-4">
+              {/* 10-Codes */}
               {tenCodes.map((code, index) => {
                 const isBanned = code.banned
                 return (
@@ -340,6 +341,43 @@ export default function RadioCodesPage() {
                   </div>
                 )
               })}
+              
+              {/* Signals */}
+              {signals.map((signal, index) => (
+                <div
+                  key={`signal-${index}`}
+                  className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 hover:border-[#ccfd7f]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#ccfd7f]/10"
+                >
+                  <div className="flex items-start justify-between mb-3">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-8 h-8 rounded-lg flex items-center justify-center bg-[#ccfd7f]/20">
+                        <Radio className="w-4 h-4 text-[#ccfd7f]" />
+                      </div>
+                      <div>
+                        <h3 className="text-lg font-bold text-white">{signal.code}</h3>
+                        <p className="text-sm text-gray-400">Signal</p>
+                      </div>
+                    </div>
+                    <button
+                      onClick={() => copyToClipboard(signal.code)}
+                      className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
+                    >
+                      {copiedCode === signal.code ? (
+                        <Check className="w-4 h-4 text-[#ccfd7f]" />
+                      ) : (
+                        <Copy className="w-4 h-4 text-gray-400" />
+                      )}
+                    </button>
+                  </div>
+                  <div className="mb-3">
+                    <h4 className="text-lg font-semibold mb-1 text-white">{signal.meaning}</h4>
+                    <p className="text-gray-300 text-sm leading-relaxed">{signal.description}</p>
+                  </div>
+                  <span className={`px-3 py-1 rounded-full text-xs font-medium ${getCategoryColor(signal.category)}`}>
+                    {signal.category}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
 
