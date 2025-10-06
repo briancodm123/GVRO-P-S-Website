@@ -9,7 +9,10 @@ export const metadata: Metadata = {
   title: 'GVRO Department Hub',
   description: 'Greenville Roleplay Operations Public Services Hub',
   icons: {
-    icon: '/favicon.png',
+    icon: [
+      { url: '/favicon.png', sizes: 'any' },
+      { url: '/favicon.png', type: 'image/png' },
+    ],
   },
 }
 
@@ -20,6 +23,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+      </head>
       <body className={inter.className}>
         <div className="min-h-screen text-white transition-colors bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
           <Navigation />
