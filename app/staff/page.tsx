@@ -283,18 +283,6 @@ export default function StaffPage() {
             'Support department initiatives and community engagement.'
           ]
         },
-        {
-          title: 'Public Services Manager',
-          description: 'Manages public services operations and coordinates with departments.',
-          icon: Cog,
-          responsibilities: [
-            'Manage public services operations and coordination.',
-            'Handle shift logs and staff supervision.',
-            'Coordinate department activities and communications.',
-            'Assist with training and development programs.',
-            'Support leadership in operational planning.'
-          ]
-        }
       ]
     }
   ]
