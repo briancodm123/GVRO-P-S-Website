@@ -115,7 +115,7 @@ export default function StaffPage() {
       ]
     },
     {
-      level: 'Low Command ',
+      level: 'Management Level',
       levelColor: 'bg-orange-500/20 text-orange-400 border-orange-500/30',
       roles: [
         {
@@ -299,7 +299,7 @@ export default function StaffPage() {
     }
   ]
 
-  const levelOptions = ['All', 'Executive Level', 'High Command', '', 'Coordinators', 'Department Leadership', 'Department Staff']
+  const levelOptions = ['All', 'Executive Level', 'High Command', 'Management Level', 'Coordinators', 'Department Leadership', 'Department Staff']
 
   const filteredRoles = selectedLevel === 'All' 
     ? staffRoles 
@@ -334,7 +334,7 @@ export default function StaffPage() {
               <div className={`w-2 h-2 rounded-full ${
                 level === 'Executive Level' ? 'bg-red-400' :
                 level === 'High Command' ? 'bg-blue-400' :
-                level === '' ? 'bg-orange-400' :
+                level === 'Management Level' ? 'bg-orange-400' :
                 level === 'Coordinators' ? 'bg-blue-400' :
                 level === 'Department Leadership' ? 'bg-green-400' :
                 level === 'Department Staff' ? 'bg-green-400' :
@@ -343,7 +343,7 @@ export default function StaffPage() {
               <span>{level}</span>
             </button>
           ))}
-          </div>
+        </div>
 
         {/* Staff Roles */}
         <div className="space-y-8">
@@ -352,7 +352,7 @@ export default function StaffPage() {
               <div className="text-center">
                 <h2 className="text-2xl font-bold text-white mb-2">{level.level}</h2>
                 <div className="w-16 h-0.5 bg-[#ccfd7f] mx-auto rounded-full"></div>
-          </div>
+              </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {level.roles.map((role, roleIndex) => (
@@ -363,13 +363,13 @@ export default function StaffPage() {
                     <div className="flex items-start space-x-4 mb-4">
                       <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg bg-[#ccfd7f]/20 flex-shrink-0">
                         <role.icon className="w-6 h-6 text-[#ccfd7f]" />
-          </div>
+                      </div>
                       <div className="flex-1">
                         <h3 className="text-lg font-bold text-white mb-2">{role.title}</h3>
                         <p className="text-gray-300 text-sm leading-relaxed">{role.description}</p>
-          </div>
-        </div>
-
+                      </div>
+                    </div>
+                    
                     <div className="mt-4">
                       <h4 className="text-sm font-bold text-white mb-3 flex items-center">
                         <div className="w-1.5 h-1.5 rounded-full bg-[#ccfd7f] mr-2"></div>
@@ -395,8 +395,8 @@ export default function StaffPage() {
         <div className="mt-16 bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
           <h3 className="text-2xl font-bold text-white mb-6 text-center">Chain of Command</h3>
           <p className="text-gray-300 text-center text-lg mb-6">
-              Please follow the proper chain of command when reporting issues or seeking assistance.
-            </p>
+            Please follow the proper chain of command when reporting issues or seeking assistance.
+          </p>
           <div className="bg-white/5 rounded-lg p-6 border border-white/10">
             <p className="text-gray-300 text-center">
               For urgent matters, contact your immediate supervisor first. Only escalate to higher levels when necessary.
