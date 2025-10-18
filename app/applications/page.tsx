@@ -151,7 +151,7 @@ export default function ApplicationsPage() {
                         className="w-10 h-10" 
                         style={{ color: deptColor }} 
                       />
-                    </div>
+            </div>
                     <div className="flex-1">
                       <h2 className="text-3xl font-bold text-white mb-3">
                         {app.title}
@@ -172,9 +172,9 @@ export default function ApplicationsPage() {
                         <div className="inline-flex items-center px-3 py-1 rounded-lg text-sm font-semibold bg-white/10 text-gray-300">
                           {app.serviceArea}
                         </div>
-                      </div>
-                    </div>
-                  </div>
+            </div>
+          </div>
+        </div>
 
                   {/* Apply Button */}
                   <div className="text-center">

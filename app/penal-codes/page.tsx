@@ -105,12 +105,12 @@ export default function PenalCodesPage() {
           </div>
           <h1 className="text-5xl font-bold text-white mb-4 tracking-tight">
             Penal Codes
-          </h1>
+        </h1>
           <div className="w-24 h-1 bg-gradient-to-r from-[#ccfd7f] to-[#b8e85c] mx-auto rounded-full mb-6"></div>
           <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
             Comprehensive database of Greenville Roleplay Operations penal codes and violations
-          </p>
-        </div>
+              </p>
+            </div>
 
         {/* Search and Filter Controls */}
         <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 mb-10">
@@ -266,21 +266,21 @@ export default function PenalCodesPage() {
                                 </div>
                                 <div>
                                   <h3 className="text-lg font-bold text-white">
-                                    {code.code}
+                        {code.code}
                                   </h3>
                                   <p className="text-sm text-gray-400">{code.type}</p>
                                 </div>
                               </div>
-                              <button
+                        <button
                                 onClick={() => copyToClipboard(code.code)}
                                 className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
-                              >
-                                {copiedCode === code.code ? (
+                        >
+                          {copiedCode === code.code ? (
                                   <Check className="w-4 h-4 text-[#ccfd7f]" />
-                                ) : (
+                          ) : (
                                   <Copy className="w-4 h-4 text-gray-400" />
-                                )}
-                              </button>
+                          )}
+                        </button>
                             </div>
                             <div className="mb-4">
                               <h4 className="text-lg font-semibold mb-2 text-white">
@@ -323,7 +323,7 @@ export default function PenalCodesPage() {
             )
           })}
         </div>
-
+        
         {/* No Results */}
         {filteredCodes.length === 0 && (
           <div className="text-center py-16">
@@ -374,7 +374,7 @@ export default function PenalCodesPage() {
                   ) : (
                     <Copy className="w-4 h-4 text-gray-400 group-hover:text-[#ccfd7f] transition-colors" />
                   )}
-                </div>
+          </div>
               </button>
             ))}
           </div>

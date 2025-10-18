@@ -583,7 +583,7 @@ export default function HandbookPage() {
                     {expandedSection === section.id ? <ChevronDown size={24} /> : <ChevronRight size={24} />}
                   </div>
                 </div>
-              </div>
+            </div>
 
               {expandedSection === section.id && (
                 <div className="px-6 pb-6 border-t border-white/20 transition-all duration-500 ease-in-out bg-white/5">
@@ -608,7 +608,7 @@ export default function HandbookPage() {
           <div className="flex items-center space-x-3 mb-3">
             <AlertTriangle className="w-5 h-5 text-yellow-400" />
             <h3 className="text-lg font-bold text-white">Important Notice</h3>
-          </div>
+            </div>
           <p className="text-gray-300 leading-relaxed text-sm">
             This handbook is the property of Greenville Roleplay Operations and contains confidential information. 
             All content is protected and unauthorized reproduction or distribution is strictly prohibited. 
