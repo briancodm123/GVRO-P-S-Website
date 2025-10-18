@@ -12,7 +12,7 @@ export default function Home() {
             <div 
               className="w-full h-full opacity-20 bg-cover bg-center"
               style={{
-                backgroundImage: 'url("https://cdn.discordapp.com/banners/1396553162394960042/7ee6d2d4262ea7dd597e59ede4414e29.webp?size=1024")'
+                backgroundImage: 'url("https://media.discordapp.net/attachments/1396654615583260805/1428091067034763264/image.png?ex=68f13cf3&is=68efeb73&hm=07a86bc8b9a363d3888e24dc4757f92a68be6c135d9b6849a914950cecf99c28&=&format=png&quality=lossless&width=1514&height=727")'
               }}
             />
           </div>
