@@ -5,7 +5,29 @@ import { ChevronDown, ChevronRight, Shield, Users, Car, Zap, Building2 } from 'l
 
 export default function DepartmentsPage() {
   const [departments, setDepartments] = useState([
-    {
+   {
+      title: "Wisconsin Law Enforcement Authority",
+      description: "Responsible for all law enforcement activities across Wisconsin.",
+      division: "",
+      divisionDescription: "This department is a division of Wisconsin State Patrol & Outagamie County Sheriff's Office.",
+      isOpen: false,
+      color: "#0a1d37",
+      icon: Shield,
+      ranks: [
+        { name: "Chief of Operations", isCommand: true },
+        { name: "Deputy Chief of Operations", isCommand: true },
+        { name: "Chief Administrative Officer", isCommand: true },
+        { name: " Chief Compliance & Standards Officer", isCommand: false },
+        { name: "Chief of Strategic Affairs", isCommand: false },
+        { name: "WSP State Coordinator", isCommand: false },
+        { name: "OUSO County Coordinator", isCommand: false },
+        { name: "FVMPD City Coordinator", isCommand: false },
+      
+
+      ]
+    },
+   
+   {
       title: "Wisconsin State Patrol",
       description: "Statewide law enforcement, highway patrol, and specialized divisions.",
       division: "High Speed Unit",
@@ -14,21 +36,27 @@ export default function DepartmentsPage() {
       color: "#18223c",
       icon: Car,
       ranks: [
-        { name: "Superintendent", isCommand: true },
+        { name: "State Superintendent", isCommand: true },
+        { name: "Assistant Superintendent", isCommand: true },
         { name: "Deputy Superintendent", isCommand: true },
-        { name: "Major", isCommand: true },
+        { name: "Colonel", isCommand: false },
+        { name: "Lieutenant Colonel", isCommand: false },
+        { name: "Major", isCommand: false },
         { name: "Captain", isCommand: false },
         { name: "Lieutenant", isCommand: false },
         { name: "Sergeant", isCommand: false },
+        { name: "Corporal", isCommand: false },
+        { name: "Master Trooper", isCommand: false },
         { name: "Senior Trooper", isCommand: false },
-        { name: "Trooper", isCommand: false },
-        { name: "Probationary Trooper", isCommand: false }
+        { name: "State Trooper", isCommand: false },
+        { name: "Probationary Trooper", isCommand: false },
+        { name: "Cadet", isCommand: false }
       ]
     },
     {
       title: "Outagamie County Sheriff's Office",
       description: "County law enforcement, jail management, and support to local municipalities.",
-      division: "High Speed Unit (HSU)",
+      division: "",
       divisionDescription: "Handles high-speed pursuits, traffic enforcement, and specialized patrols.",
       isOpen: false,
       color: "#836d5a",
@@ -36,33 +64,48 @@ export default function DepartmentsPage() {
       ranks: [
         { name: "Sheriff", isCommand: true },
         { name: "Undersheriff", isCommand: true },
-        { name: "Captain", isCommand: true },
-        { name: "Lieutenant", isCommand: false },
-        { name: "Sergeant", isCommand: false },
-        { name: "Deputy Sheriff", isCommand: false },
+        { name: "Assistant Sheriff", isCommand: true },
+        { name: "Chief Deputy", isCommand: false },
+        { name: "Captain", isCommand: false },
+        { name: " Lieutenant", isCommand: false },
+        { name: " Sergeant", isCommand: false },
+        { name: "Corporal", isCommand: false },
         { name: "Senior Deputy", isCommand: false },
+        { name: "Deputy First Class", isCommand: false },
         { name: "Deputy", isCommand: false },
-        { name: "Probationary Deputy", isCommand: false }
+        { name: "Recruit", isCommand: false }
       ]
     },
     {
       title: "Fox Valley Metro Police Department",
-      description: "Responsible for local law enforcement, patrols, and community safety in the Fox Valley area.",
-      division: "Specialized Division",
-      divisionDescription: "This department is a division of Wisconsin State Patrol & Outagamie County Sheriff's Office.",
+      description: "Responsible for local law enforcement, patrols, and community safety in the Fox Valley area. (Department In Discussion)",
+      division: "",
+      divisionDescription: "",
       isOpen: false,
       color: "#1e90ff",
       icon: Shield,
       ranks: [
         { name: "Chief of Police", isCommand: true },
-        { name: "Deputy Chief", isCommand: true },
-        { name: "Captain", isCommand: true },
-        { name: "Lieutenant", isCommand: false },
-        { name: "Sergeant", isCommand: false },
+        { name: "Assistant Chief of Police", isCommand: true },
+        { name: "Deputy Chief Of Police", isCommand: true },
+        { name: "Colonel", isCommand: false },
+        { name: "Lieutenant Colonel", isCommand: false },
+        { name: " Major", isCommand: false },
+        { name: "Shift Commander", isCommand: false },
+        { name: "Captain III", isCommand: false },
+        { name: "Captain II ", isCommand: false },
+        { name: "Captain I", isCommand: false },
+        { name: "Lieutenant III ", isCommand: false },
+        { name: "Lieutenant II", isCommand: false },
+        { name: "Lieutenant I", isCommand: false },
+        { name: "Sergeant Major ", isCommand: false },
+        { name: "Master Sergeant", isCommand: false },
         { name: "Corporal", isCommand: false },
-        { name: "Senior Officer", isCommand: false },
-        { name: "Officer", isCommand: false },
-        { name: "Probationary Officer", isCommand: false }
+        { name: "Lance  Corporal", isCommand: false },
+        { name: "Officer Second Class", isCommand: false }, 
+        { name: "Officer First Class", isCommand: false },
+         { name: "Officer In Training", isCommand: false }
+
       ]
     },
     {
@@ -75,14 +118,22 @@ export default function DepartmentsPage() {
       icon: Zap,
       ranks: [
         { name: "Fire Chief", isCommand: true },
+        { name: "Assistant Fire Chief", isCommand: true },
         { name: "Deputy Chief", isCommand: true },
-        { name: "Battalion Chief", isCommand: true },
+        { name: "EMS Divison Chief", isCommand: false },
+        { name: "Batallion Chief", isCommand: false },
+        { name: "District Chief", isCommand: false },
+        { name: "Shift Commander", isCommand: false },
+        { name: "Shift Supervisor", isCommand: false },
+        { name: "Shift Advisor", isCommand: false },
         { name: "Captain", isCommand: false },
         { name: "Lieutenant", isCommand: false },
-        { name: "Engineer", isCommand: false },
-        { name: "Firefighter/Paramedic", isCommand: false },
-        { name: "Firefighter/EMT", isCommand: false },
-        { name: "Probationary Firefighter", isCommand: false }
+        { name: "Sergeant", isCommand: false },
+        { name: "Supervisory Firefighter", isCommand: false },
+        { name: "Senior Firefighter", isCommand: false },
+        { name: "Firefighter", isCommand: false },
+        { name: "Probationary Firefighter", isCommand: false },
+        { name: "Candidate", isCommand: false }
       ]
     },
     {
@@ -106,10 +157,11 @@ export default function DepartmentsPage() {
         { name: "Junior Operator", isCommand: false },
         { name: "Trainee Operator", isCommand: false }
       ]
-    }
+    },
+   
   ])
 
-  const toggleDepartment = (index: number, e: React.MouseEvent) => {
+  const handleToggleDepartment = (index: number, e: React.MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
     console.log('Toggling department:', index)
@@ -144,7 +196,7 @@ export default function DepartmentsPage() {
               >
                 <div 
                   className="p-8 cursor-pointer group hover:bg-white/5 transition-all duration-300"
-                  onClick={(e) => toggleDepartment(index, e)}
+                  onClick={(e) => handleToggleDepartment(index, e)}
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-6">
@@ -216,26 +268,23 @@ export default function DepartmentsPage() {
                             <div className="relative px-6 py-4">
                               <div className="flex items-center justify-between">
                                 <div className="flex items-center">
-                                  <div className="relative">
+                                  <div className="relative flex-shrink-0 mr-5">
                                     <div
-                                      className={`w-4 h-4 rounded-full mr-5 flex-shrink-0 shadow-md ${
-                                        rank.isCommand ? 'ring-2 ring-[#ccfd7f]/50' : ''
+                                      className={`rounded-full flex-shrink-0 shadow-lg ${
+                                        rank.isCommand ? 'w-5 h-5 ring-2 ring-[#ccfd7f]/50' : 'w-4 h-4'
                                       }`}
                                       style={{
                                         backgroundColor: rank.isCommand ? "#ccfd7f" : "rgba(255,255,255,0.8)"
                                       }}
                                     ></div>
-                                    {rank.isCommand && (
-                                      <div className="absolute -top-1 -right-1 w-2 h-2 rounded-full shadow-sm bg-[#ccfd7f]"></div>
-                                    )}
                                   </div>
 
                                   <div className="flex flex-col">
-                                    <span className={`font-semibold text-white ${rank.isCommand ? 'text-xl' : 'text-lg'} tracking-wide`}>
+                                    <span className={`font-bold text-white ${rank.isCommand ? 'text-xl' : 'text-lg'} tracking-wide`}>
                                       {rank.name}
                                     </span>
                                     {rank.isCommand && (
-                                      <span className="text-sm text-gray-300 mt-1">
+                                      <span className="text-sm text-gray-300 mt-0.5">
                                         Leadership Position
                                       </span>
                                     )}
@@ -243,8 +292,8 @@ export default function DepartmentsPage() {
                                 </div>
 
                                 {rank.isCommand && (
-                                  <div className="flex items-center">
-                                    <span className="px-3 py-1.5 bg-[#ccfd7f]/20 rounded-full text-xs font-bold uppercase tracking-wider shadow-md backdrop-blur-sm text-[#ccfd7f]">
+                                  <div className="flex items-center ml-4">
+                                    <span className="px-4 py-2 bg-[#ccfd7f] rounded-lg text-xs font-bold uppercase tracking-wider shadow-md text-gray-900">
                                       Leadership
                                     </span>
                                   </div>
