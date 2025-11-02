@@ -29,9 +29,9 @@ export default function DepartmentsPage() {
    
    {
       title: "Wisconsin State Patrol",
-      description: "Statewide law enforcement, highway patrol, and specialized divisions.",
-      division: "High Speed Unit",
-      divisionDescription: "Specializes in high-speed pursuit and traffic enforcement.",
+      description: "Statewide law enforcement, highway patrol.",
+      division: "",
+      divisionDescription: "Specializes in highway patrol and traffic enforcement.",
       isOpen: false,
       color: "#18223c",
       icon: Car,

@@ -64,10 +64,10 @@ export default function ContactPage() {
                   <h3 className="text-white font-semibold text-2xl">Email Support</h3>
                   <p className="text-gray-300 text-lg">Send us an email for detailed inquiries</p>
                   <a 
-                    href="mailto:support@gvro.com" 
+                    href="mailto:gvropublicsafetyservices@gmail.com" 
                     className="text-[#ccfd7f] font-medium hover:underline text-lg"
                   >
-                    support@gvro.com →
+                    gvropublicsafetyservices@gmail.com →
                   </a>
                 </div>
               </div>
@@ -155,7 +155,7 @@ export default function ContactPage() {
                 Join Discord
               </a>
               <a 
-                href="mailto:support@gvro.com"
+                href="mailto:gvropublicsafetyservices@gmail.com"
                 className="px-8 py-4 bg-white/10 text-white rounded-2xl hover:bg-white/20 transition-colors duration-300 font-semibold text-lg border border-white/20"
               >
                 Send Email
