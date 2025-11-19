@@ -84,7 +84,9 @@ export default function RadioCodesPage() {
     { code: 'Signal 8', meaning: 'Domestic Disturbance', category: 'Emergency', description: 'Domestic violence or dispute' },
     { code: 'Signal 9', meaning: 'Stolen Vehicle', category: 'Criminal', description: 'Vehicle theft reported' },
     { code: 'Signal 10', meaning: 'Fight In Progress', category: 'Emergency', description: 'Physical altercation occurring' },
+    { code: 'Signal 11', meaning: 'Running Radar', category: 'Emergency', description: 'Radar is running' },
     { code: 'Signal 13', meaning: 'Suspicious Person / Vehicle (Specify)', category: 'Criminal', description: 'Suspicious activity reported' },
+    
     { code: 'Signal 15', meaning: 'Narcotics Complaint', category: 'Criminal', description: 'Drug-related incident' },
     { code: 'Signal 20', meaning: 'Mentally Disturbed Person', category: 'Emergency', description: 'Person with mental health issues' },
     { code: 'Signal 25', meaning: 'Fire', category: 'Emergency', description: 'Fire reported' },
@@ -98,7 +100,7 @@ export default function RadioCodesPage() {
     { code: 'Code 2', meaning: 'Urgent Response', category: 'Priority', description: 'Lights only, no sirens' },
     { code: 'Code 3', meaning: 'Emergency Response', category: 'Priority', description: 'Lights and sirens, maximum speed' },
     { code: 'Code 4', meaning: 'No Further Action', category: 'Status', description: 'No additional response needed' },
-    { code: 'Code 5', meaning: 'Stakeout', category: 'Tactical', description: 'Surveillance operation' },
+    { code: 'Code 5', meaning: 'Felony Stop', category: 'Tactical', description: 'Felony/High-Risk Stop' },
     { code: 'Code 6', meaning: 'Out of Service', category: 'Status', description: 'Unit not available' },
     { code: 'Code 7', meaning: 'Meal Break', category: 'Status', description: 'Officer on break' },
     { code: 'Code 8', meaning: 'In Service', category: 'Status', description: 'Unit available for calls' }
