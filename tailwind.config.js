@@ -9,8 +9,8 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'gvro-red': '#990000',
-        'gvro-red-dark': '#660000',
+        'GVRPR-red': '#990000',
+        'GVRPR-red-dark': '#660000',
       },
     },
   },

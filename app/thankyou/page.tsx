@@ -10,7 +10,7 @@ export default function ThankYouPage() {
             <CheckCircle className="text-green-500 dark:text-green-400" size={64} />
           </div>
           
-          <h1 className="text-4xl font-bold mb-6 text-gvro-red dark:text-red-400">
+          <h1 className="text-4xl font-bold mb-6 text-GVRPR-red dark:text-red-400">
             Thank You!
           </h1>
           
@@ -35,7 +35,7 @@ export default function ThankYouPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/"
-              className="inline-flex items-center justify-center bg-gvro-red hover:bg-gvro-red-dark text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
+              className="inline-flex items-center justify-center bg-GVRPR-red hover:bg-GVRPR-red-dark text-white font-semibold py-3 px-6 rounded-lg transition-colors duration-200"
             >
               <Home className="mr-2" size={18} />
               Return to Home
@@ -58,10 +58,10 @@ export default function ThankYouPage() {
             <p className="text-gray-500 dark:text-gray-400 text-sm">
               Need immediate assistance? Contact us directly at{' '}
               <a 
-                href="mailto:gvropublicsafetyservices@gmail.com"
-                className="text-gvro-red dark:text-red-400 hover:underline"
+                href="mailto:GVRPRpublicsafetyservices@gmail.com"
+                className="text-GVRPR-red dark:text-red-400 hover:underline"
               >
-                gvropublicsafetyservices@gmail.com
+                GVRPRpublicsafetyservices@gmail.com
               </a>
             </p>
           </div>

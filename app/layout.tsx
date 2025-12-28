@@ -6,8 +6,8 @@ import Navigation from '../components/Navigation'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'GVRO Department Hub',
-          description: 'Greenville Roleplay Operations Public Affairs Hub',
+  title: 'GVRPR Department Hub',
+          description: 'Greenville Roleplay Reality Public Affairs Hub',
   icons: {
     icon: '/favicon.png',
     shortcut: '/favicon.png',
@@ -43,11 +43,10 @@ export default function RootLayout({
                 <div>
                   <h3 className="text-lg font-bold text-white mb-4">Quick Links</h3>
                   <div className="space-y-2">
-                    <a href="/departments" className="block text-gray-300 hover:text-[#ccfd7f] transition-colors">Departments</a>
-                    <a href="/applications" className="block text-gray-300 hover:text-[#ccfd7f] transition-colors">Applications</a>
-                    <a href="/penal-codes" className="block text-gray-300 hover:text-[#ccfd7f] transition-colors">Penal Codes</a>
-                    <a href="/radio-codes" className="block text-gray-300 hover:text-[#ccfd7f] transition-colors">Radio Codes</a>
-                    <a href="/staff" className="block text-gray-300 hover:text-[#ccfd7f] transition-colors">Staff Directory</a>
+                    <a href="/departments" className="block text-gray-300 hover:text-[#ffa94d] transition-colors">Departments</a>
+                    <a href="/applications" className="block text-gray-300 hover:text-[#ffa94d] transition-colors">Applications</a>
+                    <a href="/radio-codes" className="block text-gray-300 hover:text-[#ffa94d] transition-colors">Radio Codes</a>
+                    <a href="/staff" className="block text-gray-300 hover:text-[#ffa94d] transition-colors">Staff Directory</a>
                   </div>
                 </div>
                 
@@ -63,9 +62,9 @@ export default function RootLayout({
                 
                 {/* About */}
                 <div>
-                  <h3 className="text-lg font-bold text-white mb-4">About GVRO</h3>
+                  <h3 className="text-lg font-bold text-white mb-4">About GVRPR</h3>
                   <p className="text-gray-300 text-sm leading-relaxed">
-                    Greenville Roleplay Operations Public Services Hub - 
+                    Greenville Roleplay Reality Public Services Hub - 
                     Your gateway to professional roleplay and community service.
                   </p>
                 </div>
@@ -73,10 +72,10 @@ export default function RootLayout({
               
               <div className="border-t border-white/20 pt-6">
                 <p className="text-gray-400 text-sm">
-                  &copy; 2025 Greenville Roleplay Operations | All Rights Reserved
+                  &copy; 2025 Greenville Roleplay Reality | All Rights Reserved
                 </p>
                 <p className="text-xs mt-2 text-gray-500">
-                  Made with ❤️ by <a href="https://mxtor.net" target="_blank" rel="noopener noreferrer" className="hover:text-[#ccfd7f] transition-colors underline">Kyle</a>
+                  Made with ❤️ by <a href="https://mxtor.net" target="_blank" rel="noopener noreferrer" className="hover:text-[#ffa94d] transition-colors underline">Kyle</a>
                 </p>
               </div>
             </div>

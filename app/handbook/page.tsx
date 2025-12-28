@@ -17,8 +17,8 @@ export default function HandbookPage() {
       id: "notice",
       title: "Notice",
       content: [
-        "This handbook is the official property of Greenville Roleplay Operation (GVRO). It is intended solely for members of GVRO Public Affairs.",
-        "Unauthorized distribution, reproduction, or use in other servers will result in an immediate and permanent blacklist from GVRO Public Affairs."
+        "This handbook is the official property of Greenville Roleplay Reality (GVRPR). It is intended solely for members of GVRPR Public Affairs.",
+        "Unauthorized distribution, reproduction, or use in other servers will result in an immediate and permanent blacklist from GVRPR Public Affairs."
       ]
     },
     {
@@ -85,14 +85,14 @@ export default function HandbookPage() {
       title: "1.0 – General Conduct & Professionalism",
       content: [
         "1.1. Common Sense – Members are expected to apply common sense in all situations. Not every circumstance can be covered by the handbook, so it is your responsibility to act reasonably, professionally, and with respect for others.",
-        "1.2. Discord Terms of Service – All members must comply with Discord Terms of Service at all times. Violations of Discord's ToS risk the safety of GVRO as a community and will result in immediate removal.",
-        "1.3. Roblox Terms of Service – The Roblox Terms of Service apply whenever you are representing GVRO. Exploiting, bypassing filters, glitching, or engaging in prohibited activity will result in permanent removal.",
-        "1.4. Confidentiality – Members must not leak or share private GVRO information. Doing so will result in immediate termination and an unappealable blacklist.",
+        "1.2. Discord Terms of Service – All members must comply with Discord Terms of Service at all times. Violations of Discord's ToS risk the safety of GVRPR as a community and will result in immediate removal.",
+        "1.3. Roblox Terms of Service – The Roblox Terms of Service apply whenever you are representing GVRPR. Exploiting, bypassing filters, glitching, or engaging in prohibited activity will result in permanent removal.",
+        "1.4. Confidentiality – Members must not leak or share private GVRPR information. Doing so will result in immediate termination and an unappealable blacklist.",
         "1.5. Professionalism & Respect – Professional conduct is expected at all times. Members must remain respectful, patient, and courteous when interacting with civilians, staff, or other service members.",
         "1.6. Abuse of Authority – Any misuse of staff tools such as warnings, kicks, mutes, or bans will be considered abuse of authority and will result in immediate disciplinary action.",
         "1.7. Drama – Conflicts must be handled professionally through tickets. Public arguments, gossip, or instigating drama will result in disciplinary action.",
         "1.8. Moderation Enforcement – When issuing punishments, staff must provide valid evidence. Screenshots, recordings, or logs are required for transparency and fairness.",
-        "1.9. Social Media & External Conduct – Members are representatives of GVRO even outside of Roblox/Discord. Negative behavior can still result in action within GVRO.",
+        "1.9. Social Media & External Conduct – Members are representatives of GVRPR even outside of Roblox/Discord. Negative behavior can still result in action within GVRPR.",
         "1.10. Misuse of Tickets or Reports – Submitting false reports or spamming tickets will result in disciplinary action.",
         "1.11. Interdepartment Cooperation – Departments must work together professionally. Rivalries or interference is not tolerated.",
         "1.12. Chain of Command Respect – Members must respect the authority of higher-ranking staff and department leaders.",
@@ -105,9 +105,9 @@ export default function HandbookPage() {
         "1.19. Maturity Requirement – Members are expected to maintain maturity in all communications.",
         "1.20. Appeals & Disputes – Members have the right to appeal disciplinary actions through the appropriate ticket system.",
         "1.21. AFK on Duty – Members may not remain AFK while clocked in or on patrol.",
-        "1.22. Real-Life Discretion – Members must never share real-life personal details in GVRO spaces.",
+        "1.22. Real-Life Discretion – Members must never share real-life personal details in GVRPR spaces.",
         "1.23. LOA Communication – Members on LOA must return on the stated date or notify staff of an extension.",
-        "1.24. Harassment-Free Environment – GVRO maintains a zero-tolerance policy toward harassment and discrimination."
+        "1.24. Harassment-Free Environment – GVRPR maintains a zero-tolerance policy toward harassment and discrimination."
       ]
     },
     {
@@ -129,7 +129,7 @@ export default function HandbookPage() {
       title: "3.0 – Roleplay & Operational Standards",
       content: [
         "3.1. Use of Force & Roleplay Realism – Members must use appropriate force in all roleplay interactions. Escalation must be proportional to the situation.",
-        "3.2. Corruption Roleplay – Corruption roleplay is strictly prohibited unless explicitly authorized by GVRO leadership.",
+        "3.2. Corruption Roleplay – Corruption roleplay is strictly prohibited unless explicitly authorized by GVRPR leadership.",
         "3.3. Off-Duty Conduct – When not on duty, members must still act responsibly and not disrupt roleplay sessions.",
         "3.4. Use of Recording & Media – Members may record sessions for evidence or training, but recordings must respect member privacy.",
         "3.5. Scene Ownership & Control – Once a roleplay scene is established, it is under the control of the initiating department.",
@@ -148,17 +148,17 @@ export default function HandbookPage() {
         "3.18. Chain of Evidence – Members must not falsify, alter, or destroy evidence.",
         "3.19. OOC vs IC Separation – Members must distinguish between in-character and out-of-character actions.",
         "3.20. Favoritism & Bias – Staff must remain impartial. All members are subject to the same rules.",
-        "3.21. Dual-Clanning / Unauthorized Affiliations – Members may not represent competing groups while serving in GVRO.",
+        "3.21. Dual-Clanning / Unauthorized Affiliations – Members may not represent competing groups while serving in GVRPR.",
         "3.22. Use of Recording / Streaming – Recordings must comply with privacy and security standards.",
         "3.23. Staff Impersonation – Impersonating staff or misrepresenting rank is strictly prohibited.",
         "3.24. Exploit / Cheat Reporting – Members must report exploits or rule-breaking through appropriate channels.",
-        "3.25. Alt Accounts – Members may only use their approved account when serving in GVRO.",
+        "3.25. Alt Accounts – Members may only use their approved account when serving in GVRPR.",
         "3.26. Documentation & Logs – Members must properly log shifts and activity when required.",
         "3.27. Chain of Custody – Evidence must be handled realistically during roleplay.",
         "3.28. Technology & Bots – Members may not use unauthorized bots, macros, or scripts.",
         "3.29. Transparency in Leadership – Leadership must clearly communicate decisions that affect departments.",
         "3.30. Safety Overrides in Roleplay – Staff may pause scenarios if they become unsafe or uncomfortable.",
-        "3.31. Data Security & Privacy – Members must not attempt unauthorized access to GVRO systems."
+        "3.31. Data Security & Privacy – Members must not attempt unauthorized access to GVRPR systems."
       ]
     },
     {
@@ -166,7 +166,7 @@ export default function HandbookPage() {
       title: "4.0 – Policies, Attendance & LOA",
       content: [
         "4.1. Radio Traffic Only VC – While on patrol, members must remain in Dispatch Communications channels.",
-        "4.2. Promotions – Promotions are based on activity, professionalism, and overall contribution to GVRO.",
+        "4.2. Promotions – Promotions are based on activity, professionalism, and overall contribution to GVRPR.",
         "4.3. Resignations – Members may resign at any time. Upon returning, they may not retain their former rank.",
         "4.4. Leave of Absence (LOA) – Minimum Duration: 7 days, Maximum Duration: 28 days. Members must wait at least 10 days between LOA requests.",
         "4.5. Attendance Tracking – Members are required to log attendance for all official events and shifts.",
@@ -245,10 +245,10 @@ export default function HandbookPage() {
       id: "6.0",
       title: "6.0 – Appeals & Review Procedures",
       content: [
-        "6.1. Submitting Appeals – Members may appeal through the official GVRO ticket system with supporting evidence.",
+        "6.1. Submitting Appeals – Members may appeal through the official GVRPR ticket system with supporting evidence.",
         "6.2. Evidence & Documentation – All appeals must include relevant screenshots, recordings, logs, or witness statements.",
         "6.3. Review Process – Appeals are reviewed by appropriate staff level based on severity.",
-        "6.4. Timeline for Responses – GVRO staff aim to respond to appeals within 72 hours.",
+        "6.4. Timeline for Responses – GVRPR staff aim to respond to appeals within 72 hours.",
         "6.5. Final Decisions – Decisions made after an appeal are final."
       ]
     },
@@ -256,7 +256,7 @@ export default function HandbookPage() {
       id: "7.0",
       title: "7.0 – Training & Certification",
       content: [
-        "7.1. Mandatory Training – Specialized roles require completion of official GVRO training courses.",
+        "7.1. Mandatory Training – Specialized roles require completion of official GVRPR training courses.",
         "7.2. Certification Requirements – Certifications may have expiration dates or renewal requirements.",
         "7.3. Attendance & Participation – Attendance in scheduled trainings is mandatory.",
         "7.4. Training Records – All completed trainings and certifications are documented in department records."
@@ -267,9 +267,9 @@ export default function HandbookPage() {
       title: "8.0 – Community & External Conduct",
       content: [
         "8.1. Social Media & Public Representation – Members must maintain professionalism on all platforms.",
-        "8.2. Interaction with External Servers – Participation in other communities must not conflict with GVRO responsibilities.",
+        "8.2. Interaction with External Servers – Participation in other communities must not conflict with GVRPR responsibilities.",
         "8.3. Behavior Outside Roleplay – Members are expected to behave responsibly while off duty.",
-        "8.4. Collaboration & Networking – Members are encouraged to network as long as GVRO rules are upheld."
+        "8.4. Collaboration & Networking – Members are encouraged to network as long as GVRPR rules are upheld."
       ]
     },
     {
@@ -439,7 +439,7 @@ export default function HandbookPage() {
       id: "25.0",
       title: "25.0 – Public Relations & Media Policy",
       content: [
-        "25.1. Official Statements – Only designated leadership may issue statements on behalf of GVRO.",
+        "25.1. Official Statements – Only designated leadership may issue statements on behalf of GVRPR.",
         "25.2. Streaming & Recording Guidelines – Recordings must comply with privacy standards.",
         "25.3. Community Representation – Members must maintain professionalism when interacting publicly."
       ]
@@ -450,8 +450,8 @@ export default function HandbookPage() {
       content: [
         "26.1. Shift Logs & Forms – All members must complete shift logs for patrols and events.",
         "26.2. Incident & Activity Reports – Significant events must be documented using the official reporting system.",
-        "26.3. Member & Department Databases – GVRO maintains databases using MongoDB for member records. Access is restricted to authorized personnel only.",
-        "26.4. Data Privacy & Security – All information stored in GVRO systems is confidential. Unauthorized access will result in immediate disciplinary action.",
+        "26.3. Member & Department Databases – GVRPR maintains databases using MongoDB for member records. Access is restricted to authorized personnel only.",
+        "26.4. Data Privacy & Security – All information stored in GVRPR systems is confidential. Unauthorized access will result in immediate disciplinary action.",
         "26.5. Accountability & Oversight – Department leaders are responsible for monitoring database usage. Leadership may audit logs and reports at any time."
       ]
     }
@@ -485,11 +485,11 @@ export default function HandbookPage() {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="text-4xl font-bold text-white mb-5 tracking-tight">
-            Greenville Roleplay Operation™<br/>Public Affairs Handbook
+            Greenville Roleplay Reality™<br/>Public Affairs Handbook
           </h1>
-          <div className="w-20 h-1 bg-[#ccfd7f] mx-auto rounded-full"></div>
+          <div className="w-20 h-1 bg-[#ffa94d] mx-auto rounded-full"></div>
           <p className="text-gray-300 text-base mt-6 max-w-2xl mx-auto leading-relaxed">
-            Comprehensive guide to policies, procedures, and standards for GVRO Public Affairs
+            Comprehensive guide to policies, procedures, and standards for GVRPR Public Affairs
           </p>
         </div>
 
@@ -500,30 +500,30 @@ export default function HandbookPage() {
             <h3 className="text-lg font-bold text-white">Confidential Document</h3>
           </div>
           <p className="text-gray-300 leading-relaxed text-sm">
-            This handbook is the official property of Greenville Roleplay Operation (GVRO). It is intended solely for members of GVRO Public Affairs. 
-            Unauthorized distribution, reproduction, or use in other servers will result in an immediate and permanent blacklist from GVRO Public Affairs.
+            This handbook is the official property of Greenville Roleplay Reality (GVRPR). It is intended solely for members of GVRPR Public Affairs. 
+            Unauthorized distribution, reproduction, or use in other servers will result in an immediate and permanent blacklist from GVRPR Public Affairs.
           </p>
         </div>
 
         {/* Quick Stats */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
-            <BookOpen className="w-6 h-6 text-[#ccfd7f] mx-auto mb-2" />
+            <BookOpen className="w-6 h-6 text-[#ffa94d] mx-auto mb-2" />
             <h3 className="text-xl font-bold text-white mb-1">26</h3>
             <p className="text-gray-300 text-xs">Sections</p>
           </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
-            <FileText className="w-6 h-6 text-[#ccfd7f] mx-auto mb-2" />
+            <FileText className="w-6 h-6 text-[#ffa94d] mx-auto mb-2" />
             <h3 className="text-xl font-bold text-white mb-1">200+</h3>
             <p className="text-gray-300 text-xs">Policies</p>
           </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
-            <Shield className="w-6 h-6 text-[#ccfd7f] mx-auto mb-2" />
+            <Shield className="w-6 h-6 text-[#ffa94d] mx-auto mb-2" />
             <h3 className="text-xl font-bold text-white mb-1">Protected</h3>
             <p className="text-gray-300 text-xs">Content</p>
           </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20 text-center">
-            <Clock className="w-6 h-6 text-[#ccfd7f] mx-auto mb-2" />
+            <Clock className="w-6 h-6 text-[#ffa94d] mx-auto mb-2" />
             <h3 className="text-xl font-bold text-white mb-1">24/7</h3>
             <p className="text-gray-300 text-xs">Access</p>
           </div>
@@ -532,7 +532,7 @@ export default function HandbookPage() {
         {/* Table of Contents */}
         <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 mb-10">
           <h3 className="text-xl font-bold text-white mb-5 flex items-center">
-            <div className="w-2.5 h-2.5 rounded-full bg-[#ccfd7f] mr-3 shadow-lg"></div>
+            <div className="w-2.5 h-2.5 rounded-full bg-[#ffa94d] mr-3 shadow-lg"></div>
             Table of Contents
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -544,11 +544,11 @@ export default function HandbookPage() {
               >
                 <div className="flex items-center justify-between">
                   <div>
-                    <h4 className="text-white font-semibold group-hover:text-[#ccfd7f] transition-colors text-xs">
+                    <h4 className="text-white font-semibold group-hover:text-[#ffa94d] transition-colors text-xs">
                       {section.title}
                     </h4>
                   </div>
-                  <div className="text-[#ccfd7f]">
+                  <div className="text-[#ffa94d]">
                     {expandedSection === section.id ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
                   </div>
                 </div>
@@ -570,16 +570,16 @@ export default function HandbookPage() {
               >
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-4">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg transition-transform duration-300 bg-[#ccfd7f]/20">
-                      <FileText className="w-6 h-6 text-[#ccfd7f]" />
+                    <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg transition-transform duration-300 bg-[#ffa94d]/20">
+                      <FileText className="w-6 h-6 text-[#ffa94d]" />
                     </div>
                     <div className="flex-1">
-                      <h2 className="text-xl font-bold text-white group-hover:text-[#ccfd7f] transition-colors duration-300">
+                      <h2 className="text-xl font-bold text-white group-hover:text-[#ffa94d] transition-colors duration-300">
                         {section.title}
                       </h2>
                     </div>
                   </div>
-                  <div className="ml-6 transition-all duration-300 text-[#ccfd7f]">
+                  <div className="ml-6 transition-all duration-300 text-[#ffa94d]">
                     {expandedSection === section.id ? <ChevronDown size={24} /> : <ChevronRight size={24} />}
                   </div>
                 </div>
@@ -591,7 +591,7 @@ export default function HandbookPage() {
                     <div className="space-y-3">
                       {section.content.map((item, index) => (
                         <div key={index} className="flex items-start space-x-2.5 p-3 rounded-lg bg-white/5 border border-white/10">
-                          <div className="w-1.5 h-1.5 rounded-full bg-[#ccfd7f] mt-1.5 flex-shrink-0"></div>
+                          <div className="w-1.5 h-1.5 rounded-full bg-[#ffa94d] mt-1.5 flex-shrink-0"></div>
                           <p className="text-gray-300 leading-relaxed text-sm">{item}</p>
                         </div>
                       ))}
@@ -610,7 +610,7 @@ export default function HandbookPage() {
             <h3 className="text-lg font-bold text-white">Important Notice</h3>
             </div>
           <p className="text-gray-300 leading-relaxed text-sm">
-            This handbook is the property of Greenville Roleplay Operations and contains confidential information. 
+            This handbook is the property of Greenville Roleplay Reality and contains confidential information. 
             All content is protected and unauthorized reproduction or distribution is strictly prohibited. 
             For questions or clarifications regarding any section, please contact your supervisor or department leadership.
           </p>

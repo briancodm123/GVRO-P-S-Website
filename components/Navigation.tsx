@@ -18,11 +18,9 @@ const Navigation = () => {
     { href: '/', label: 'Home' },
     { href: '/departments', label: 'Departments' },
     { href: '/applications', label: 'Applications' },
-    { href: '/penal-codes', label: 'Penal Codes' },
     { href: '/radio-codes', label: 'Radio Codes' },
     { href: '/handbook', label: 'Handbook' },
     { href: '/staff', label: 'Staff' },
-    { href: '/contact', label: 'Contact' },
   ]
 
   const closeMenu = () => {
@@ -51,7 +49,7 @@ const Navigation = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <Link
           href="/"
-          className="text-xl font-bold tracking-wide hover:text-[#ccfd7f] transition-colors duration-200"
+          className="text-xl font-bold tracking-wide hover:text-[#ffa94d] transition-colors duration-200"
           onClick={closeMenu}
         >
           Department Hub
@@ -65,8 +63,8 @@ const Navigation = () => {
               href={item.href}
               className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
                 pathname === item.href
-                  ? 'text-[#ccfd7f] bg-white/10'
-                  : 'text-white hover:text-[#ccfd7f] hover:bg-white/5'
+                  ? 'text-[#ffa94d] bg-white/10'
+                  : 'text-white hover:text-[#ffa94d] hover:bg-white/5'
               }`}
             >
               {item.label}
@@ -99,8 +97,8 @@ const Navigation = () => {
               href={item.href}
               className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
                 pathname === item.href
-                  ? 'text-[#ccfd7f] bg-white/10'
-                  : 'text-white hover:text-[#ccfd7f] hover:bg-white/5'
+                  ? 'text-[#ffa94d] bg-white/10'
+                  : 'text-white hover:text-[#ffa94d] hover:bg-white/5'
               }`}
               onClick={closeMenu}
             >

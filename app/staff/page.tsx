@@ -8,129 +8,140 @@ export default function StaffPage() {
 
   const staffRoles = [
     {
-      level: 'Executive Level',
+      level: 'Executive Tier',
       levelColor: 'bg-red-500/20 text-red-400 border-red-500/30',
       roles: [
         {
-          title: 'Executive Public Affairs Director',
-          description: 'Oversees the entire Public Affairs Division and manages all departmental communication, coordination, and professional standards.',
+          title: 'Executive Chief of Public Affairs',
+          description: 'The highest-ranking executive position, providing ultimate oversight and strategic direction for the entire Public Affairs Division.',
           icon: Shield,
           responsibilities: [
-            'Supervise all operations and personnel within the division.',
-            'Approve public announcements, documents, and press-related material.',
-            'Coordinate with Department Overseers and Division Leads.',
-            'Handle high-level disputes, appeals, or sensitive reports.'
+            'Provide ultimate oversight and strategic direction for the division.',
+            'Make final decisions on major policies and initiatives.',
+            'Represent the division at the highest organizational levels.',
+            'Approve all major public communications and announcements.'
           ]
         },
         {
-          title: 'Associate Executive Public Affairs Director',
-          description: 'Acts as the second-in-command of the Public Affairs Division, managing operations, workflow efficiency, and direct oversight of the directorate team.',
+          title: 'Chief Public Affairs Director',
+          description: 'Senior executive responsible for overall division management and coordination with other departments.',
           icon: Settings,
           responsibilities: [
-            'Support the Executive Director in leadership and decision-making.',
-            'Oversee large-scale reports, appeals, or community concerns.',
-            'Supervise Director-level staff to ensure policy compliance.',
-            'Fill in for the Executive Director during absence or delegation.'
+            'Manage overall division operations and strategic planning.',
+            'Coordinate with other department heads and leadership.',
+            'Oversee all directorate and management staff.',
+            'Handle high-level disputes and sensitive matters.'
           ]
         },
         {
-          title: 'Assistant Executive Public Affairs Director',
-          description: 'Provides executive-level support in administrative coordination, scheduling, and internal documentation.',
+          title: 'Deputy Chief Public Affairs Director',
+          description: 'Second-in-command executive, supporting the Chief Director in all operational and strategic matters.',
+          icon: Settings,
+          responsibilities: [
+            'Support the Chief Director in leadership and decision-making.',
+            'Oversee large-scale projects and initiatives.',
+            'Supervise directorate-level staff and ensure policy compliance.',
+            'Act as Chief Director during absence or delegation.'
+          ]
+        },
+        {
+          title: 'Associate Chief Public Affairs Director',
+          description: 'Executive-level position providing administrative and operational support to the executive team.',
           icon: FileText,
           responsibilities: [
-            'Manage division documentation and update information boards.',
-            'Handle scheduling for meetings, reviews, or inter-department communications.',
-            'Assist in training new Director-level personnel.',
-            'Relay communication between executives and management staff.'
+            'Manage executive-level documentation and communications.',
+            'Handle scheduling and coordination for executive meetings.',
+            'Assist in training and development of directorate personnel.',
+            'Relay communication between executives and directorate staff.'
           ]
         }
       ]
     },
     {
-      level: 'Director Level',
+      level: 'Directorate',
       levelColor: 'bg-purple-500/20 text-purple-400 border-purple-500/30',
       roles: [
         {
           title: 'Lead Public Affairs Director',
-          description: 'Responsible for daily operations, ensuring the division maintains consistent performance, professionalism, and communication accuracy.',
+          description: 'Primary director responsible for daily operations and ensuring consistent performance across the division.',
           icon: Users,
           responsibilities: [
-            'Oversee day-to-day management activities.',
-            'Mentor Public Affairs Managers and Coordinators.',
+            'Oversee day-to-day management activities and operations.',
+            'Mentor and guide upper management staff.',
             'Ensure reports, applications, and inquiries are handled promptly.',
-            'Conduct periodic staff evaluations and quality checks.'
+            'Conduct periodic staff evaluations and quality assessments.'
           ]
         },
         {
           title: 'Assistant Public Affairs Director',
-          description: 'Assists the Lead Director with staff supervision, report management, and overall coordination of public operations.',
+          description: 'Supports the Lead Director with staff supervision, report management, and operational coordination.',
           icon: UserCheck,
           responsibilities: [
-            'Support in managing daily affairs and division documentation.',
-            'Monitor manager activity and workload distribution.',
-            'Address internal questions or requests from staff members.',
+            'Support daily affairs management and division documentation.',
+            'Monitor management activity and workload distribution.',
+            'Address internal questions and requests from staff members.',
             'Prepare operational summaries for executive review.'
           ]
         }
       ]
     },
     {
-      level: 'High Command',
+      level: 'Upper Management Tier',
       levelColor: 'bg-blue-500/20 text-blue-400 border-blue-500/30',
       roles: [
         {
-          title: 'Lead Affairs Management',
-          description: 'Leads the internal affairs management branch, ensuring proper handling of staff coordination, report processing, and administrative support.',
+          title: 'Administrative Affairs Manager',
+          description: 'Leads the administrative affairs branch, ensuring proper handling of staff coordination and administrative processes.',
           icon: Wrench,
           responsibilities: [
-            'Manage workflow among Affairs Management staff.',
-            'Oversee investigations or inter-department coordination.',
-            'Ensure all reports and requests are properly documented.',
-            'Train new management-level personnel in communication protocols.'
+            'Manage workflow among administrative staff members.',
+            'Oversee administrative processes and documentation.',
+            'Ensure all administrative requests are properly handled.',
+            'Train new management-level personnel in administrative protocols.'
           ]
         },
         {
-          title: 'Assistant Lead Affairs Management',
-          description: 'Supports the Lead Affairs Management with workflow organization, case tracking, and administrative oversight.',
+          title: 'Assistant Administrative Affairs Manager',
+          description: 'Supports the Administrative Affairs Manager with workflow organization and administrative oversight.',
           icon: Headphones,
           responsibilities: [
-            'Monitor activity levels and assign casework as needed.',
-            'Track report progress and ensure completion deadlines are met.',
-            'Handle lower-level inquiries or complaints.',
-            'Maintain communication logs for management records.'
+            'Monitor activity levels and assign administrative tasks as needed.',
+            'Track administrative progress and ensure completion deadlines are met.',
+            'Handle administrative inquiries and requests.',
+            'Maintain administrative logs and records.'
           ]
         }
       ]
     },
     {
-      level: 'Management Level',
+      level: 'Low Management Tier',
       levelColor: 'bg-orange-500/20 text-orange-400 border-orange-500/30',
       roles: [
         {
-          title: 'Senior Public Affairs Manager',
-          description: 'Supervises the Public Affairs Management team, ensuring professional communication between staff and the public.',
+          title: 'Senior Public Affairs Administrator',
+          description: 'Senior administrator supervising the Public Affairs Administration team, ensuring professional communication and service delivery.',
           icon: Shield,
           responsibilities: [
             'Oversee reports, applications, and inquiries submitted to the division.',
-            'Provide guidance and mentorship to Junior and Trainee Managers.',
-            'Conduct quality control on communication standards.',
-            'Serve as a liaison between Managers and Directors.'
+            'Provide guidance and mentorship to junior administrators.',
+            'Conduct quality control on communication and service standards.',
+            'Serve as a liaison between administrators and management.'
           ]
         },
         {
-          title: 'Public Affairs Manager',
-          description: 'Handles the primary functions of the Public Affairs Division, including report processing, public communication, and inquiry management.',
+          title: 'Public Affairs Administrator',
+          description: 'Handles the primary functions of the Public Affairs Division, including report processing and public communication.',
           icon: Shield,
           responsibilities: [
             'Review and process member reports or inquiries.',
-            'Respond to applications or general questions.',
+            'Respond to applications and general questions.',
             'Coordinate communication between departments when necessary.',
             'Maintain detailed and organized case records.'
           ]
         },
         {
-          title: 'Junior Public Affairs Manager',
-          description: 'Assists higher-level managers with administrative and communication-based duties.',
+          title: 'Assistant Public Affairs Administrator',
+          description: 'Assists higher-level administrators with administrative and communication-based duties.',
           icon: Shield,
           responsibilities: [
             'Draft and organize reports or case files.',
@@ -140,40 +151,62 @@ export default function StaffPage() {
           ]
         },
         {
-          title: 'Trainee Public Affairs Manager',
-          description: 'Entry-level position in the Public Affairs Division designed for learning all departmental functions and standards.',
+          title: 'Junior Public Affairs Administrator',
+          description: 'Entry-level administrator position learning all departmental functions and standards.',
           icon: Users,
           responsibilities: [
-            'Shadow Managers during report or inquiry handling.',
+            'Shadow administrators during report or inquiry handling.',
             'Learn documentation and internal communication systems.',
             'Attend required training and meetings.',
             'Assist with simple internal requests or ticket responses.'
+          ]
+        },
+        {
+          title: 'Trainee Public Affairs Administrator',
+          description: 'Trainee position designed for learning all departmental functions and standards under supervision.',
+          icon: Users,
+          responsibilities: [
+            'Observe and learn from experienced administrators.',
+            'Complete training modules and assessments.',
+            'Attend all required training sessions and meetings.',
+            'Assist with basic tasks under direct supervision.'
           ]
         }
       ]
     },
     {
-      level: 'Coordinators',
+      level: 'Specialized Coordination Tier',
       levelColor: 'bg-green-500/20 text-green-400 border-green-500/30',
       roles: [
         {
-          title: 'Staff & Relations Coordinator',
-          description: 'Handles staff-facing communication, ensuring all staff inquiries, applications, and internal requests are properly managed.',
+          title: 'Public Affairs Media Production Coordinator',
+          description: 'Coordinates all media production activities, including content creation, editing, and distribution.',
+          icon: Calendar,
+          responsibilities: [
+            'Coordinate media production projects and content creation.',
+            'Manage media assets and production schedules.',
+            'Ensure quality standards for all media content.',
+            'Collaborate with other coordinators on media initiatives.'
+          ]
+        },
+        {
+          title: 'Internal Relations Coordinator',
+          description: 'Handles internal staff-facing communication, ensuring all staff inquiries and internal requests are properly managed.',
           icon: Heart,
           responsibilities: [
             'Process and track staff requests or role adjustments.',
-            'Assist users with application or support guidance.',
+            'Assist staff with application or support guidance.',
             'Maintain professionalism in all internal communications.',
             'Forward unresolved matters to management for review.'
           ]
         },
         {
-          title: 'Events & Media Coordinator',
-          description: 'Focuses on organizing server events, department-wide announcements, and media content for community engagement.',
+          title: 'Events & Communications Coordinator',
+          description: 'Focuses on organizing server events, department-wide announcements, and communication initiatives.',
           icon: Calendar,
           responsibilities: [
             'Plan and schedule official community or department events.',
-            'Create and post media-rich announcements.',
+            'Create and post department-wide announcements.',
             'Coordinate with management for event approval and advertising.',
             'Archive event results or attendance records.'
           ]
@@ -188,117 +221,12 @@ export default function StaffPage() {
             'Develop initiatives that promote transparency and engagement.',
             'Maintain consistency across all public-facing messages.'
           ]
-        },
-        {
-          title: 'Law Enforcement Coordinator',
-          description: 'Senior staff member overseeing all law enforcement departments.',
-          icon: Shield,
-          responsibilities: [
-            'Oversee all law enforcement departments and operations.',
-            'Supervise command staff and ensure proper procedures.',
-            'Manage training programs and certification requirements.',
-            'Review incidents and ensure proper documentation.',
-            'Coordinate joint operations between departments.',
-            'Track rosters, patrols, and activity levels.'
-          ]
-        },
-        {
-          title: 'Fire Department Coordinator',
-          description: 'Leads and manages the Fire & Rescue department.',
-          icon: AlertTriangle,
-          responsibilities: [
-            'Lead Fire & Rescue operations and emergency responses.',
-            'Approve training programs and certification requirements.',
-            'Direct incident responses and resource allocation.',
-            'Manage staffing levels and shift assignments.',
-            'Enforce department policies and procedures.',
-            'Coordinate with LEO/WisDOT during emergency responses.'
-          ]
-        },
-        {
-          title: 'WisDOT Coordinator',
-          description: 'Oversees Wisconsin Department of Transportation operations.',
-          icon: Car,
-          responsibilities: [
-            'Manage traffic control and highway operations.',
-            'Oversee WisDOT units and specialized equipment.',
-            'Coordinate with LEO/Fire during traffic incidents.',
-            'Approve participation in specialized operations.',
-            'Ensure proper training and certification.',
-            'Maintain WisDOT equipment and vehicles.'
-          ]
-        }
-      ]
-    },
-    {
-      level: 'Department Staff',
-      levelColor: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30',
-      roles: [
-        {
-          title: 'Department Directors',
-          description: 'Highest-ranking officials in each department; responsible for leadership and strategic planning.',
-          icon: Users,
-          responsibilities: [
-            'Oversee department operations and personnel management.',
-            'Approve major requests and policy changes.',
-            'Coordinate with server leadership on strategic initiatives.',
-            'Maintain department standards and professional conduct.',
-            'Handle escalated issues and disciplinary matters.'
-          ]
-        },
-        {
-          title: 'Assistant Department Directors',
-          description: 'Second-in-command, assist the Director, handle daily issues.',
-          icon: Users,
-          responsibilities: [
-            'Assist Director with oversight and management duties.',
-            'Handle escalated issues and staff concerns.',
-            'Coordinate with supervisors and department staff.',
-            'Help with planning and implementation of initiatives.',
-            'Act as Director when unavailable.'
-          ]
-        },
-        {
-          title: 'Department Administration',
-          description: 'Trusted senior members managing rosters, documentation, and workflows.',
-          icon: FileText,
-          responsibilities: [
-            'Maintain rosters, documentation, and department records.',
-            'Onboard new staff and conduct orientation.',
-            'Organize department events and training sessions.',
-            'Assist with evaluations and performance reports.',
-            'Manage department workflows and procedures.'
-          ]
-        },
-        {
-          title: 'Department Supervisors',
-          description: 'Entry-level leadership overseeing small groups and enforcing standards.',
-          icon: Shield,
-          responsibilities: [
-            'Supervise lower-ranked staff and address basic issues.',
-            'Provide guidance and training to department members.',
-            'Monitor performance and report concerns to leadership.',
-            'Help enforce standards and protocols during operations.',
-            'Assist with shift coordination and assignments.'
-          ]
-        },
-        {
-          title: 'Department Staff',
-          description: 'Core members performing operational duties and supporting department tasks.',
-          icon: UserCheck,
-          responsibilities: [
-            'Perform day-to-day operational duties and tasks.',
-            'Submit patrols or activity logs as required.',
-            'Maintain professionalism and follow chain of command.',
-            'Follow procedure when reporting issues or concerns.',
-            'Support department initiatives and community engagement.'
-          ]
         }
       ]
     }
   ]
 
-  const levelOptions = ['All', 'Executive Level', 'Director Level', 'High Command', 'Management Level', 'Coordinators', 'Department Staff']
+  const levelOptions = ['All', 'Executive Tier', 'Directorate', 'Upper Management Tier', 'Low Management Tier', 'Specialized Coordination Tier']
 
   const filteredRoles = selectedLevel === 'All' 
     ? staffRoles 
@@ -312,7 +240,7 @@ export default function StaffPage() {
           <h1 className="text-4xl font-bold text-white mb-5 tracking-tight">
             Staff Hierarchy
           </h1>
-          <div className="w-20 h-1 bg-[#ccfd7f] mx-auto rounded-full"></div>
+          <div className="w-20 h-1 bg-[#ffa94d] mx-auto rounded-full"></div>
           <p className="text-gray-300 text-base mt-6 max-w-2xl mx-auto leading-relaxed">
             Comprehensive overview of our organizational structure and staff responsibilities
           </p>
@@ -326,7 +254,7 @@ export default function StaffPage() {
               onClick={() => setSelectedLevel(level)}
               className={`flex items-center space-x-2 px-4 py-2 rounded-lg border transition-all duration-300 text-sm font-medium ${
                 selectedLevel === level
-                  ? 'bg-[#ccfd7f]/20 border-[#ccfd7f]/50 text-[#ccfd7f]'
+                  ? 'bg-[#ffa94d]/20 border-[#ffa94d]/50 text-[#ffa94d]'
                   : 'bg-white/10 border-white/20 text-gray-300 hover:bg-white/20'
               }`}
             >
@@ -350,18 +278,18 @@ export default function StaffPage() {
             <div key={levelIndex} className="space-y-6">
               <div className="text-center">
                 <h2 className="text-2xl font-bold text-white mb-2">{level.level}</h2>
-                <div className="w-16 h-0.5 bg-[#ccfd7f] mx-auto rounded-full"></div>
+                <div className="w-16 h-0.5 bg-[#ffa94d] mx-auto rounded-full"></div>
           </div>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {level.roles.map((role, roleIndex) => (
                   <div 
                     key={roleIndex}
-                    className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-[#ccfd7f]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#ccfd7f]/10"
+                    className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:border-[#ffa94d]/50 transition-all duration-300 hover:shadow-xl hover:shadow-[#ffa94d]/10"
                   >
                     <div className="flex items-start space-x-4 mb-4">
-                      <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg bg-[#ccfd7f]/20 flex-shrink-0">
-                        <role.icon className="w-6 h-6 text-[#ccfd7f]" />
+                      <div className="w-12 h-12 rounded-xl flex items-center justify-center shadow-lg bg-[#ffa94d]/20 flex-shrink-0">
+                        <role.icon className="w-6 h-6 text-[#ffa94d]" />
           </div>
                       <div className="flex-1">
                         <h3 className="text-lg font-bold text-white mb-2">{role.title}</h3>
@@ -371,7 +299,7 @@ export default function StaffPage() {
 
                     <div className="mt-4">
                       <h4 className="text-sm font-bold text-white mb-3 flex items-center">
-                        <div className="w-1.5 h-1.5 rounded-full bg-[#ccfd7f] mr-2"></div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-[#ffa94d] mr-2"></div>
                         Key Responsibilities
                       </h4>
                       <ul className="space-y-2">

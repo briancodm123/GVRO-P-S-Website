@@ -236,15 +236,15 @@ export default function RadioCodesPage() {
       <div className="max-w-7xl mx-auto">
         {/* Header Section */}
         <div className="text-center mb-12">
-          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#ccfd7f]/20 to-[#ccfd7f]/10 rounded-2xl mb-6 border border-[#ccfd7f]/30">
-            <Radio className="w-10 h-10 text-[#ccfd7f]" />
+          <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-[#ffa94d]/20 to-[#ffa94d]/10 rounded-2xl mb-6 border border-[#ffa94d]/30">
+            <Radio className="w-10 h-10 text-[#ffa94d]" />
           </div>
           <h1 className="text-5xl font-bold text-white mb-4 tracking-tight">
             Radio Codes
           </h1>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#ccfd7f] to-[#b8e85c] mx-auto rounded-full mb-6"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-[#ffa94d] to-[#e6943d] mx-auto rounded-full mb-6"></div>
           <p className="text-gray-300 text-lg max-w-3xl mx-auto leading-relaxed">
-            Comprehensive reference for all radio codes, signals, and 10-codes used by GVRO Public Affairs
+            Comprehensive reference for all radio codes, signals, and 10-codes used by GVRPR Public Affairs
           </p>
         </div>
 
@@ -287,7 +287,7 @@ export default function RadioCodesPage() {
                   placeholder="Search codes, signals, or descriptions..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full pl-12 pr-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#ccfd7f]/50 focus:border-[#ccfd7f]/50 text-sm"
+                  className="w-full pl-12 pr-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#ffa94d]/50 focus:border-[#ffa94d]/50 text-sm"
                 />
               </div>
             </div>
@@ -297,7 +297,7 @@ export default function RadioCodesPage() {
               <select
                 value={selectedType}
                 onChange={(e) => setSelectedType(e.target.value)}
-                className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#ccfd7f]/50 focus:border-[#ccfd7f]/50 text-sm"
+                className="w-full px-4 py-4 bg-white/10 border border-white/20 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-[#ffa94d]/50 focus:border-[#ffa94d]/50 text-sm"
               >
                 {typeOptions.map(type => (
                   <option key={type} value={type} className="bg-slate-800 text-white">
@@ -316,7 +316,7 @@ export default function RadioCodesPage() {
             {searchTerm && (
               <button
                 onClick={() => setSearchTerm('')}
-                className="text-[#ccfd7f] hover:text-[#b8e85c] text-sm font-medium transition-colors px-4 py-2 rounded-lg hover:bg-[#ccfd7f]/10"
+                className="text-[#ffa94d] hover:text-[#e6943d] text-sm font-medium transition-colors px-4 py-2 rounded-lg hover:bg-[#ffa94d]/10"
               >
                 Clear Search
               </button>
@@ -408,15 +408,15 @@ export default function RadioCodesPage() {
                             className={`bg-white/10 backdrop-blur-sm rounded-xl p-5 border transition-all duration-300 hover:shadow-xl ${
                               isBanned 
                                 ? 'border-red-500/50 hover:border-red-400/70 hover:shadow-red-500/20' 
-                                : 'border-white/20 hover:border-[#ccfd7f]/50 hover:shadow-[#ccfd7f]/20'
+                                : 'border-white/20 hover:border-[#ffa94d]/50 hover:shadow-[#ffa94d]/20'
                             } hover:scale-105`}
                           >
                             <div className="flex items-start justify-between mb-4">
                               <div className="flex items-center space-x-3">
                                 <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                                  isBanned ? 'bg-red-500/20' : 'bg-[#ccfd7f]/20'
+                                  isBanned ? 'bg-red-500/20' : 'bg-[#ffa94d]/20'
                                 }`}>
-                                  <TypeIcon className={`w-5 h-5 ${isBanned ? 'text-red-400' : 'text-[#ccfd7f]'}`} />
+                                  <TypeIcon className={`w-5 h-5 ${isBanned ? 'text-red-400' : 'text-[#ffa94d]'}`} />
                                 </div>
                                 <div>
                                   <h3 className={`text-lg font-bold ${isBanned ? 'text-red-400' : 'text-white'}`}>
@@ -431,7 +431,7 @@ export default function RadioCodesPage() {
                                   className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors"
                                 >
                                   {copiedCode === code.code ? (
-                                    <Check className="w-4 h-4 text-[#ccfd7f]" />
+                                    <Check className="w-4 h-4 text-[#ffa94d]" />
                                   ) : (
                                     <Copy className="w-4 h-4 text-gray-400" />
                                   )}
@@ -478,7 +478,7 @@ export default function RadioCodesPage() {
                 setSearchTerm('')
                 setSelectedType('All')
               }}
-              className="px-6 py-3 bg-[#ccfd7f]/20 text-[#ccfd7f] rounded-xl hover:bg-[#ccfd7f]/30 transition-colors font-medium"
+              className="px-6 py-3 bg-[#ffa94d]/20 text-[#ffa94d] rounded-xl hover:bg-[#ffa94d]/30 transition-colors font-medium"
             >
               Clear All Filters
             </button>

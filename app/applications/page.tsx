@@ -100,14 +100,7 @@ export default function ApplicationsPage() {
       departmentType: "Transportation Infrastructure",
       serviceArea: "State of Wisconsin",
       requirements: [
-        "Must be 18+ years old",
-        "Clean criminal record",
-        "Valid driver's license with good driving record",
-        "Technical skills preferred (construction, maintenance, or engineering)",
-        "Physical ability for field work and equipment operation",
-        "Safety certification and training completion",
-        "Ability to work outdoors in various weather conditions",
-        "Strong attention to detail and safety protocols"
+       ""
       ],
       trainingProgram: "8-week orientation and technical training program"
     }
@@ -122,7 +115,7 @@ export default function ApplicationsPage() {
           <h1 className="text-5xl font-bold text-white mb-6 tracking-tight">
             Department Applications
           </h1>
-          <div className="w-24 h-1 bg-[#ccfd7f] mx-auto rounded-full"></div>
+          <div className="w-24 h-1 bg-[#ffa94d] mx-auto rounded-full"></div>
           <p className="text-gray-300 text-lg mt-8 max-w-3xl mx-auto leading-relaxed">
             Join our team of dedicated public servants and make a difference in your community. 
             Explore exciting career opportunities across our various departments and find your path to public service excellence.
@@ -182,11 +175,11 @@ export default function ApplicationsPage() {
                       className={`px-12 py-4 rounded-xl font-bold text-lg transition-all duration-300  hover:shadow-lg flex items-center mx-auto space-x-3 ${
                         isWisDOT 
                           ? 'bg-slate-800 hover:bg-slate-700 text-white shadow-slate-800/25' 
-                          : 'bg-[#ccfd7f] hover:bg-[#b8e85c] text-slate-900 shadow-[#ccfd7f]/25'
+                          : 'bg-[#ffa94d] hover:bg-[#e6943d] text-slate-900 shadow-[#ffa94d]/25'
                       }`}
                       onClick={() => {
                         // Open Discord server or application form
-                        window.open('https://discord.gg/gvro', '_blank')
+                        window.open('https://discord.gg/GVRPR', '_blank')
                       }}
                     >
                       <span>Apply Now</span>
@@ -203,12 +196,12 @@ export default function ApplicationsPage() {
         <div className="mt-24">
           <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-12 border border-white/20">
             <h3 className="text-3xl font-bold text-white mb-8 flex items-center">
-              <div className="w-4 h-4 rounded-full bg-[#ccfd7f] mr-6 shadow-lg"></div>
+              <div className="w-4 h-4 rounded-full bg-[#ffa94d] mr-6 shadow-lg"></div>
               General Application Process
             </h3>
             <div className="space-y-6 text-gray-300">
               <p className="flex items-start space-x-4 text-lg">
-                <FileText className="w-6 h-6 text-[#ccfd7f] mt-1 flex-shrink-0" />
+                <FileText className="w-6 h-6 text-[#ffa94d] mt-1 flex-shrink-0" />
                 <span>Submit your application through our Discord server or contact the department directly for application materials.</span>
               </p>
               <p className="flex items-start space-x-4 text-lg">

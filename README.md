@@ -1,6 +1,6 @@
-# GVRO Public Services Website
+# GVRPR Public Services Website
 
-A modern Next.js website for Greenville Roleplay Operations Public Services, featuring dark mode support and comprehensive department information.
+A modern Next.js website for Greenville Roleplay Reality Public Services, featuring dark mode support and comprehensive department information.
 
 ## Features
 
@@ -33,7 +33,7 @@ A modern Next.js website for Greenville Roleplay Operations Public Services, fea
 1. Clone the repository:
 ```bash
 git clone <repository-url>
-cd GVRO-P-S-Website
+cd GVRPR-P-S-Website
 ```
 
 2. Install dependencies:
@@ -101,19 +101,19 @@ The website features a comprehensive dark mode implementation:
 ## Contact Integration
 
 The contact form uses FormSubmit.co to send emails to:
-- **Email**: gvropublicsafetyservices@gmail.com
+- **Email**: GVRPRpublicsafetyservices@gmail.com
 - **Discord**: https://discord.gg/Xgw7JDQ2HY
 
 ## Customization
 
 ### Colors
 
-The primary color scheme uses GVRO red (`#990000`). Update in `tailwind.config.js`:
+The primary color scheme uses GVRPR red (`#990000`). Update in `tailwind.config.js`:
 
 ```javascript
 colors: {
-  'gvro-red': '#990000',
-  'gvro-red-dark': '#660000',
+  'GVRPR-red': '#990000',
+  'GVRPR-red-dark': '#660000',
 }
 ```
 
@@ -137,10 +137,10 @@ Simply run `npm run build` and deploy the `out` directory.
 
 ## License
 
-This project is proprietary to Greenville Roleplay Operations. Unauthorized use in other servers will result in blacklisting.
+This project is proprietary to Greenville Roleplay Reality. Unauthorized use in other servers will result in blacklisting.
 
 ## Support
 
 For technical support or questions:
-- Email: gvropublicsafetyservices@gmail.com
+- Email: GVRPRpublicsafetyservices@gmail.com
 - Discord: https://discord.gg/Xgw7JDQ2HY
