@@ -22,6 +22,11 @@ const nextConfig = {
         destination: 'https://discord.com/channels/883542529956515850/1454601021363064852/1454828308133838862',
         permanent: false,
       },
+      {
+        source: '/penal-codes',
+        destination: 'https://docs.google.com/spreadsheets/d/1v21cBpyjFthhUg-6qOv2HLBoFw-5ZNj4MpLNDeF4Dzw/edit?usp=sharing',
+        permanent: false,
+      },
     ]
   },
 }
